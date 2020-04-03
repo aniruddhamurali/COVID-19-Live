@@ -30,21 +30,18 @@
             <ul class="list-unstyled components">
                 <!--<p>Dummy Heading</p>-->
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Global Cases</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
+                        <li  {% if request.endpoint == '/' %} class="active" {% endif %}>
+                            <a href="{{ url_for('globe_map') }}">Globe</a>
                         </li>
-                        <li>
-                            <a href="#">Home 2</a>
+                        <li {% if request.endpoint == 'coronavirus_bubble_map' %} class="active" {% endif %}>
+                            <a href="{{ url_for('coronavirus_bubble_map') }}">Bubble Map</a>
                         </li>
                         <li>
                             <a href="#">Home 3</a>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="#">Global Cases</a>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>

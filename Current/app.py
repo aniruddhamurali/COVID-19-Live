@@ -3,14 +3,14 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route("/")
-def home():
-    return render_template("index.html")
+def globe_map():
+    return render_template("globe-page.html")
 
-'''    
-@app.route("/worldmap")
-def worldmap():
-    return render_template("plots/global-coronavirus-cases.html")
-'''
+    
+@app.route("/coronavirus_bubble_map")
+def coronavirus_bubble_map():
+    return render_template("bubble-map-page.html")
+
     
 if __name__ == "__main__":
     app.run(debug=True)
