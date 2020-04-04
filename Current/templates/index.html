@@ -32,7 +32,7 @@
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Global Cases</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li  {% if request.endpoint == '/' %} class="active" {% endif %}>
+                        <li {% if request.endpoint == '/globe_map' %} class="active" {% endif %}>
                             <a href="{{ url_for('globe_map') }}">Globe</a>
                         </li>
                         <li {% if request.endpoint == 'coronavirus_bubble_map' %} class="active" {% endif %}>
@@ -44,13 +44,13 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">United States</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
+                        <li  {% if request.endpoint == '/us_state_map' %} class="active" {% endif %}>
+                            <a href="{{ url_for('us_state_map') }}">States</a>
                         </li>
                         <li>
-                            <a href="#">Page 2</a>
+                            <a href="#">Counties</a>
                         </li>
                         <li>
                             <a href="#">Page 3</a>
