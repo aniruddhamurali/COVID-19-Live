@@ -1,10 +1,15 @@
 import numpy as np
 import pandas as pd
+
+import matplotlib
+matplotlib.use('agg')
 import matplotlib.pyplot as plt
+
 import plotly.offline as py
 import plotly.graph_objs as go
 import plotly.tools as tls
 import seaborn as sns
+
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -13,58 +18,40 @@ from datetime import timedelta
 
 today = date.today()
 yesterday = today - timedelta(days = 1)
-#print(yesterday)  
 
 
 countries = pd.read_csv('https://raw.githubusercontent.com/datasets/covid-19/master/data/time-series-19-covid-combined.csv')
-
-# List of countries
-country_list = ['Afghanistan','Angola','Albania','Argentina','Armenia','Australia'
-,'Austria','Azerbaijan','Burundi','Belgium','Benin','Burkina Faso','Bangladesh','Bulgaria'
-,'Bahrain','Bosnia and Herzegovina','Belarus','Belize','Bolivia','Brazil','Barbados','Brunei Darussalam'
-,'Bhutan','Botswana','Central African Republic','Canada','Switzerland','Chile','China','Cameroon'
-,'Congo','Colombia','Comoros','Cabo Verde','Costa Rica','Cuba','Cyprus','Czech Republic','Germany'
-,'Denmark','Dominican Republic','Algeria','Ecuador','Egypt','Spain','Estonia','Ethiopia','Finland','Fiji'
-,'France','Gabon','United Kingdom','Georgia','Ghana','Guinea','Greece','Guatemala','Guyana','Hong Kong'
-,'Honduras','Croatia','Haiti','Hungary','Indonesia','India','Ireland','Iran','Iraq','Iceland','Israel'
-,'Italy','Jamaica','Jordan','Japan','Kazakhstan','Kenya','Cambodia','Korea, Rep.','Kuwait','Lebanon','Liberia'
-,'Libya','Sri Lanka','Lesotho','Lithuania','Luxembourg','Latvia','Macao','Morocco','Moldova','Madagascar'
-,'Maldives','Mexico','Macedonia','Mali','Malta','Myanmar','Montenegro','Mongolia','Mozambique','Mauritania'
-,'Mauritius','Malawi','Malaysia','North America','Namibia','Niger','Nigeria','Nicaragua','Netherlands'
-,'Norway','Nepal','New Zealand   ','Oman','Pakistan','Panama','Peru','Philippines','Papua New Guinea'
-,'Poland','Puerto Rico','Portugal','Paraguay','Qatar','Romania','Russian Federation','Rwanda','Saudi Arabia'
-,'Sudan','Senegal','Singapore','Solomon Islands','Sierra Leone','El Salvador','Somalia','Serbia','Slovenia'
-,'Sweden','Swaziland','Syrian Arab Republic','Chad','Togo','Thailand','Tajikistan','Turkmenistan','Timor-Leste'
-,'Trinidad and Tobago','Tunisia','Turkey','Tanzania','Uganda','Ukraine','Uruguay','United States','Uzbekistan'
-,'Venezuela, RB','Vietnam','Yemen, Rep.','South Africa','Congo, Dem. Rep.','Zambia','Zimbabwe'
-]
 
 # Create a new dataframe with our cleaned country list
 dates = countries['Date'].unique().tolist()
 countries_cleaned = countries.groupby('Country/Region')
 countries_grouped = list(countries_cleaned)
 
-columns = ['Country/Region', 'Province/State', 'Lat', 'Long'] + dates
+
+columns = ['Country/Region', 'Lat', 'Long'] + dates
 df = pd.DataFrame(columns=columns)
 
+
 index = 0
-for country in countries_grouped:    
+for country in countries_grouped:
     df.append(pd.Series(name=index))
     df.at[index, 'Country/Region'] = country[1]['Country/Region'].unique()[0]
-    df.at[index, 'Province/State'] = country[1]['Province/State'].unique()[0]
     df.at[index, 'Lat'] = country[1]['Lat'].unique()[0]
     df.at[index, 'Long'] = country[1]['Long'].unique()[0]
 
-    for date in dates:
-        dateIndex = (country[1].index[country[1]['Date'] == date][0]) % len(dates)
-        cases = country[1]['Confirmed'].iloc[dateIndex] + 1 # +1 is to avoid 0s
-        df.at[index, date] = cases
+    country_data = country[1]
+
+    eachDate = list(country_data.groupby("Date"))
+    
+    for date in eachDate:
+        date_data = date[1]
+        cases = date_data['Confirmed'].sum() + 1
+        df.at[index, date_data['Date'].iloc[0]] = cases
 
     index += 1
 
 
-
-datesWithData = list(df.columns)[4:]
+datesWithData = list(df.columns)[3:]
 
 
 # Generate world plots for Coronavirus
@@ -77,9 +64,11 @@ for date in datesWithData:
         type = 'choropleth',
         autocolorscale = False,
         colorscale = metricscale1,
-        showscale = True,
+        showscale = False,
         locations = df['Country/Region'].values,
         z = np.log10((df[date].values).astype(np.float64)),
+        text=[f'Country: {df["Country/Region"].iloc[i]}<br>Cases : {df[date].iloc[i]}' for i in range(0,len(df))],
+        hoverinfo = 'text',
         locationmode = 'country names',
         marker = dict(
             line = dict(color = 'rgb(250,250,225)', 
