@@ -47,6 +47,7 @@ for country in countries_grouped:
 
 fig = px.scatter_geo(df, locations="ISO_Codes", hover_name="Country/Region", 
                                 size=df["Confirmed"].astype(int), size_max=50,
-                                animation_frame="Date", projection="natural earth")
+                                animation_frame="Date", projection="natural earth",
+                                width=1200)
 fig.show()
 py.plot(fig, validate=False, filename='global-bubble-map')
