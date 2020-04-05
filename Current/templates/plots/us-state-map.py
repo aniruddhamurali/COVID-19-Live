@@ -74,9 +74,9 @@ us_state_abbrev = {
     'Wyoming': 'WY'
 }
 
-countries = pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv")
+us = pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv")
 
-states_grouped = countries.groupby('Province_State').sum().reset_index()
+states_grouped = us.groupby('Province_State').sum().reset_index()
 states = states_grouped['Province_State']
 
 today = date.today()
