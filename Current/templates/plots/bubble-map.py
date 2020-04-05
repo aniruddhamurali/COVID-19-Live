@@ -47,8 +47,7 @@ for country in countries_grouped:
 
 fig = px.scatter_geo(df, locations="ISO_Codes", hover_name="Country/Region", 
                                 size=df["Confirmed"].astype(int), size_max=50,
-                                animation_frame="Date", projection="natural earth",
-                                auto_play=False)
+                                animation_frame="Date", projection="natural earth")
 
 
 # Animation speed
