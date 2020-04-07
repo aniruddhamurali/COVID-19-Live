@@ -12,9 +12,9 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
+# GeoJSON
 with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
     counties = json.load(response)
-
 
 us = pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv")
 
@@ -27,12 +27,21 @@ yesterday = today - timedelta(days = 1)
 yesterday = str(yesterday.month) + "/" + str(yesterday.day) + "/" + str(yesterday.year)[len(str(yesterday.year))-2:]
 
 
-fig = px.choropleth(us, geojson=counties, locations='FIPS', color=yesterday,
-                           color_continuous_scale="Viridis",
-                           range_color=(0, 100),
-                           scope="usa",
-                           labels={yesterday:'Cases per County'}
-                          )
-fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+fig = px.choropleth(us, 
+    geojson = counties, 
+    locations = 'FIPS', 
+    color = yesterday,
+    color_continuous_scale = "Viridis",
+    range_color = (0, 100),
+    scope = "usa",
+    labels = {yesterday: 'Cases per County'}
+)
+
+fig.update_layout(
+    title = 'Current Coronavirus Cases per County in the U.S.',
+    title_x = 0.5,
+    margin = {"r": 20, "t": 80, "l": 20, "b": 20},
+    height = 600
+)
 py.plot(fig, filename="us-counties-map.html")
 

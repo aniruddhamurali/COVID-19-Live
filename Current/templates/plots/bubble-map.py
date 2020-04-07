@@ -33,7 +33,7 @@ for country in countries_grouped:
         date_data = date[1]
         df.append(pd.Series(name=index))
         
-        df.at[index, 'Date'] = date[0] #country_data['Date'].iloc[index % len(date_data)]
+        df.at[index, 'Date'] = date[0]
         df.at[index, 'Country/Region'] = country_data['Country/Region'].iloc[index % len(date_data)]
         df.at[index, 'Lat'] = country_data['Lat'].iloc[index % len(date_data)]
         df.at[index, 'Long'] = country_data['Long'].iloc[index % len(date_data)]
@@ -45,14 +45,27 @@ for country in countries_grouped:
         index += 1
 
 
-fig = px.scatter_geo(df, locations="ISO_Codes", hover_name="Country/Region", 
-                                size=df["Confirmed"].astype(int), size_max=50,
-                                animation_frame="Date", projection="natural earth")
+fig = px.scatter_geo(df,
+    #title = 'Animated Bubble Map of Global Confirmed Cases of Coronavirus',
+    locations = "ISO_Codes", 
+    hover_name = "Country/Region", 
+    size = df["Confirmed"].astype(int), 
+    size_max = 50,
+    animation_frame = "Date", 
+    projection = "natural earth",
+    height = 600
+)
 
 
 # Animation speed
 fig.layout.updatemenus[0].buttons[0].args[1]["frame"]["duration"] = 100
 fig.layout.updatemenus[0].buttons[0].args[1]['transition']['duration'] = 100
+
+fig.update_layout(
+    title = 'Animated Bubble Map of Global Confirmed Cases of Coronavirus', 
+    title_x = 0.5,
+    margin = {"l": 20, "r": 20, "t": 80, "b": 30}
+)
 
 fig.show()
 py.plot(fig, validate=False, filename='global-bubble-map')

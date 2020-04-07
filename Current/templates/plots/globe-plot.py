@@ -67,7 +67,7 @@ for date in datesWithData:
         showscale = False,
         locations = df['Country/Region'].values,
         z = np.log10((df[date].values).astype(np.float64)),
-        text=[f'Country: {df["Country/Region"].iloc[i]}<br>Cases : {df[date].iloc[i]}' for i in range(0,len(df))],
+        text = [f'Country: {df["Country/Region"].iloc[i]}<br>Cases : {df[date].iloc[i] - 1}' for i in range(0,len(df))],
         hoverinfo = 'text',
         locationmode = 'country names',
         marker = dict(
@@ -84,18 +84,18 @@ for date in datesWithData:
 
 steps = []
 for i in range(len(dataSlider)):
-    step = dict(method='restyle',
-                args=['visible', [False] * len(dataSlider)],
-                label=dataSlider[i]['name'])
+    step = dict(method = 'restyle',
+                args = ['visible', [False] * len(dataSlider)],
+                label = dataSlider[i]['name'])
     step['args'][1][i] = True
     steps.append(step)
 
-sliders = [dict(active=0,
-                pad={"t": 10},
-                steps=steps)] 
+sliders = [dict(active = 0,
+                pad = {"t": 10},
+                steps = steps)] 
 
 layout = dict(
-    title = 'World Map of Global Confirmed Cases of Coronavirus',
+    title = 'World Heatmap of Global Confirmed Cases of Coronavirus',
     geo = dict(
         showframe = True,
         showocean = True,
@@ -115,7 +115,8 @@ layout = dict(
             gridcolor = 'rgb(102, 102, 102)'
         )
     ),
-    sliders = sliders
+    sliders = sliders,
+    height = 600
 )
 fig = dict(data=dataSlider, layout=layout)
 py.plot(fig, validate=False, filename='global-coronavirus-cases')

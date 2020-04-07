@@ -84,9 +84,9 @@ yesterday = today - timedelta(days = 1)
 yesterday = str(yesterday.month) + "/" + str(yesterday.day) + "/" + str(yesterday.year)[len(str(yesterday.year))-2:]
 
 fig = go.Figure(data=go.Choropleth(
-    locations=states.map(us_state_abbrev), # Spatial coordinates
-    z = states_grouped[yesterday], # Data to be color-coded
-    locationmode = 'USA-states', # set of locations match entries in `locations`
+    locations = states.map(us_state_abbrev),
+    z = states_grouped[yesterday],
+    locationmode = 'USA-states',
     colorscale = 'Reds',
     colorbar_title = "Cases per State",
     zmin = 0,
@@ -94,9 +94,11 @@ fig = go.Figure(data=go.Choropleth(
 ))
 
 fig.update_layout(
-    title_text = 'Current Coronavirus Cases per State in the U.S.',
-    geo_scope='usa', # limite map scope to USA
-    margin={"r":0,"t":0,"l":0,"b":0}
+    title = 'Current Coronavirus Cases per State in the U.S.',
+    title_x = 0.5,
+    geo_scope ='usa',
+    margin = {"r": 20, "t": 80, "l": 20, "b": 20},
+    height = 600
 )
 
 py.plot(fig, validate=False, filename='us-cases-map')
