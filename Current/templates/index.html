@@ -46,11 +46,11 @@
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">United States</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li  {% if request.endpoint == '/us_state_map' %} class="active" {% endif %}>
-                            <a href="{{ url_for('us_state_map') }}">States</a>
+                        <li {% if request.endpoint == '/us_states_map' %} class="active" {% endif %}>
+                            <a href="{{ url_for('us_states_map') }}">States</a>
                         </li>
-                        <li>
-                            <a href="#">Counties</a>
+                        <li {% if request.endpoint == '/us_counties_map' %} class="active" {% endif %}>
+                            <a href="{{ url_for('us_counties_map') }}">Counties</a>
                         </li>
                         <li>
                             <a href="#">Page 3</a>

@@ -88,11 +88,15 @@ fig = go.Figure(data=go.Choropleth(
     z = states_grouped[yesterday], # Data to be color-coded
     locationmode = 'USA-states', # set of locations match entries in `locations`
     colorscale = 'Reds',
-    colorbar_title = "Cases",
+    colorbar_title = "Cases per State",
+    zmin = 0,
+    zmax = 50000
 ))
 
 fig.update_layout(
     title_text = 'Current Coronavirus Cases per State in the U.S.',
     geo_scope='usa', # limite map scope to USA
+    margin={"r":0,"t":0,"l":0,"b":0}
 )
+
 py.plot(fig, validate=False, filename='us-cases-map')

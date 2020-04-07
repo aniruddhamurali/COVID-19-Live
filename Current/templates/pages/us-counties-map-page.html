@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div class="text-center">
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary" {% if request.endpoint == '/us_states_map' %} class="active" {% endif %}>
+            <a href="{{ url_for('us_states_map') }}">States</a>
+        </button>
+        <button type="button" class="btn btn-primary active">Counties</button>
+    </div>
+</div>
+{% include 'plots/us-counties-map.html' %}
+
+{% endblock %}

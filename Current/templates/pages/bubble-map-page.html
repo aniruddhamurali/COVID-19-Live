@@ -1,7 +1,13 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<div style="height: 600px;">
-    {% include 'plots/global-bubble-map.html' %}
+<div class="text-center">
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary" {% if request.endpoint == '/globe_map' %} class="active" {% endif %}>
+            <a href="{{ url_for('globe_map') }}">Orthographic Heatmap</a>
+        </button>
+        <button type="button" class="btn btn-primary active">Bubble Map</button>
+    </div>
 </div>
+{% include 'plots/global-bubble-map.html' %}
 {% endblock %}
