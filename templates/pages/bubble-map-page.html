@@ -10,6 +10,9 @@
             <a href="{{ url_for('globe_map') }}">Orthographic Heatmap</a>
         </button>
         <button type="button" class="btn btn-primary active">Bubble Map</button>
+        <button type="button" class="btn btn-primary" {% if request.endpoint == '/global_data' %} class="active" {% endif %}>
+            <a href="{{ url_for('global_data') }}">Data</a>
+        </button>
     </div>
 </div>
 

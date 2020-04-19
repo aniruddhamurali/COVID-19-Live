@@ -92,7 +92,8 @@ for i in range(len(dataSlider)):
 
 sliders = [dict(active = 0,
                 pad = {"t": 10},
-                steps = steps)] 
+                steps = steps,
+                currentvalue={"prefix": "Date: "})] 
 
 layout = dict(
     title = 'World Heatmap of Global Confirmed Cases of Coronavirus',

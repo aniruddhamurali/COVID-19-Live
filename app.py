@@ -23,6 +23,10 @@ def us_states_map():
 def us_counties_map():
     return render_template("pages/us-counties-map-page.html")
 
+@app.route("/global_data")
+def global_data():
+    return render_template("pages/global-data-page.html")
+
     
 if __name__ == "__main__":
     app.run(debug=True)
