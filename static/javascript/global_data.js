@@ -34,17 +34,19 @@ function displayHTMLTable(results) {
     d = row["Date"];
     console.log(date);
 
-    var table_data = '<table class="table table-bordered table-striped">';
+    var table_data = '<table class="table table-bordered table-sm table-hover">';
     for (var count = 0; count < data.length; count++) {
         var cell_data = Object.keys(data[count]).map(function(key){
             return data[count][key];
         });
 
         if (count === 0) { 
-            table_data += '<th>' + 'Country' + '</th>' +
-                          '<th>' + 'Confirmed' + '</th>' +
-                          '<th>' + 'Recovered' + '</th>' + 
-                          '<th>' + 'Deaths' + '</th>';
+            table_data += '<thead class="thead-dark">' + 
+                            '<th>' + 'Country' + '</th>' +
+                            '<th>' + 'Confirmed' + '</th>' +
+                            '<th>' + 'Recovered' + '</th>' + 
+                            '<th>' + 'Deaths' + '</th>' +
+                          '</thead>';
         } else if (cell_data[0] !== d) {
             continue;
         } else {
