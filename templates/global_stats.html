@@ -69,19 +69,13 @@
         var recoveries = 0;
 
         i = data.length - 1;
-        console.log(data[i]);
-
         if (data[i]["Date"] === "") i -= 1;
-        console.log(data[i]);
-
-        
+  
         var row = data[i];
         d = row["Date"];
-        console.log(row);
         cases = parseInt(row["Confirmed"]);
         deaths = parseInt(row["Deaths"]);
         recoveries = parseInt(row["Recovered"]);
-        console.log(cases);
         
         /*
         for (i = 0; i < data.length; i++){
@@ -110,7 +104,6 @@
         let casesString = "<p class='text-danger'>" + cases + "</p>";
         let deathString = "<p class='text-muted'>" + deaths + "</p>";
         let recoveriesString = "<p class='text-success'>" + recoveries + "</p>";
-        console.log(deathString);
         $("#cases").html(casesString);
         $("#deaths").html(deathString);
         $("#recoveries").html(recoveriesString);

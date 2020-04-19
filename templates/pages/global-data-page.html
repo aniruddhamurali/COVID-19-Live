@@ -16,6 +16,17 @@
         <button type="button" class="btn btn-primary active">Data</button>
     </div>
 </div>
+<br>
+<div class="text-center" id="global_data"></div>
+
+<style>
+    #global_data {
+        width: 75%;
+        margin: auto;
+    }
+</style>
+
+<script src="{{ url_for('static', filename='javascript/global_data.js') }}"></script>
 
 
 {% endblock %}
