@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div class="text-center">
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary" {% if request.endpoint == '/us_states_map' %} class="active" {% endif %}>
+            <a href="{{ url_for('us_states_map') }}">States</a>
+        </button>
+        <button type="button" class="btn btn-primary" {% if request.endpoint == '/us_counties_map' %} class="active" {% endif %}>
+            <a href="{{ url_for('us_counties_map') }}">Counties</a>
+        </button>
+        <button type="button" class="btn btn-primary active">Data</button>
+    </div>
+</div>
+<br>
+<div class="text-center" id="county_data"></div>
+
+<style>
+    #county_data {
+        width: 75%;
+        margin: auto;
+    }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+<script src="{{ url_for('static', filename='javascript/county_data.js') }}"></script>
+
+{% endblock %}

@@ -8,6 +8,9 @@
         <button type="button" class="btn btn-primary" {% if request.endpoint == '/us_counties_map' %} class="active" {% endif %}>
             <a href="{{ url_for('us_counties_map') }}">Counties</a>
         </button>
+        <button type="button" class="btn btn-primary" {% if request.endpoint == '/county_data' %} class="active" {% endif %}>
+            <a href="{{ url_for('county_data') }}">Data</a>
+        </button>
     </div>
 </div>
 

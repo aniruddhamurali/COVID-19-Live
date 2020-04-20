@@ -27,6 +27,10 @@ def us_counties_map():
 def global_data():
     return render_template("pages/global-data-page.html")
 
+@app.route("/county_data")
+def county_data():
+    return render_template("pages/county-data-page.html")
+
     
 if __name__ == "__main__":
     app.run(debug=True)

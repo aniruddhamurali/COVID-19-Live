@@ -9,7 +9,7 @@
     <div class="btn-group">
         <button type="button" class="btn btn-primary active">Orthographic Heatmap</button>
         <button type="button" class="btn btn-primary" {% if request.endpoint == '/coronavirus_bubble_map' %} class="active" {% endif %}>
-            <a href="{{ url_for('coronavirus_bubble_map') }}">Bubble Map</a>
+            <a href="{{ url_for('coronavirus_bubble_map') }}"> Bubble Map</a>
         </button>
         <button type="button" class="btn btn-primary" {% if request.endpoint == '/global_data' %} class="active" {% endif %}>
             <a href="{{ url_for('global_data') }}">Data</a>
