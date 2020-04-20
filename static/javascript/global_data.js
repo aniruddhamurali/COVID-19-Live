@@ -4,28 +4,8 @@ Papa.parse("https://raw.githubusercontent.com/datasets/covid-19/master/data/coun
 	complete: displayHTMLTable
 })
 
-function formatDate() {
-    var d = new Date()
-    d.setDate(d.getDate() - 1);
-    var month = '' + (d.getMonth() + 1)
-    var day = '' + d.getDate()
-    var year = d.getFullYear();
-
-    if (month.length < 2) 
-        month = '0' + month;
-    if (day.length < 2) 
-        day = '0' + day;
-
-    return [year, month, day].join('-');
-}
 
 function displayHTMLTable(results) {
-     // create a date object using Date constructor 
-    //var dateObj = new Date(); 
-    // subtract one day from current time                           
-    //dateObj.setDate(dateObj.getDate() - 1);
-
-    var date = formatDate();
     var data = results.data;
 
     i = data.length - 1;
@@ -59,15 +39,21 @@ function displayHTMLTable(results) {
     }
     table_data += '</table>';
     $('#global_data').html(table_data);
-
     
-    $('th').click(function(){
-        console.log("HEY");
+    
+    $('th').click(function() {
+        if (this.asc === undefined) {
+            this.asc = true;
+        }
         var table = $(this).parents('table').eq(0)
         var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
         this.asc = !this.asc
-        if (!this.asc){rows = rows.reverse()}
-        for (var i = 0; i < rows.length; i++){table.append(rows[i])}
+        if (!this.asc){
+            rows = rows.reverse()
+        }
+        for (var i = 0; i < rows.length; i++) {
+            table.append(rows[i])
+        }
     })
     function comparer(index) {
         return function(a, b) {
@@ -75,6 +61,8 @@ function displayHTMLTable(results) {
             return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
         }
     }
-    function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
+    function getCellValue(row, index){ 
+        return $(row).children('td').eq(index).text() 
+    }
+    
 }
-
