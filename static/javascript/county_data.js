@@ -15,7 +15,7 @@ function displayHTMLTable(results) {
     d = row["Date"];
     */
 
-    var table_data = '<table class="table table-bordered table-sm table-hover">';
+    var table_data = '<table class="table table-bordered table-sm">';
     for (var count = 0; count < data.length; count++) {
         var cell_data = Object.keys(data[count]).map(function(key){
             return data[count][key];
