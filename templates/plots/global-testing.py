@@ -50,7 +50,7 @@ fig.update_layout(
         showgrid = False,
         showline = False,
         showticklabels = True,
-        domain = [0, 0.85],
+        domain = [0, 0.95],
     ),
     yaxis2 = dict(
         showgrid = False,
@@ -58,7 +58,7 @@ fig.update_layout(
         showticklabels = False,
         linecolor = 'rgba(102, 102, 102, 0.8)',
         linewidth = 2,
-        domain = [0, 0.85],
+        domain = [0, 0.95],
     ),
     xaxis = dict(
         zeroline = False,
@@ -76,7 +76,7 @@ fig.update_layout(
         side = 'top',
         dtick = 0.2,
     ),
-    legend = dict(x = 0.029, y = 1.038, font_size = 10),
+    legend = dict(x = 0.01, y = 1.01, font_size = 12),
     margin = dict(l = 100, r = 20, t = 70, b = 70),
     paper_bgcolor = 'rgb(248, 248, 255)',
     plot_bgcolor = 'rgb(248, 248, 255)',
@@ -119,6 +119,7 @@ annotations.append(dict(xref = 'paper', yref = 'paper',
                                     color = 'rgb(150,150,150)'),
                         showarrow = False))
 
-fig.update_layout(annotations=annotations)
+fig.update_layout(annotations = annotations,
+                  height=1400)
 
 fig.show()
