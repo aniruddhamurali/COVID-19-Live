@@ -77,7 +77,6 @@ for date in datesWithData:
             width = 0.5)
         ),
         colorbar = dict(
-            #autotick = True,
             tickprefix = '',
             title = 'Number of cases'
         )
@@ -87,13 +86,24 @@ for date in datesWithData:
 # Create sliders
 steps = []
 for i in range(len(dataSlider)):
+    '''
+    args = []
+    if i == len(dataSlider) - 1:
+        args = ['visible', [False] * len(dataSlider)]
+    else:
+        args = ['', [False] * len(dataSlider)]
+    step = dict(method = 'restyle',
+                args = args,
+                label = dataSlider[i]['name'])
+    '''
     step = dict(method = 'restyle',
                 args = ['visible', [False] * len(dataSlider)],
                 label = dataSlider[i]['name'])
+
     step['args'][1][i] = True
     steps.append(step)
 
-sliders = [dict(#active = 0,
+sliders = [dict(active = len(dataSlider) - 1,
                 pad = {"t": 10},
                 steps = steps,
                 currentvalue = {"prefix": "Date: "},
@@ -104,6 +114,7 @@ sliders = [dict(#active = 0,
 
 layout = dict(
     title = 'World Heatmap of Global Confirmed Cases of Coronavirus',
+    title_x = 0.5,
     geo = dict(
         showframe = True,
         showocean = True,
