@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 import plotly.offline as py
 import plotly.graph_objs as go
 import plotly.tools as tls
+import plotly.io as pio
+
 import seaborn as sns
 
 import warnings
@@ -75,7 +77,7 @@ for date in datesWithData:
             width = 0.5)
         ),
         colorbar = dict(
-            autotick = True, 
+            #autotick = True,
             tickprefix = '',
             title = 'Number of cases'
         )
@@ -90,10 +92,14 @@ for i in range(len(dataSlider)):
     step['args'][1][i] = True
     steps.append(step)
 
-sliders = [dict(active = 0,
+sliders = [dict(#active = 0,
                 pad = {"t": 10},
                 steps = steps,
-                currentvalue={"prefix": "Date: "})] 
+                currentvalue = {"prefix": "Date: "},
+                tickcolor = "white",
+                font = {'color':'white'},
+                bgcolor = 'white',
+                tickwidth = 1)] 
 
 layout = dict(
     title = 'World Heatmap of Global Confirmed Cases of Coronavirus',
@@ -105,7 +111,8 @@ layout = dict(
             type = 'orthographic',
                 rotation = dict(
                     lon = 60,
-                    lat = 10),
+                    lat = 10
+                ),
         ),
         lonaxis =  dict(
             showgrid = False,
@@ -117,7 +124,9 @@ layout = dict(
         )
     ),
     sliders = sliders,
-    height = 600
+    height = 600,
 )
-fig = dict(data=dataSlider, layout=layout)
+#fig = dict(data=dataSlider, layout=layout_def)
+fig = go.Figure(data = dataSlider, layout = layout)
+fig.update_layout(template="plotly_dark")
 py.plot(fig, validate=False, filename='global-coronavirus-cases')

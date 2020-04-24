@@ -2,7 +2,7 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    background: #000000;
 }
 
 p {
@@ -10,7 +10,7 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+    color: rgb(255, 255, 255);
 }
 
 a,
@@ -23,7 +23,7 @@ a:focus {
 
 .navbar {
     padding: 15px 10px;
-    background: #fff;
+    background: rgb(0, 0, 0);
     border: none;
     border-radius: 0;
     margin-bottom: 40px;

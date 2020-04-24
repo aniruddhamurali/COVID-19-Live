@@ -1,14 +1,14 @@
 <div class="text-center">
     <div class="cases">
-        <p class="text-dark">Total Confirmed Cases</p>
+        <p class="text-white">Total Confirmed Cases</p>
         <div id="cases"></div>
     </div>
     <div class="deaths">
-        <p class="text-dark">Total Deaths</p>
+        <p class="text-white">Total Deaths</p>
         <div id="deaths"></div>
     </div>
     <div class="recoveries">
-        <p class="text-dark">Total Recoveries</p>
+        <p class="text-white">Total Recoveries</p>
         <div id="recoveries"></div>
     </div>
 </div>
@@ -102,7 +102,7 @@
         }
         */
         let casesString = "<p class='text-danger'>" + cases + "</p>";
-        let deathString = "<p class='text-muted'>" + deaths + "</p>";
+        let deathString = "<p class='text-warning'>" + deaths + "</p>";
         let recoveriesString = "<p class='text-success'>" + recoveries + "</p>";
         $("#cases").html(casesString);
         $("#deaths").html(deathString);
