@@ -84,6 +84,7 @@ for date in datesWithData:
     )
     dataSlider.append(data_one_day)
 
+# Create sliders
 steps = []
 for i in range(len(dataSlider)):
     step = dict(method = 'restyle',

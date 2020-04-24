@@ -98,7 +98,8 @@ fig.update_layout(
     title_x = 0.5,
     geo_scope ='usa',
     margin = {"r": 20, "t": 80, "l": 20, "b": 20},
-    height = 600
+    height = 600,
+    template = "plotly_dark"
 )
 
 py.plot(fig, validate=False, filename='us-cases-map')

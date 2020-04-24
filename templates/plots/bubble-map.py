@@ -23,6 +23,7 @@ countries_grouped = list(countries_cleaned)
 columns = ['Date', 'Country/Region', 'Lat', 'Long', 'ISO_Codes', 'Confirmed']
 df = pd.DataFrame(columns=columns)
 
+dataSlider = []
 
 index = 0
 for country in countries_grouped:
@@ -43,17 +44,17 @@ for country in countries_grouped:
         df.at[index, 'Confirmed'] = cases
 
         index += 1
-
+        
 
 fig = px.scatter_geo(df,
-    #title = 'Animated Bubble Map of Global Confirmed Cases of Coronavirus',
     locations = "ISO_Codes", 
     hover_name = "Country/Region", 
     size = df["Confirmed"].astype(int), 
     size_max = 50,
     animation_frame = "Date", 
     projection = "natural earth",
-    height = 600
+    height = 600,
+    template = "plotly_dark"
 )
 
 
@@ -64,8 +65,8 @@ fig.layout.updatemenus[0].buttons[0].args[1]['transition']['duration'] = 100
 fig.update_layout(
     title = 'Animated Bubble Map of Global Confirmed Cases of Coronavirus', 
     title_x = 0.5,
-    margin = {"l": 20, "r": 20, "t": 80, "b": 30}
+    margin = {"l": 20, "r": 20, "t": 80, "b": 30},
 )
 
-fig.show()
+#fig.show()
 py.plot(fig, validate=False, filename='global-bubble-map')

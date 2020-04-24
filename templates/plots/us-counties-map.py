@@ -34,7 +34,8 @@ fig = px.choropleth(us,
     color_continuous_scale = "Viridis",
     range_color = (0, 100),
     scope = "usa",
-    labels = {yesterday: 'Cases per County'}
+    labels = {yesterday: 'Cases per County'},
+    template = "plotly_dark"
 )
 
 fig.update_layout(
