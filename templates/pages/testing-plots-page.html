@@ -2,14 +2,12 @@
 
 {% block content %}
 
-{% include 'global_stats.html' %}
-
 
 <div class="text-center">
     <div class="btn-group">
         <button type="button" class="btn btn-primary active">Plots</button>
         <button type="button" class="btn btn-primary" {% if request.endpoint == '/testing_data' %} class="active" {% endif %}>
-            <!--<a href="{{ url_for('global_data') }}">Data</a>-->
+            <a href="{{ url_for('testing_data') }}">Data</a>
         </button>
     </div>
 </div>

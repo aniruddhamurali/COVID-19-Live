@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+
+<div class="text-center">
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary" {% if request.endpoint == '/global_testing' %} class="active" {% endif %}>
+            <a href="{{ url_for('global_testing') }}">Plots</a>
+        </button>
+        <button type="button" class="btn btn-primary active">Data</button>
+    </div>
+</div>
+
+
+{% endblock %}
