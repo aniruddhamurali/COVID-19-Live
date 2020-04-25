@@ -41,6 +41,11 @@ def global_testing():
 def testing_data():
     return render_template("pages/testing-data-page.html")
 
+
+@app.route("/news")
+def news():
+    return render_template("pages/news-page.html")
+
     
 if __name__ == "__main__":
     app.run(debug=True)
