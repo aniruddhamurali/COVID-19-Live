@@ -9,7 +9,6 @@ def globe_map():
 @app.route("/globe_map")
 def globe_map_copy():
     return render_template("pages/globe-page.html")
-
     
 @app.route("/coronavirus_bubble_map")
 def coronavirus_bubble_map():
@@ -30,6 +29,10 @@ def global_data():
 @app.route("/county_data")
 def county_data():
     return render_template("pages/county-data-page.html")
+
+@app.route("/global_testing")
+def global_testing():
+    return render_template("pages/testing-plots-page.html")
 
     
 if __name__ == "__main__":

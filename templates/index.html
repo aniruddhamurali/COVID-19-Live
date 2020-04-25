@@ -58,8 +58,8 @@
                         </li>
                     </ul>-->
                 </li>
-                <li>
-                    <a href="#">Portfolio</a>
+                <li {% if request.endpoint == '/global_testing' %} class="active" {% endif %}> 
+                    <a href="{{ url_for('global_testing') }}">Testing</a>
                 </li>
                 <li>
                     <a href="#">Contact</a>
