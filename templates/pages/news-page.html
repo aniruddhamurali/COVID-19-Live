@@ -2,16 +2,33 @@
 
 {% block content %}
 
-<!--
-<script type="module" src="../../keys.js"></script> 
--->
-<!--
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
--->
+<h2>Daily Digest</h2>
+<br>
+<div id="news_data"></div>
+
+<style>
+    h5 {
+        font-weight: bold;
+    }
+    p {
+        color: #e9ecef;
+        font-size: 15px;
+    }
+    #news h5 {
+        margin-bottom: 4px;
+    }
+    #news small {
+        margin-bottom: 16px;
+    }
+
+    h2 {
+        color: white;
+        text-align: center;
+    }
+
+</style>
 
 <script type='text/javascript' src="{{ url_for('static', filename='javascript/keys.js') }}"></script>
-
 <script type="text/javascript" src="{{ url_for('static', filename='javascript/news_data.js') }}"></script>
-
 
 {% endblock %}
