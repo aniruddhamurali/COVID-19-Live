@@ -11,7 +11,6 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
-    <!--<link rel="stylesheet" href="style.css">-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <!-- Font Awesome JS -->
@@ -28,9 +27,8 @@
             </div>
 
             <ul class="list-unstyled components">
-                <!--<p>Dummy Heading</p>-->
                 <li {% if request.endpoint == '/globe_map' %} class="active" {% endif %}>
-                    <a href="{{ url_for('globe_map') }}">Global Cases</a>
+                    <a id="globe_map" href="{{ url_for('globe_map') }}">Global Cases</a>
                     <!--<a href="{{ url_for('globe_map') }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Global Cases</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li {% if request.endpoint == '/globe_map' %} class="active" {% endif %}>
@@ -45,7 +43,7 @@
                     </ul>-->
                 </li>
                 <li {% if request.endpoint == '/us_states_map' %} class="active" {% endif %}>
-                    <a href="{{ url_for('us_states_map') }}">United States</a>
+                    <a id="us_states_map" href="{{ url_for('us_states_map') }}">United States</a>
                     <!--<ul class="collapse list-unstyled" id="pageSubmenu">
                         <li {% if request.endpoint == '/us_states_map' %} class="active" {% endif %}>
                             <a href="{{ url_for('us_states_map') }}">States</a>
@@ -59,10 +57,10 @@
                     </ul>-->
                 </li>
                 <li {% if request.endpoint == '/global_testing' %} class="active" {% endif %}> 
-                    <a href="{{ url_for('global_testing') }}">Testing</a>
+                    <a id="global_testing" href="{{ url_for('global_testing') }}">Testing</a>
                 </li>
                 <li {% if request.endpoint == '/news' %} class="active" {% endif %}>
-                    <a href="{{ url_for('news') }}">News</a>
+                    <a id="news" href="{{ url_for('news') }}">News</a>
                 </li>
             </ul>
 
@@ -70,9 +68,6 @@
             <ul class="list-unstyled CTAs">
                 <li>
                     <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-                </li>
-                <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
                 </li>
             </ul>
             -->
@@ -112,13 +107,6 @@
                 </div>
             </nav>
 
-            <!--Put content here-->
-            <!--
-            <h2>Collapsible Sidebar Using Bootstrap 4</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            -->
-
             {% block content %}
             {% include 'plots/global-coronavirus-cases.html' %}
             {% endblock %}
@@ -137,16 +125,13 @@
     <!-- Papa Parse -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 
-    <!--
-    <script type="module" src="../keys.js"></script> 
-    -->
-
 
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
+            $("#{{request.endpoint}}").parent().addClass("active");
         });
     </script>
 </body>
