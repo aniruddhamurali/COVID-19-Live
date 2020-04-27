@@ -46,6 +46,19 @@ def testing_data():
 def news():
     return render_template("pages/news-page.html")
 
+
+@app.route("/about_me")
+def about_me():
+    return render_template("pages/about-me-page.html")
+
+@app.route("/data")
+def data():
+    return render_template("pages/data-sources-page.html")
+
+@app.route("/covid")
+def covid():
+    return render_template("pages/covid-info-page.html")
+
     
 if __name__ == "__main__":
     app.run(debug=True)
