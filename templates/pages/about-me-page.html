@@ -2,13 +2,68 @@
 
 {% block content %}
 
-<h1>About Me</h1>
+<div id="about">
+    <h1>About Me</h1>
+    <br>
+    <h3>Who made this website?</h3>
+    <p>Hey! I'm Aniruddha Murali, and I'm a freshman at Georgia Tech studying computer science.</p>
+    <br>
+    <h3>Why did I make this website?</h3>
+    <p>
+        After seeing how widespread and devastating the impact from COVID-19 has been, I wanted to see if there
+        was anything I could do to help people out. Recently, I've been learning a lot about data visualization and web
+        development, and I wanted to see if I could make something that people would find useful in these difficult times.
+        My goal with this website was to provide real-time information on COVID-19 so people can stay up-to-date. I hope
+        you're finding it useful!
+    </p>
+    <br>
+    <h3>Want to get in contact with me?</h3>
+    <p>Email: aniruddha.murali@gmail.com</p>
+    <span>
+        <a href="https://www.instagram.com/aniruddhamurali/" target="_blank"><i class="fab fa-instagram-square fa-3x"></i></a>
+        <a href="https://www.linkedin.com/in/aniruddhamurali/" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>
+    </span>
+</div>
+
+
 
 <style>
-    h1 {
+    #about h3 {
+        color: #1ba0e3;
+        text-align: center;
+    }
+    #about h1 {
         color: white;
         text-align: center;
     }
+    #about p {
+        text-align: center;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .fa-instagram-square {
+        color: transparent;
+        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        background-clip: text;
+        -webkit-background-clip: text;
+    }
+    .fa-linkedin {
+        color: #0e76a8;
+    }
+    .fab {
+        padding: 5px;
+    }
+
+    #about span {
+        display: table;
+        margin: 0 auto;
+    }
 </style>
+
+ <!-- Font Awesome JS -->
+ <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+ <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
 {% endblock %}

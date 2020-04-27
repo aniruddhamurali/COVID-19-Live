@@ -10,12 +10,13 @@
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/fcfe8c90bc.js" crossorigin="anonymous"></script>
+   
 </head>
 
 <body>
@@ -100,13 +101,14 @@
                                 <a id="data" class="nav-link" href="{{ url_for('data') }}">Data Sources</a>
                             </li>
                             <li class="nav-item" {% if request.endpoint == '/about_me' %} class="active" {% endif %}>
-                                <a class="nav-link" href="{{ url_for('about_me') }}">About Me</a>
+                                <a class="nav-link" href="{{ url_for('about_me') }}">About/Contact</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
 
+            
             {% block content %}
             {% include 'plots/global-coronavirus-cases.html' %}
             {% endblock %}
@@ -124,6 +126,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <!-- Papa Parse -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+
+     
 
 
     <script type="text/javascript">
