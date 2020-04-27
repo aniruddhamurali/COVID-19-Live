@@ -1,6 +1,21 @@
 {% extends 'index.html' %}
 
 {% block content %}
+<script type='text/javascript' src="{{ url_for('static', filename='javascript/keys.js') }}"></script>
+<script>
+    var key = keys.fb_key;
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId            : key,
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v6.0'
+      });
+    };
+  </script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='javascript/share_site.js') }}"></script>
 
 <div id="about">
     <h1>About Me</h1>
@@ -17,14 +32,27 @@
         you're finding it useful!
     </p>
     <br>
-    <h3>Want to get in contact with me?</h3>
-    <p>Email: aniruddha.murali@gmail.com</p>
-    <span>
-        <a href="https://www.instagram.com/aniruddhamurali/" target="_blank"><i class="fab fa-instagram-square fa-3x"></i></a>
-        <a href="https://www.linkedin.com/in/aniruddhamurali/" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>
-    </span>
+    <br>
+    <div id="links">
+        <div id="contact">
+            <h3>Want to get in contact with me?</h3>
+            <p>Email: aniruddha.murali@gmail.com</p>
+            <span>
+                <a href="https://www.instagram.com/aniruddhamurali/" target="_blank"><i class="fab fa-instagram-square fa-3x"></i></a>
+                <a href="https://www.linkedin.com/in/aniruddhamurali/" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>
+            </span>
+        </div>
+        <div id="share">  
+            <h3>Please share this website with others!</h3>
+            <p>Help keep others up-to-date!</p>
+            <span>
+                <a href="#"><i class="fab fa-facebook-square fa-3x"></i></a>
+            </span>
+        </div>
+        <!-- Prevent elements coming afterward from floating -->
+        <div style="clear: both;"></div>
+    </div>
 </div>
-
 
 
 <style>
@@ -42,6 +70,15 @@
         margin-right: 10%;
     }
 
+    #contact {
+        width: 50%;
+        float: left;
+    }
+    #share {
+        width: 50%;
+        float: right;
+    }
+
     .fa-instagram-square {
         color: transparent;
         background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
@@ -51,6 +88,9 @@
     }
     .fa-linkedin {
         color: #0e76a8;
+    }
+    .fa-facebook-square {
+        color: #3b5998;
     }
     .fab {
         padding: 5px;
@@ -65,5 +105,7 @@
  <!-- Font Awesome JS -->
  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+ 
+
 
 {% endblock %}
