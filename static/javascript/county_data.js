@@ -47,7 +47,7 @@ function displayHTMLTable(results) {
         }
     }
     table_data += '</table>';
-    $('#county_data').html(table_data);
+    $('#county_data_table').html(table_data);
     
     
     $('th').click(function() {

@@ -38,7 +38,7 @@ function displayHTMLTable(results) {
         }
     }
     table_data += '</table>';
-    $('#global_data').html(table_data);
+    $('#global_data_table').html(table_data);
     
     
     $('th').click(function() {

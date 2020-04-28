@@ -12,34 +12,42 @@
     </div>
 </div>
 <br>
-<div class="text-center" id="testing_data"></div>
+<div class="text-center" id="testing_data_table"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 
 <style>
-    #testing_data {
+    #testing_data_table {
         width: 95%;
         margin: auto;
     }
-    #testing_data th:hover {
+    #testing_data_table th:hover {
         background-color: #007bff;
         border-color: #007bff;
         transition: 0.3s;
         cursor: pointer;
     }
-    #testing_data th:active {
+    #testing_data_table th:active {
         background-color: #6610f2;
         border-color: #6610f2;
     }
-    #testing_data td {
+    #testing_data_table td {
         color: white;
     }
-    #testing_data th {
+    #testing_data_table th {
         color: white;
         border-bottom-color: white;
         border-bottom: 1px solid;
     }
 </style>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#global_testing").attr('id', 'testing_data'); 
+    });
+</script>
 
 <script src="{{ url_for('static', filename='javascript/testing_data.js') }}"></script>
 

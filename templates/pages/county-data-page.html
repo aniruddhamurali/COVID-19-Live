@@ -14,33 +14,41 @@
     </div>
 </div>
 <br>
-<div class="text-center" id="county_data"></div>
+<div class="text-center" id="county_data_table"></div>
 
 <style>
-    #county_data {
+    #county_data_table {
         width: 75%;
         margin: auto;
     }
-    #county_data th:hover {
+    #county_data_table th:hover {
         background-color: #007bff;
         border-color: #007bff;
         transition: 0.3s;
         cursor: pointer;
     }
-    #county_data th:active {
+    #county_data_table th:active {
         background-color: #6610f2;
         border-color: #6610f2;
     }
-    #county_data td {
+    #county_data_table td {
         color: white;
     }
     
-    #county_data th {
+    #county_data_table th {
         color: white;
         border-bottom-color: white;
         border-bottom: 1px solid;
     }
 </style>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#us_states_map").attr('id', 'county_data'); 
+    });
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 <script src="{{ url_for('static', filename='javascript/county_data.js') }}"></script>

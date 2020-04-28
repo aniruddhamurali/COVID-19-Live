@@ -16,34 +16,40 @@
     </div>
 </div>
 <br>
-<div class="text-center" id="global_data"></div>
+<div class="text-center" id="global_data_table"></div>
 
 
 
 <style>
-    #global_data {
+    #global_data_table {
         width: 75%;
         margin: auto;
     }
-    #global_data th:hover {
+    #global_data_table th:hover {
         background-color: #007bff;
         border-color: #007bff;
         transition: 0.3s;
         cursor: pointer;
     }
-    #global_data th:active {
+    #global_data_table th:active {
         background-color: #6610f2;
         border-color: #6610f2;
     }
-    #global_data td {
+    #global_data_table td {
         color: white;
     }
-    #global_data th {
+    #global_data_table th {
         color: white;
         border-bottom-color: white;
         border-bottom: 1px solid;
     }
 </style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#globe_map").attr('id', 'global_data'); 
+    });
+</script>
 
 <script src="{{ url_for('static', filename='javascript/global_data.js') }}"></script>
 
