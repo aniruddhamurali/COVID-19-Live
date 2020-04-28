@@ -2,12 +2,54 @@
 
 {% block content %}
 
-<h1>Where did I get the data?</h1>
+<div id="sources" class="text-center">
+    <h1>Where did I get the data?</h1>
+    <br>
+    <p>
+        Multiple sources were used to visualize and display the data on this website.
+        Here are the sources listed by category :
+    </p>
+    <table class="table table-bordered tabl-sm">
+        <thead class="thead-dark">
+            <th>Type of Data</th>
+            <th>Data Source(s)</th>
+            <th>Link(s) to Data</th>
+        </thead>
+        <tr>
+            <td>Global cases, deaths, and recoveries</td>
+            <td>Datahub.io, upstreamed from Johns Hopkins University Center for Systems Science and Engineering</td>
+            <td><a href="https://github.com/datasets/covid-19" target="_blank"><i class="fab fa-github fa-2x"></i></a></td>
+        </tr>
+        <tr>
+            <td>U.S. state and county case data</td>
+            <td>Johns Hopkins University Center for Systems Science and Engineering</td>
+            <td><a href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data" target="_blank"><i class="fab fa-github fa-2x"></i></a></td>
+        </tr>
+        <tr>
+            <td>COVID-19 tests per country</td>
+            <td>Our World In Data</td>
+            <td><a href="https://github.com/owid/covid-19-data/tree/master/public/data" target="_blank"><i class="fab fa-github fa-2x"></i></a></td>
+        </tr>
+        <tr>
+            <td>Recent news</td>
+            <td>News API</td>
+            <td><a href="https://newsapi.org/"><i class="fas fa-external-link-alt fa-2x" target="_blank"></i></a></td>
+        </tr>
+    </table>
+</div>
 
 <style>
-    h1 {
+    h1, td {
         color: white;
-        text-align: center;
+    }
+    #sources th {
+        color: white;
+        border-bottom-color: white;
+        border-bottom: 1px solid;
+    }
+    #sources {
+        width: 95%;
+        margin: auto;
     }
 </style>
 
