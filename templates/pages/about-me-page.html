@@ -33,20 +33,25 @@
     </p>
     <br>
     <br>
-    <div id="links">
-        <div id="contact">
-            <h3>Want to get in contact with me?</h3>
+    <div id="links" class="row">
+        <div id="contact" class="flex-fill">
+            <h3>Follow or contact me!</h3>
             <p>Email: aniruddha.murali@gmail.com</p>
-            <span>
+            <span style="background-color: black;">
                 <a href="https://www.instagram.com/aniruddhamurali/" target="_blank"><i class="fab fa-instagram-square fa-3x"></i></a>
                 <a href="https://www.linkedin.com/in/aniruddhamurali/" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>
+                <!--
+                <a class="twitter-follow-button" href="https://twitter.com/AniruddhaMurali" data-show-count="false" data-size="large">Follow @TwitterDev</a>
+                -->
+                <a href="https://twitter.com/AniruddhaMurali"><i class="fab fa-twitter-square fa-3x" ></i></a>
             </span>
         </div>
-        <div id="share">  
-            <h3>Please share this website with others!</h3>
-            <p>Help keep others up-to-date!</p>
+        <div id="share" class="flex-fill">  
+            <h3>Share this website with others!</h3>
+            <p>Help others stay up-to-date!</p>
             <span>
-                <a href="#"><i class="fab fa-facebook-square fa-3x"></i></a>
+                <div class="fb-share-button" data-href="https://www.your-domain.com/your-page.html" data-layout="button_count" data-size="large"></div>
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-count="horizontal" data-show-count="true">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </span>
         </div>
         <!-- Prevent elements coming afterward from floating -->
@@ -92,8 +97,11 @@
     .fa-facebook-square {
         color: #3b5998;
     }
+    .fa-twitter-square {
+        color: #00acee;
+    }
     .fab {
-        padding: 5px;
+        margin: 5px;
     }
 
     #about span {
