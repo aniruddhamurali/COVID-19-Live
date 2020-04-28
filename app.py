@@ -47,8 +47,8 @@ def news():
     return render_template("pages/news-page.html")
 
 
-@app.route("/about_me")
-def about_me():
+@app.route("/about")
+def about():
     return render_template("pages/about-me-page.html")
 
 @app.route("/data")

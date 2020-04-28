@@ -23,25 +23,13 @@
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
-            <div class="sidebar-header">
-                <a href="{{ url_for('globe_map') }}"><h3>Coronavirus Tracking</h3></a>
+            <div class="sidebar-header" style="border-bottom: black solid 3px;">
+                <a href="{{ url_for('globe_map') }}"><h3>COVID-19 Tracking</h3></a>
             </div>
 
             <ul class="list-unstyled components sticky-top">
                 <li {% if request.endpoint == '/globe_map' %} class="active" {% endif %}>
                     <a id="globe_map" href="{{ url_for('globe_map') }}">Global Cases</a>
-                    <!--<a href="{{ url_for('globe_map') }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Global Cases</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li {% if request.endpoint == '/globe_map' %} class="active" {% endif %}>
-                            <a href="{{ url_for('globe_map') }}">Globe</a>
-                        </li>
-                        <li {% if request.endpoint == 'coronavirus_bubble_map' %} class="active" {% endif %}>
-                            <a href="{{ url_for('coronavirus_bubble_map') }}">Bubble Map</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>-->
                 </li>
                 <li {% if request.endpoint == '/us_states_map' %} class="active" {% endif %}>
                     <a id="us_states_map" href="{{ url_for('us_states_map') }}">United States</a>
@@ -64,14 +52,6 @@
                     <a id="news" href="{{ url_for('news') }}">News</a>
                 </li>
             </ul>
-
-            <!--
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-                </li>
-            </ul>
-            -->
         </nav>
 
         <!-- Page Content  -->
@@ -91,17 +71,14 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active" >
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
                             <li class="nav-item" {% if request.endpoint == '/covid' %} class="active" {% endif %}>
                                 <a id="covid" class="nav-link" href="{{ url_for('covid') }}">What is COVID-19?</a>
                             </li>
                             <li class="nav-item" {% if request.endpoint == '/data' %} class="active" {% endif %}>
                                 <a id="data" class="nav-link" href="{{ url_for('data') }}">Data Sources</a>
                             </li>
-                            <li class="nav-item" {% if request.endpoint == '/about_me' %} class="active" {% endif %}>
-                                <a class="nav-link" href="{{ url_for('about_me') }}">About/Contact</a>
+                            <li class="nav-item" {% if request.endpoint == '/about' %} class="active" {% endif %}>
+                                <a id="about" class="nav-link" href="{{ url_for('about') }}">About/Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -118,6 +95,7 @@
         </div>
     </div>
 
+
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->
@@ -128,8 +106,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 
      
-
-
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {

@@ -71,20 +71,11 @@ a:focus {
     background: #1ba0e3;
 }
 
-#sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
-}
-
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
-
 #sidebar ul li a {
-    padding: 10px;
+    padding: 20px;
     font-size: 1.1em;
     display: block;
+    border-bottom: white solid 1px;    
 }
 
 /* Hovering over sidebar option */
@@ -118,28 +109,6 @@ ul ul a {
     background: #1ba0e3;
 }
 
-ul.CTAs {
-    padding: 20px;
-}
-
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-
-a.download {
-    background: #fff;
-    color: #1ba0e3;
-}
-
-a.article,
-a.article:hover {
-    background: #1ba0e3 !important;
-    color: #fff !important;
-}
 
 /*-------------------
     CONTENT STYLE
