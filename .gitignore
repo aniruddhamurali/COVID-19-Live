@@ -1,6 +1,4 @@
-node_modules
-.firebase
-.firebaserc
-firebase.json
 venv
 keys.js
+.vscode
+_pycache_
