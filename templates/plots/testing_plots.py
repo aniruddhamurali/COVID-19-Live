@@ -130,7 +130,7 @@ def run():
                     height = 1700)
 
     #fig.show()
-    py.plot(fig, validate=False, filename='testing-plots', auto_open=False)
+    py.plot(fig, validate=False, filename='./templates/plots/testing-plots', auto_open=False)
     #py.plot(fig, validate=False, filename='testing-plots', include_plotlyjs=False, output_type='div')
 
 #run()
