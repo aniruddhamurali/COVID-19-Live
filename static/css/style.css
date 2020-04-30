@@ -95,6 +95,10 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
+.dropdown-menu {
+    padding: 0 0;
+}
+
 .dropdown-toggle::after {
     display: block;
     position: absolute;

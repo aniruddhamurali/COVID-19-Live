@@ -51,6 +51,15 @@ def testing_data():
     return render_template("pages/testing-data-page.html")
 
 
+@app.route("/state_resources")
+def state_resources():
+    return render_template("pages/state-resources-page.html")
+
+@app.route("/us_hospital_data")
+def us_hospital_data():
+    return render_template("pages/us-hospital-data-page.html")
+
+
 @app.route("/news")
 def news():
     return render_template("pages/news-page.html")
