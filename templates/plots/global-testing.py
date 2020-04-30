@@ -131,4 +131,6 @@ fig.update_layout(annotations = annotations,
                   height = 1700)
 
 #fig.show()
-py.plot(fig, validate=False, filename='testing-plots')
+#py.plot(fig, validate=False, filename='testing-plots')
+
+py.plot(fig, validate=False, filename='testing-plots', include_plotlyjs=False, output_type='div')

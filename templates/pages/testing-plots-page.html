@@ -12,6 +12,25 @@
     </div>
 </div>
 
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+<div class="plot" style="width: auto;">
+    {% include 'plots/testing-plots.html' %}
+</div>
 
-{% include 'plots/testing-plots.html' %}
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#sidebarCollapse').click(function () {
+            if ($('#sidebar').hasClass('active')) {
+                $('.plot').css({'margin-left':'0', 'margin-right':'0', 'transition':'0.3s'});
+            } else {
+                $('.plot').css({'margin-right':'125px', 'margin-left':'125px', 'transition':'0.3s'});
+            }
+        });
+    });
+</script>
+
 {% endblock %}
