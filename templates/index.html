@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Coronavirus Tracking</title>
+    <title>COVID-19 Tracking</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -28,28 +28,26 @@
             </div>
 
             <ul class="list-unstyled components sticky-top">
-                <li {% if request.endpoint == '/globe_map' %} class="active" {% endif %}>
-                    <a id="globe_map" href="{{ url_for('globe_map') }}">Global Cases</a>
+                <li id="globe_map" {% if request.endpoint == '/globe_map' %} class="active" {% endif %}>
+                    <a href="{{ url_for('globe_map') }}">Global Cases</a>
                 </li>
+
                 <li {% if request.endpoint == '/us_states_map' %} class="active" {% endif %}>
-                    <a id="us_states_map" href="{{ url_for('us_states_map') }}">United States</a>
-                    <!--<ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li {% if request.endpoint == '/us_states_map' %} class="active" {% endif %}>
-                            <a href="{{ url_for('us_states_map') }}">States</a>
-                        </li>
-                        <li {% if request.endpoint == '/us_counties_map' %} class="active" {% endif %}>
-                            <a href="{{ url_for('us_counties_map') }}">Counties</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>-->
+                    <div class="dropright">
+                        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">United States</a>
+                        
+                        <div class="dropdown-menu">
+                            <a id="us_states_map" class="dropdown-item" href="{{ url_for('us_states_map') }}">Cases</a>
+                            <a class="dropdown-item" href="#">Hospital Resources</a>
+                        </div>
+                    </div>  
                 </li>
-                <li {% if request.endpoint == '/global_testing' %} class="active" {% endif %}> 
-                    <a id="global_testing" href="{{ url_for('global_testing') }}">Testing</a>
+
+                <li id="global_testing" {% if request.endpoint == '/global_testing' %} class="active" {% endif %}> 
+                    <a href="{{ url_for('global_testing') }}">Testing</a>
                 </li>
-                <li {% if request.endpoint == '/news' %} class="active" {% endif %}>
-                    <a id="news" href="{{ url_for('news') }}">News</a>
+                <li id="news"  {% if request.endpoint == '/news' %} class="active" {% endif %}>
+                    <a href="{{ url_for('news') }}">News</a>
                 </li>
             </ul>
         </nav>
@@ -111,8 +109,9 @@
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
-            $("#{{request.endpoint}}").parent().addClass("active");
+            $("#{{request.endpoint}}").addClass("active");
             console.log("{{request.endpoint}}");
+            console.log($("#{{request.endpoint}}").parent().hasClass("active"));
         });
     </script>
 </body>
