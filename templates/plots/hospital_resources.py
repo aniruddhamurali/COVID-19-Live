@@ -90,8 +90,8 @@ for data in mycol.find({"date":"2020-04-27"}):
 
 
 scale = 5
-df['text_all_mean'] = 'Average total beds needed per day: ' + df['allbed_mean'].astype(str)
-df['text_icu_mean'] = 'ICU beds needed per day: ' + df['ICUbed_mean'].astype(str)
+df['text_all_mean'] = df['location_name'].map(us_state_abbrev) + '<br>' + 'Average total beds needed per day: ' + df['allbed_mean'].astype(str)
+df['text_icu_mean'] = df['location_name'].map(us_state_abbrev) + '<br>' + 'ICU beds needed per day: ' + df['ICUbed_mean'].astype(str)
 
 fig = go.Figure()
 fig.add_trace(go.Scattergeo(
@@ -100,12 +100,11 @@ fig.add_trace(go.Scattergeo(
         marker = dict(
             size = df['allbed_mean'].astype(float)/scale,
             color = 'rgb(0,0,255)',
-            #line_color='rgb(255,40,40)',
             line_width = 0.5,
             sizemode = 'area'
         ),
-        text = df['text_all_mean'],
-        name = 'Average total beds needed per day'
+        #text = df['text_all_mean'],
+        hovertemplate = df['text_all_mean'] + '<extra></extra>',
     ))
 
 fig.add_trace(go.Scattergeo(
@@ -113,13 +112,12 @@ fig.add_trace(go.Scattergeo(
         locationmode = 'USA-states',
         marker = dict(
             size = df['ICUbed_mean'].astype(float)/scale,
-            color = 'rgb(255,0,255)',
-            #line_color='rgb(255,40,40)',
+            color = 'rgb(120,0,255)',
             line_width = 0.5,
             sizemode = 'area'
         ),
-        text = df['text_icu_mean'],
-        name = 'ICU beds needed per day',
+        #text = df['text_icu_mean'],
+        hovertemplate = df['text_icu_mean'] + '<extra></extra>',
         visible = False
     ))
 
@@ -128,25 +126,27 @@ fig.add_trace(go.Scattergeo(
 fig.update_layout(
     updatemenus=[
         dict(
-            type="buttons",
-            direction="right",
-            active=0,
-            x=0.55,
-            y=1.0,
-            buttons=list([
-                dict(label="Total beds",
-                     method="update",
-                     args=[{"visible": [True, False]}]),
-                dict(label="ICU beds",
-                     method="update",
-                     args=[{"visible": [False, True]}])
+            type = "buttons",
+            direction = "right",
+            active = 0,
+            x = 0.55,
+            y = 1.0,
+            bgcolor="rgb(100,0,200)",
+            font = dict(color="rgb(0,120,255)"),
+            buttons = list([
+                dict(label = "Total beds",
+                     method = "update",
+                     args = [{"visible": [True, False]}]),
+                dict(label = "ICU beds",
+                     method = "update",
+                     args = [{"visible": [False, True]}])
             ]),
         )
     ])
 
 
 fig.update_layout(
-    title = 'Hospital Resources per State in the U.S.',
+    title = 'Estimated Hospital Resources per State in the U.S.',
     title_x = 0.5,
     geo_scope ='usa',
     margin = {"r": 20, "t": 80, "l": 20, "b": 20},
@@ -154,9 +154,5 @@ fig.update_layout(
     template = "plotly_dark"
 )
 
-#py.plot(fig, validate=False, filename='./templates/plots/us-hospital_resources', auto_open=False)
-py.plot(fig, validate=False)
-
-#print(df)
-
-#print(resources)
+#py.plot(fig, validate=False, filename='./templates/plots/us-resources-needed', auto_open=False)
+py.plot(fig, validate=False, filename='us-resources-needed', auto_open=False)

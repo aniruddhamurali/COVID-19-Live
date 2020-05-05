@@ -42,6 +42,7 @@ def run():
         margin = {"r": 20, "t": 80, "l": 20, "b": 20},
         height = 600
     )
-    py.plot(fig, filename="./templates/plots/us-counties-map.html", auto_open=False)
+    #py.plot(fig, filename="./templates/plots/us-counties-map.html", auto_open=False)
+    py.plot(fig, filename="us-counties-map.html", auto_open=False)
 
 run()

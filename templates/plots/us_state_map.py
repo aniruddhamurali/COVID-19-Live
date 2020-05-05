@@ -106,4 +106,4 @@ def run():
 
     py.plot(fig, validate=False, filename='./templates/plots/us-cases-map', auto_open=False)
 
-#run()
+run()

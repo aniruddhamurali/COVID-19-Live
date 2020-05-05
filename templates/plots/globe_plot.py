@@ -129,6 +129,8 @@ def run():
     #fig = dict(data=dataSlider, layout=layout_def)
     fig = go.Figure(data = dataSlider, layout = layout)
     fig.update_layout(template="plotly_dark")
-    py.plot(fig, validate=False, filename='./templates/plots/global-coronavirus-cases', auto_open=False)
+
+    #py.plot(fig, validate=False, filename='./templates/plots/global-coronavirus-cases', auto_open=False)
+    py.plot(fig, validate=False, filename='global-coronavirus-cases', auto_open=False)
 
 run()

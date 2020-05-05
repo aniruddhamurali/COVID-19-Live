@@ -70,7 +70,7 @@ def run():
         margin = {"l": 20, "r": 20, "t": 80, "b": 30},
     )
 
-    #fig.show()
-    py.plot(fig, validate=False, filename='./templates/plots/global-bubble-map', auto_open=False)
+    #py.plot(fig, validate=False, filename='./templates/plots/global-bubble-map', auto_open=False)
+    py.plot(fig, validate=False, filename='global-bubble-map', auto_open=False)
 
 run()
