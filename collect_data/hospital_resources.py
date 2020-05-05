@@ -80,31 +80,23 @@ index = 0
 for data in mycol.find({"date":"2020-04-27"}):
     if data['location_name'] in us_state_abbrev.keys():
         df.append(pd.Series(name=index))
-        #resources.append(data)
         df.at[index, 'location_name'] = data['location_name']
         df.at[index, 'date'] = data['date']
         df.at[index, 'allbed_mean'] = round(float(data['allbed_mean']))
-        df.at[index, 'ICUbed_mean'] = data['ICUbed_mean']
+        df.at[index, 'ICUbed_mean'] = round(float(data['ICUbed_mean']))
         df.at[index, 'bedover_mean'] = data['bedover_mean']
         df.at[index, 'icuover_mean'] = data['icuover_mean']
-        '''df2 = pd.DataFrame([[data['location_name'], data['date'], 
-                            float(data['allbed_mean']), data['ICUbed_mean'],
-                            data['bedover_mean'], data['icuover_mean']]], columns=columns)
-        df.append(df2)'''
         index += 1
 
 
 scale = 5
-df['text'] = 'Average beds needed per day: ' + df['allbed_mean'].astype(str)
+df['text_all_mean'] = 'Average total beds needed per day: ' + df['allbed_mean'].astype(str)
+df['text_icu_mean'] = 'ICU beds needed per day: ' + df['ICUbed_mean'].astype(str)
 
-fig = go.Figure(data=go.Scattergeo(
+fig = go.Figure()
+fig.add_trace(go.Scattergeo(
         locations = df['location_name'].map(us_state_abbrev),
-        #z = df['allbed_mean'],
         locationmode = 'USA-states',
-        #colorscale = 'Blues',
-        #colorbar_title = "Hospital Resources per State",
-        #zmin = 0,
-        #zmax = 50000
         marker = dict(
             size = df['allbed_mean'].astype(float)/scale,
             color = 'rgb(0,0,255)',
@@ -112,8 +104,46 @@ fig = go.Figure(data=go.Scattergeo(
             line_width = 0.5,
             sizemode = 'area'
         ),
-        text = df['text']
+        text = df['text_all_mean'],
+        name = 'Average total beds needed per day'
     ))
+
+fig.add_trace(go.Scattergeo(
+        locations = df['location_name'].map(us_state_abbrev),
+        locationmode = 'USA-states',
+        marker = dict(
+            size = df['ICUbed_mean'].astype(float)/scale,
+            color = 'rgb(255,0,255)',
+            #line_color='rgb(255,40,40)',
+            line_width = 0.5,
+            sizemode = 'area'
+        ),
+        text = df['text_icu_mean'],
+        name = 'ICU beds needed per day',
+        visible = False
+    ))
+
+
+
+fig.update_layout(
+    updatemenus=[
+        dict(
+            type="buttons",
+            direction="right",
+            active=0,
+            x=0.55,
+            y=1.0,
+            buttons=list([
+                dict(label="Total beds",
+                     method="update",
+                     args=[{"visible": [True, False]}]),
+                dict(label="ICU beds",
+                     method="update",
+                     args=[{"visible": [False, True]}])
+            ]),
+        )
+    ])
+
 
 fig.update_layout(
     title = 'Hospital Resources per State in the U.S.',
