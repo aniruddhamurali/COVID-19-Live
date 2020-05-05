@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 
 from templates.plots import us_state_map, testing_plots
+from templates.plots import hospital_resources_needed
 #from templates.plots import globe_plot, bubble_map, us_county_map
 
 app = Flask(__name__)
@@ -53,6 +54,7 @@ def testing_data():
 
 @app.route("/state_resources")
 def state_resources():
+    hospital_resources_needed.run()
     return render_template("pages/state-resources-page.html")
 
 @app.route("/us_hospital_data")
