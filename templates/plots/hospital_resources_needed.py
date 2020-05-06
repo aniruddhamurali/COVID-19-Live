@@ -146,7 +146,7 @@ def run():
 
 
     fig.update_layout(
-        title = 'Estimated Hospital Resources per State in the U.S.',
+        title = 'Estimated Hospital Resources Needed per Day For Each State in the U.S.',
         title_x = 0.5,
         geo_scope ='usa',
         margin = {"r": 20, "t": 80, "l": 20, "b": 20},
@@ -155,6 +155,6 @@ def run():
     )
 
     #py.plot(fig, validate=False, filename='./templates/plots/us-resources-needed', auto_open=False)
-    py.plot(fig, validate=False, filename='us-resources-needed.html', auto_open=False)
+    py.plot(fig, validate=False, filename='./templates/plots/us-resources-needed.html', auto_open=False)
 
 run()
