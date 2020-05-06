@@ -1,8 +1,10 @@
 from flask import Flask, render_template
+import json
 
 from templates.plots import us_state_map, testing_plots
 from templates.plots import hospital_resources_needed
 #from templates.plots import globe_plot, bubble_map, us_county_map
+from other_data import testing_centers
 
 app = Flask(__name__)
 
@@ -78,6 +80,14 @@ def data():
 @app.route("/covid")
 def covid():
     return render_template("pages/covid-info-page.html")
+
+@app.route("/nearby_testing")
+def nearby_testing():
+    return render_template("pages/testing-centers-page.html")
+
+@app.route("/get_testing_centers")
+def get_testing_centers():
+    return json.dumps(testing_centers.run())
 
     
 if __name__ == "__main__":
