@@ -1,5 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
+import pymongo
+
+import sys
+sys.path.append("../")
+from mongodb_info import getClient
+
+myClient = getClient()
+client = pymongo.MongoClient(myClient)
+mydb = client['resource_data']
+mycol = mydb['testing_centers']
 
 # desktop user-agent
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0"
@@ -38,8 +48,8 @@ for loc in data:
         results[i]['drive_through'] = dt
 
     instructions = loc.find_all('div', {"class": "rxSVje rllt__wrapped"})[0].text.strip()
-    results[i]['instructions'] = instructions
+    results[i]['instructions'] = 'Instructions: ' + instructions[instructions.index('Instructions:') + len('Instructions:'):]
 
     i += 1
 
-print(results)
+newcol = mycol.insert_many(results)

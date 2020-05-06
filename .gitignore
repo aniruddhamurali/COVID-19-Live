@@ -2,3 +2,4 @@ venv
 keys.js
 .vscode
 _pycache_
+mongodb_info.py

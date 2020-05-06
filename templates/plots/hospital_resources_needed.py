@@ -4,7 +4,12 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.offline as py
 
-client = pymongo.MongoClient("mongodb+srv://mainUser:An1ruddha@hospitalization-ptx4a.gcp.mongodb.net/test")
+import sys
+sys.path.append("../../")
+from mongodb_info import getClient
+
+myClient = getClient()
+client = pymongo.MongoClient(myClient)
 mydb = client['resource_data']
 mycol = mydb['resources_4_27']
 
