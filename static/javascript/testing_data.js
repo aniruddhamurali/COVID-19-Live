@@ -25,9 +25,9 @@ function displayHTMLTable(results) {
                             '<th style="width: 10%;">' + 'Date' + '</th>' +
                             '<th style="width: 20%;">' + 'Source Label' + '</th>' +
                             '<th style="width: 10%;">' + 'Cumulative Total' + '</th>' + 
-                            '<th style="width: 10%;">' + 'Cumulative total per thousand' + '</th>' +
+                            '<th style="width: 10%;">' + 'Cumulative Total per Thousand' + '</th>' +
                             '<th style="width: 15%;">' + 'Daily Change in Cumulative People' + '</th>' +
-                            '<th style="width: 15%;">' + 'Daily change in cumulative total per thousand' + '</th>' +
+                            '<th style="width: 15%;">' + 'Daily Change in Cumulative Total per Thousand' + '</th>' +
                           '</thead>';
         } else if (cell_data[0] === "") {
             continue;
@@ -35,8 +35,8 @@ function displayHTMLTable(results) {
         else {
             table_data += '<tr>';
             // Data we want is in this range
-            for (var cell_count = 0; cell_count < 10; cell_count++) {
-                if (cell_count === 2 || cell_count === 4 || cell_count === 5) {
+            for (var cell_count = 1; cell_count < 11; cell_count++) {
+                if (cell_count === 3 || cell_count === 5 || cell_count === 6) {
                     continue
                 } 
                 table_data += '<td>' + cell_data[cell_count] + '</td>';

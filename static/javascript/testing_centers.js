@@ -21,10 +21,17 @@ $(document).ready(function () {
 
             htmlResult += '<h3>' + name + '</h3>' +
                           '<h5>' + details + '</h5>' +
-                          '<p>' + appointment + '</p>' +
-                          '<p>' + referral + '</p>' +
-                          '<p>' + testing + '</p>' +
-                          '<p>' + driving + '</p>' +
+                          '<table>' +
+                            '<tr>' +
+                                '<td>' + appointment + '</td>' +
+                                '<td>' + referral + '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                                '<td>' + testing + '</td>' +
+                                '<td>' + driving + '</td>' +
+                            '</tr>' +
+                          '</table>' + 
+                          '<br>' +
                           '<p>' + instructions + '</p>' +
                           '</a>'
 

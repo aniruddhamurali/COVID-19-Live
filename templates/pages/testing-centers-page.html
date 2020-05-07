@@ -2,70 +2,57 @@
 
 {% block content %}
 
-<h1 id="bla">Testing Centers</h1>
+<h1 class="title">Testing Centers</h1>
 <br>
-<!--
-<div id="testing_centers"></div>
--->
-
 
 <div class="box text-center">
-    <div id="left"><i class="fas fa-chevron-circle-left fa-5x"></i></div>  
-    <div id="card"></div>
+    <div id="left"><i class="fas fa-chevron-circle-left fa-5x"></i></div>
+    <div id="card"></div>  
     <div id="right"><i class="fas fa-chevron-circle-right fa-5x"></i></div>
 </div>
 
+
 <style>
+    h1, h2, #card h3, h4, h5{
+        text-align: center;
+        color: white;
+    }
+    
+    #card h5 {
+        margin-bottom: 20px;
+    }
     #card {
         width: 75%;
     }
+
     .box div {
         display: inline-block;
-        vertical-align: middle;
+        vertical-align: top;
     }
+    #left, #right {
+        margin: 0 auto;
+    }
+
     .fas {
         color: white;
     }
+    .fas:hover {
+        color: #1ba0e3;
+        transition: 0.3s;
+    }
+
+    #card table {
+        text-align: center;
+        margin: 0 auto;
+        width: 50%;
+    }
+    #card td {
+        height: 50px;
+        text-align: center;
+        color: white;
+    }
 </style>
 
-
-<!--
-<div class="scrollmenu"></div>
-
-<style>
-    .scrollmenu {
-        background-color: #333;
-        overflow: auto;
-        white-space: nowrap;
-    }
-    
-    .scrollmenu a {
-        display: inline-block;
-        color: white;
-        text-align: center;
-        padding: 14px;
-        text-decoration: none;
-        
-        word-wrap: break-word;
-        max-width: 50%;
-        
-    }
-    
-    .scrollmenu a:hover {
-        background-color: #777;
-    }
-
-    h1 {
-        color: white;
-        overflow: none;
-        text-align: center;
-    }
-
-    .navbar {
-        max-width: 100%;
-    }
-</style>
--->
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="{{ url_for('static', filename='javascript/testing_centers.js') }}"></script>
