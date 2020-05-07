@@ -2,17 +2,72 @@
 
 {% block content %}
 
-<h1>Testing Centers</h1>
-<div id="testing_centers" class="text-center"></div>
+<h1 id="bla">Testing Centers</h1>
+<br>
+<!--
+<div id="testing_centers"></div>
+-->
+
+
+<div class="box text-center">
+    <div id="left"><i class="fas fa-chevron-circle-left fa-5x"></i></div>  
+    <div id="card"></div>
+    <div id="right"><i class="fas fa-chevron-circle-right fa-5x"></i></div>
+</div>
 
 <style>
-    h1 {
+    #card {
+        width: 75%;
+    }
+    .box div {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .fas {
         color: white;
     }
 </style>
 
+
+<!--
+<div class="scrollmenu"></div>
+
+<style>
+    .scrollmenu {
+        background-color: #333;
+        overflow: auto;
+        white-space: nowrap;
+    }
+    
+    .scrollmenu a {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px;
+        text-decoration: none;
+        
+        word-wrap: break-word;
+        max-width: 50%;
+        
+    }
+    
+    .scrollmenu a:hover {
+        background-color: #777;
+    }
+
+    h1 {
+        color: white;
+        overflow: none;
+        text-align: center;
+    }
+
+    .navbar {
+        max-width: 100%;
+    }
+</style>
+-->
+
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="{{ url_for('static', filename='javascript/testing_centers.js') }}"></script>
-
 
 {% endblock %}
