@@ -8,6 +8,10 @@ from other_data import testing_centers
 
 app = Flask(__name__)
 
+results = testing_centers.run()
+googleMap = testing_centers.getMap()
+print("yooooooo")
+
 @app.route("/")
 def globe_map():
     #globe_plot.run()
@@ -87,7 +91,7 @@ def nearby_testing():
 
 @app.route("/get_testing_centers")
 def get_testing_centers():
-    return json.dumps(testing_centers.run())
+    return json.dumps(results)
 
     
 if __name__ == "__main__":

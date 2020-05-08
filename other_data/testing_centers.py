@@ -62,6 +62,9 @@ def run():
         results[i]['link'] = link['href']
         i += 1
 
+    #googleMap = soup.find_all('div', {"class": "bQUiFc"})
+    #results.append(googleMap)
+
     return results
 
     #newcol = mycol.insert_many(results)
