@@ -38,16 +38,16 @@ def run():
         results[i]['details'] = details
 
         info = loc.find_all('span', {"class": "gqguwf X0w5lc"})
-        appt = info[0].text.strip()
-        ref = info[1].text.strip()
-        test = info[2].text.strip()
+        appt = info[1].text.strip()
+        ref = info[2].text.strip()
+        test = info[3].text.strip()
         results[i]['appointment'] = appt
         results[i]['referral'] = ref
         results[i]['testing'] = test
         results[i]['drive_through'] = 'Not drive-through'
 
-        if len(info) > 3:
-            dt = info[3].text.strip()
+        if len(info) > 4:
+            dt = info[4].text.strip()
             results[i]['drive_through'] = dt
 
         instructions = loc.find_all('div', {"class": "rxSVje rllt__wrapped"})[0].text.strip()
@@ -68,3 +68,4 @@ def run():
     return results
 
     #newcol = mycol.insert_many(results)
+run()

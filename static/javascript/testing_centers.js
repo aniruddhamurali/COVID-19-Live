@@ -18,14 +18,15 @@ $(document).ready(function () {
 
             htmlResult += '<h3>' + name + '</h3>' +
                           '<h5>' + details + '</h5>' +
+                          '<div class="divider"></div>' +
                           '<table>' +
                             '<tr>' +
-                                '<td>' + appointment + '</td>' +
-                                '<td>' + referral + '</td>' +
+                                '<td class="bg-info">' + appointment + '</td>' +
+                                '<td class="bg-info">' + referral + '</td>' +
                             '</tr>' +
                             '<tr>' +
-                                '<td>' + testing + '</td>' +
-                                '<td>' + driving + '</td>' +
+                                '<td class="bg-info">' + testing + '</td>' +
+                                '<td class="bg-info">' + driving + '</td>' +
                             '</tr>' +
                           '</table>' + 
                           '<br>' +

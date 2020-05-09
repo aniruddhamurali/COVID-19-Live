@@ -9,8 +9,6 @@ from other_data import testing_centers
 app = Flask(__name__)
 
 results = testing_centers.run()
-googleMap = testing_centers.getMap()
-print("yooooooo")
 
 @app.route("/")
 def globe_map():
