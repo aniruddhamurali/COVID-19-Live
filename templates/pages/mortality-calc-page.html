@@ -5,14 +5,147 @@
 <h1 class="title">Mortality Calculator</h1>
 <br>
 <br>
-<div class="text-center">
-</div>
+<form class="needs-validation" novalidate>
+    <div class="form-row">
+        <div class="from-group col-md-2">
+            <label class="mr-sm-2" for="sex">Sex</label>
+            <select class="custom-select mr-sm-2" id="sex">
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+            <option value="3">Other</option>
+            </select>
+        </div>
+        <div class="form-group col-md-3">
+            <label class="mr-sm-2" for="age">Age Group</label>
+            <select class="custom-select mr-sm-2" id="age">
+            <option value="1">0-9 years</option>
+            <option value="2">10-19 years</option>
+            <option value="3">20-29 years</option>
+            <option value="4">30-39 years</option>
+            <option value="5">40-49 years</option>
+            <option value="6">50-59 years</option>
+            <option value="7">60-69 years</option>
+            <option value="8">70-79 years</option>
+            <option value="9">80-89 years</option>
+            <option value="10">90-99 years</option>
+            <option value="11">100 years or older</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="height">Height (cm)</label>
+            <input type="text" class="form-control" id="height">
+            <div class="invalid-feedback">
+                Please provide your height.
+            </div>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="weight">Weight (kg)</label>
+            <input type="text" class="form-control" id="weight">
+            <div class="invalid-feedback">
+                Please provide your weight.
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <label class="mr-sm-2" for="blood">Blood Group</label>
+            <select class="custom-select mr-sm-2" id="blood">
+            <option value="1">I don't know</option>
+            <option value="2">O+ (O Positive)</option>
+            <option value="3">O- (O Negative)</option>
+            <option value="4">A+ (A Positive)</option>
+            <option value="5">A- (A Negative)</option>
+            <option value="6">B+ (B Positive)</option>
+            <option value="7">B- (B Negative)</option>
+            <option value="8">AB+ (AB Positive)</option>
+            <option value="9">AB- (AB Negative)</option>
+            </select>
+        </div>
+    </div>
+    <br>
+
+    <h2>Health Factors</h2>
+    <br>
+    <div class="form-row">
+    <div class="form-group col-md-4">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="covidPositive" value="positive">
+            <label class="form-check-label" for="covidPositive">Tested positive for COVID-19</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="covidSymptoms" value="symptoms">
+            <label class="form-check-label" for="covidSymptoms">Has COVID-19 symptoms</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="covidContact" value="contact">
+            <label class="form-check-label" for="covidContact">Been in contact with someone who has COVID-19</label>
+        </div>
+    </div>
+    <br>
+
+    <div class="form-group col-md-4">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="asthma" value="asthma">
+            <label class="form-check-label" for="asthma">Asthma</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="kidneyDisease" value="kidneyDisease">
+            <label class="form-check-label" for="kidneyDisease">Kidney Disease</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="immunoCompromised" value="immunoCompromised">
+            <label class="form-check-label" for="immunoCompromised">Compromised immune system</label>
+        </div>        
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="heartDisease" value="heartDisease">
+            <label class="form-check-label" for="heartDisease">Heart Disease</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="lungDisease" value="lungDisease">
+            <label class="form-check-label" for="lungDisease">Lung Disease</label>
+        </div>
+    </div>
+    <div class="form-group col-md-4">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="diabetes" value="diabetes">
+            <label class="form-check-label" for="diabetes">Diabetes</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="hiv" value="hiv">
+            <label class="form-check-label" for="hiv">HIV Positive</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="hypertension" value="hypertension">
+            <label class="form-check-label" for="hypertension">Hypertension (high blood pressure)</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="other" value="other">
+            <label class="form-check-label" for="other">Other chronic illnesses</label>
+        </div>
+    </div>
+    </div>
+    <!--
+    <div style="clear: both;"></div>
+    -->
+    <br>
+    <div class="button">
+        <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+    </div>
+</form>
 
 
 <style>
-    h1 {
+    h1, h2 {
         text-align: center;
         color: white;
+    }
+    label, h2 {
+        color: white;
+    }
+    .form-check {
+        padding-bottom: 3px;
+        margin-left: 20%;
+    }
+    form .button {
+        text-align: center;
     }
 </style>
 
