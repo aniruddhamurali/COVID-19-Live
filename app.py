@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 import json
 
 from templates.plots import us_state_map, testing_plots
@@ -94,6 +94,16 @@ def get_testing_centers():
 @app.route("/mortality_calc")
 def mortality_calc():
     return render_template("pages/mortality-calc-page.html")
+
+@app.route('/get_form_data', methods = ['POST'])
+def get_form_data():
+    #jsdata = json.loads(request.form['javascript_data'])
+    jsdata = request.get_json()
+    data = dict()
+    for d in jsdata:
+        data[d["name"]] = d["value"]
+    print(data)
+    return jsonify(data)
 
     
 if __name__ == "__main__":

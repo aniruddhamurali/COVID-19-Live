@@ -5,58 +5,58 @@
 <h1 class="title">Mortality Calculator</h1>
 <br>
 <br>
-<form class="needs-validation" novalidate>
+<form id="needs-validation" novalidate>
     <div class="form-row">
         <div class="from-group col-md-2">
             <label class="mr-sm-2" for="sex">Sex</label>
-            <select class="custom-select mr-sm-2" id="sex">
-            <option value="1">Male</option>
-            <option value="2">Female</option>
-            <option value="3">Other</option>
+            <select class="custom-select mr-sm-2" id="sex" name="sex">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
             </select>
         </div>
         <div class="form-group col-md-3">
             <label class="mr-sm-2" for="age">Age Group</label>
-            <select class="custom-select mr-sm-2" id="age">
-            <option value="1">0-9 years</option>
-            <option value="2">10-19 years</option>
-            <option value="3">20-29 years</option>
-            <option value="4">30-39 years</option>
-            <option value="5">40-49 years</option>
-            <option value="6">50-59 years</option>
-            <option value="7">60-69 years</option>
-            <option value="8">70-79 years</option>
-            <option value="9">80-89 years</option>
-            <option value="10">90-99 years</option>
-            <option value="11">100 years or older</option>
+            <select class="custom-select mr-sm-2" id="age" name="age">
+                <option value="0_10">0-9 years</option>
+                <option value="10_20">10-19 years</option>
+                <option value="20_30">20-29 years</option>
+                <option value="30_40">30-39 years</option>
+                <option value="40_50">40-49 years</option>
+                <option value="50_60">50-59 years</option>
+                <option value="60_70">60-69 years</option>
+                <option value="70_80">70-79 years</option>
+                <option value="80_90">80-89 years</option>
+                <option value="90_100">90-99 years</option>
+                <option value="100_110">100 years or older</option>
             </select>
         </div>
         <div class="form-group col-md-2">
             <label for="height">Height (cm)</label>
-            <input type="text" class="form-control" id="height">
+            <input type="text" class="form-control" id="height" name="height" placeholder="Height" required>
             <div class="invalid-feedback">
                 Please provide your height.
             </div>
         </div>
         <div class="form-group col-md-2">
             <label for="weight">Weight (kg)</label>
-            <input type="text" class="form-control" id="weight">
+            <input type="text" class="form-control" id="weight" name="weight" placeholder="Weight" required>
             <div class="invalid-feedback">
                 Please provide your weight.
             </div>
         </div>
         <div class="form-group col-md-3">
-            <label class="mr-sm-2" for="blood">Blood Group</label>
-            <select class="custom-select mr-sm-2" id="blood">
-            <option value="1">I don't know</option>
-            <option value="2">O+ (O Positive)</option>
-            <option value="3">O- (O Negative)</option>
-            <option value="4">A+ (A Positive)</option>
-            <option value="5">A- (A Negative)</option>
-            <option value="6">B+ (B Positive)</option>
-            <option value="7">B- (B Negative)</option>
-            <option value="8">AB+ (AB Positive)</option>
-            <option value="9">AB- (AB Negative)</option>
+            <label class="mr-sm-2" for="blood">Blood Type</label>
+            <select class="custom-select mr-sm-2" id="blood" name="blood_type">
+                <option value="unknown">I don't know</option>
+                <option value="op">O+ (O Positive)</option>
+                <option value="on">O- (O Negative)</option>
+                <option value="ap">A+ (A Positive)</option>
+                <option value="an">A- (A Negative)</option>
+                <option value="bp">B+ (B Positive)</option>
+                <option value="bn">B- (B Negative)</option>
+                <option value="abp">AB+ (AB Positive)</option>
+                <option value="abn">AB- (AB Negative)</option>
             </select>
         </div>
     </div>
@@ -67,15 +67,15 @@
     <div class="form-row">
     <div class="form-group col-md-4">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="covidPositive" value="positive">
+            <input class="form-check-input" type="checkbox" id="covidPositive" name="covid19_positive" value="1">
             <label class="form-check-label" for="covidPositive">Tested positive for COVID-19</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="covidSymptoms" value="symptoms">
+            <input class="form-check-input" type="checkbox" id="covidSymptoms" name="covid19_symptoms" value="1">
             <label class="form-check-label" for="covidSymptoms">Has COVID-19 symptoms</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="covidContact" value="contact">
+            <input class="form-check-input" type="checkbox" id="covidContact" name="covid19_contact" value="1">
             <label class="form-check-label" for="covidContact">Been in contact with someone who has COVID-19</label>
         </div>
     </div>
@@ -83,41 +83,41 @@
 
     <div class="form-group col-md-4">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="asthma" value="asthma">
+            <input class="form-check-input" type="checkbox" id="asthma" name="asthma" value="1">
             <label class="form-check-label" for="asthma">Asthma</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="kidneyDisease" value="kidneyDisease">
+            <input class="form-check-input" type="checkbox" id="kidneyDisease" name="kidney_disease" value="1">
             <label class="form-check-label" for="kidneyDisease">Kidney Disease</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="immunoCompromised" value="immunoCompromised">
+            <input class="form-check-input" type="checkbox" id="immunoCompromised" name="compromised_immune" value="1">
             <label class="form-check-label" for="immunoCompromised">Compromised immune system</label>
         </div>        
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="heartDisease" value="heartDisease">
+            <input class="form-check-input" type="checkbox" id="heartDisease" name="heart_disease" value="1">
             <label class="form-check-label" for="heartDisease">Heart Disease</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="lungDisease" value="lungDisease">
+            <input class="form-check-input" type="checkbox" id="lungDisease" name="lung_disease" value="1">
             <label class="form-check-label" for="lungDisease">Lung Disease</label>
         </div>
     </div>
     <div class="form-group col-md-4">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="diabetes" value="diabetes">
+            <input class="form-check-input" type="checkbox" id="diabetes" name="diabetes" value="1">
             <label class="form-check-label" for="diabetes">Diabetes</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="hiv" value="hiv">
+            <input class="form-check-input" type="checkbox" id="hiv" name="hiv_positive" value="1">
             <label class="form-check-label" for="hiv">HIV Positive</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="hypertension" value="hypertension">
+            <input class="form-check-input" type="checkbox" id="hypertension" name="hypertension" value="1">
             <label class="form-check-label" for="hypertension">Hypertension (high blood pressure)</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="other" value="other">
+            <input class="form-check-input" type="checkbox" id="other" name="other_chronic" value="1">
             <label class="form-check-label" for="other">Other chronic illnesses</label>
         </div>
     </div>
@@ -150,10 +150,7 @@
 </style>
 
 
-
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<!--
-<script src="{{ url_for('static', filename='javascript/testing_centers.js') }}"></script>
--->
+<script src="{{ url_for('static', filename='javascript/mortality_calc_form.js') }}"></script>
 
 {% endblock %}
