@@ -18,7 +18,7 @@ def run():
     USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0"
     headers = {"user-agent" : USER_AGENT}
 
-    response = requests.get("https://www.google.com/search?sa=X&rlz=1C5CHFA_enUS559US559&biw=1680&bih=870&sxsrf=ALeKk03axWVxKZgGpBr1XwC8ZbjRI5PNYg:1588735669996&q=covid+19+testing+center&npsic=0&rflfq=1&rlha=0&rllag=41153517,-73314179,13078&tbm=lcl&ved=2ahUKEwiC3YHKpZ7pAhUKg3IEHaRbC5MQjGp6BAgNEBU&tbs=lrf:!3sIAE,lf:1,lf_ui:16&rldoc=1",
+    response = requests.get("https://www.google.com/search?rlz=1C5CHFA_enUS559US559&sxsrf=ALeKk02DeetRUkmRRjNC5Co7B7azzUtGRQ:1589204031549&q=covid+19+testing+centers&npsic=0&rflfq=1&rlha=0&rllag=41153517,-73314179,13078&tbm=lcl&ved=2ahUKEwjtrZqu9qvpAhU1ZDUKHZ-9A0oQjGp6BAgUED8&tbs=lrf:!3sIAE,lf:1,lf_ui:16&rldoc=1#rldoc=1&rlfi=hd:;si:,41.30159486477283,-71.626144996875;mv:[[41.8166219,-72.6467073],[41.00047730000001,-73.6158366]]",
                             headers=headers)
     response = response.text.strip()
     soup = BeautifulSoup(response, "html.parser")
@@ -37,7 +37,7 @@ def run():
         details = loc.find_all('div', {"class": "f5Sf1"})[0].text.strip()
         results[i]['details'] = details
 
-        info = loc.find_all('span', {"class": "gqguwf X0w5lc"})
+        info = loc.find_all('span', {'class': "gqguwf X0w5lc"})
         appt = info[1].text.strip()
         ref = info[2].text.strip()
         test = info[3].text.strip()

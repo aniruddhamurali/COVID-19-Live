@@ -91,6 +91,10 @@ def nearby_testing():
 def get_testing_centers():
     return json.dumps(results)
 
+@app.route("/mortality_calc")
+def mortality_calc():
+    return render_template("pages/mortality-calc-page.html")
+
     
 if __name__ == "__main__":
     app.run(debug=True)
