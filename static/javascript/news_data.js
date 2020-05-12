@@ -15,7 +15,7 @@ console.log(currentTime);
 var key = keys.news_key;
 
 var url = 'http://newsapi.org/v2/everything?' +
-          'q=+Coronavirus&' +
+          'q=+recent+news+on+coronavirus&' +
           'from=' + today + '&' +
           'sortBy=popularity&' +
           'pageSize=30&' +
@@ -32,7 +32,6 @@ fetch(req)
         var articles = myJson.articles;
         
         var news_data = '<div class="container">'
-        //var news_data = '';
         for (var i = 0; i < articles.length; i++) {
             // article information
             var article_data = articles[i];
@@ -60,7 +59,7 @@ fetch(req)
             }
 
             news_data += '<div class="col-sm d-flex">' +
-                            '<div class="card flex-fill bg-info">' + 
+                            '<div class="card flex-fill bg-secondary">' + 
                                 '<div class="card-body">' +
                                     '<h5 class="card-title">' + title + '</h5>' + 
                                     '<small>' + source + '  -  ' + elapsed + '</small>' +

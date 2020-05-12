@@ -46,8 +46,11 @@
                 <li id="global_testing" {% if request.endpoint == '/global_testing' %} class="active" {% endif %}> 
                     <a href="{{ url_for('global_testing') }}">Testing</a>
                 </li>
-                <li id="news"  {% if request.endpoint == '/news' %} class="active" {% endif %}>
-                    <a href="{{ url_for('news') }}">News</a>
+                <li id="mortality_calc" {% if request.endpoint == '/mortality_calc' %} class="active" {% endif %}>
+                    <a href="{{ url_for('mortality_calc') }}">Mortality Calculator</a>
+                </li>
+                <li id="nearby_testing" {% if request.endpoint == '/nearby_testing' %} class="active" {% endif %}>
+                    <a href="{{ url_for('nearby_testing') }}">Testing Centers</a>
                 </li>
             </ul>
         </nav>
@@ -69,11 +72,8 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item" {% if request.endpoint == '/mortality_calc' %} class="active" {% endif %}>
-                                <a id="mortality_calc" class="nav-link" href="{{ url_for('mortality_calc') }}">Mortality Calculator</a>
-                            </li>
-                            <li class="nav-item" {% if request.endpoint == '/nearby_testing' %} class="active" {% endif %}>
-                                <a id="nearby_testing" class="nav-link" href="{{ url_for('nearby_testing') }}">Testing Centers</a>
+                            <li class="nav-item" {% if request.endpoint == '/news' %} class="active" {% endif %}>
+                                <a id="news" class="nav-link" href="{{ url_for('news') }}">Daily Digest</a>
                             </li>
                             <li class="nav-item" {% if request.endpoint == '/covid' %} class="active" {% endif %}>
                                 <a id="covid" class="nav-link" href="{{ url_for('covid') }}">What is COVID-19?</a>
