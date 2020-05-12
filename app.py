@@ -97,13 +97,12 @@ def mortality_calc():
 
 @app.route('/get_form_data', methods = ['POST'])
 def get_form_data():
-    #jsdata = json.loads(request.form['javascript_data'])
     jsdata = request.get_json()
     data = dict()
     for d in jsdata:
         data[d["name"]] = d["value"]
-    print(data)
-    return jsonify(data)
+    prediction = load_model.predict(data)
+    return jsonify(prediction)
 
     
 if __name__ == "__main__":

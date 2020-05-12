@@ -50,7 +50,10 @@ def run():
             dt = info[4].text.strip()
             results[i]['drive_through'] = dt
 
-        instructions = loc.find_all('div', {"class": "rxSVje rllt__wrapped"})[0].text.strip()
+        if loc.find_all('div', {"class": "rxSVje rllt__wrapped"}) != []:
+            instructions = loc.find_all('div', {"class": "rxSVje rllt__wrapped"})[0].text.strip()
+        else:
+            instructions = "Instructions:N/A"
         results[i]['instructions'] = 'Instructions: ' + instructions[instructions.index('Instructions:') + len('Instructions:'):]
 
         i += 1

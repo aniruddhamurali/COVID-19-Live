@@ -123,11 +123,11 @@ def run():
                 gridcolor = 'rgb(102, 102, 102)'
             )
         ),
-        sliders = sliders,
+        #sliders = sliders,
         height = 600,
     )
     #fig = dict(data=dataSlider, layout=layout_def)
-    fig = go.Figure(data = dataSlider, layout = layout)
+    fig = go.Figure(data = dataSlider[len(dataSlider) - 1], layout = layout)
     fig.update_layout(template="plotly_dark")
 
     #py.plot(fig, validate=False, filename='./templates/plots/global-coronavirus-cases', auto_open=False)

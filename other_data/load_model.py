@@ -119,7 +119,7 @@ def makeInput(d):
         
 
 def predict(d):
-    model = pickle.load(open('model.sav', 'rb'))
+    model = pickle.load(open('other_data/model.sav', 'rb'))
     inputs = makeInput(d)
     x = model.predict([inputs])
     return x[0]

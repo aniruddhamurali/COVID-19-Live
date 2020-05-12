@@ -30,7 +30,7 @@ def run():
         locations = 'FIPS', 
         color = yesterday,
         color_continuous_scale = "Viridis",
-        range_color = (0, 100),
+        range_color = (0, 300),
         scope = "usa",
         labels = {yesterday: 'Cases per County'},
         template = "plotly_dark"
