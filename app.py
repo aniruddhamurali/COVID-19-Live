@@ -4,7 +4,7 @@ import json
 from templates.plots import us_state_map, testing_plots
 from templates.plots import hospital_resources_needed
 #from templates.plots import globe_plot, bubble_map, us_county_map
-from other_data import testing_centers
+from other_data import testing_centers, load_model
 
 app = Flask(__name__)
 
