@@ -8,11 +8,13 @@ import sys
 sys.path.append("../../")
 from mongodb_info import getClient
 
+# Receive hospital resource data from MongoDB Atlas
 myClient = getClient()
 client = pymongo.MongoClient(myClient)
 mydb = client['resource_data']
 mycol = mydb['resources_4_27']
 
+# Dict for US abbreviations
 us_state_abbrev = {
     'Alabama': 'AL',
     'Alaska': 'AK',
@@ -72,16 +74,13 @@ us_state_abbrev = {
     'Wyoming': 'WY'
 }
 
-'''doc = mycol.find()
-for data in doc:
-    print(data['ICUbed_mean'])
-'''
 
 def run():
     columns = ['location_name', 'date', 'allbed_mean', 'ICUbed_mean', 'bedover_mean', 'icuover_mean']
     df = pd.DataFrame(columns=columns)
 
     index = 0
+    # Add relevant data from most recent date available
     for data in mycol.find({"date":"2020-04-27"}):
         if data['location_name'] in us_state_abbrev.keys():
             df.append(pd.Series(name=index))
@@ -94,11 +93,14 @@ def run():
             index += 1
 
 
-    scale = 5
+    scale = 5 # Scaling bubble size
+
+    # Columns will be used for text when hovering over a bubble
     df['text_all_mean'] = df['location_name'].map(us_state_abbrev) + '<br>' + 'Average total beds needed per day: ' + df['allbed_mean'].astype(str)
     df['text_icu_mean'] = df['location_name'].map(us_state_abbrev) + '<br>' + 'ICU beds needed per day: ' + df['ICUbed_mean'].astype(str)
 
     fig = go.Figure()
+    # Add first trace with data and estimated average total beds needed
     fig.add_trace(go.Scattergeo(
             locations = df['location_name'].map(us_state_abbrev),
             locationmode = 'USA-states',
@@ -108,10 +110,10 @@ def run():
                 line_width = 0.5,
                 sizemode = 'area'
             ),
-            #text = df['text_all_mean'],
             hovertemplate = df['text_all_mean'] + '<extra></extra>',
         ))
 
+    # Add second trace with data and estimated ICU beds needed
     fig.add_trace(go.Scattergeo(
             locations = df['location_name'].map(us_state_abbrev),
             locationmode = 'USA-states',
@@ -121,13 +123,12 @@ def run():
                 line_width = 0.5,
                 sizemode = 'area'
             ),
-            #text = df['text_icu_mean'],
             hovertemplate = df['text_icu_mean'] + '<extra></extra>',
-            visible = False
+            visible = False # not visible when user initially comes to page
         ))
 
 
-
+    # Update plot with buttons to switch between two figures
     fig.update_layout(
         updatemenus=[
             dict(

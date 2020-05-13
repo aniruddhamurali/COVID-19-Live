@@ -15,6 +15,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
+# Dict for US abbreviations
 us_state_abbrev = {
     'Alabama': 'AL',
     'Alaska': 'AK',
@@ -76,18 +77,21 @@ us_state_abbrev = {
 
 
 def run():
+    # Read csv from raw Github CSV file
     us = pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv")
 
     states_grouped = us.groupby('Province_State').sum().reset_index()
     states = states_grouped['Province_State']
 
+    # Get yesterday's date to display most recent county case data
     today = date.today()
     yesterday = today - timedelta(days = 1)
     yesterday = str(yesterday.month) + "/" + str(yesterday.day) + "/" + str(yesterday.year)[len(str(yesterday.year))-2:]
 
+    # Set configurations of chloropleth map
     fig = go.Figure(data=go.Choropleth(
         locations = states.map(us_state_abbrev),
-        z = states_grouped[yesterday],
+        z = states_grouped[yesterday], # Date is used as the column of dataframe
         locationmode = 'USA-states',
         colorscale = 'Reds',
         colorbar_title = "Cases per State",

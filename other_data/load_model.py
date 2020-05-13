@@ -4,6 +4,7 @@ import geocoder
 
 from sklearn.tree import DecisionTreeRegressor
 
+# get current location
 def getCoords():
     g = geocoder.ip('me')
     return g.latlng
@@ -22,6 +23,7 @@ def makeInput(d):
     inputs.append(d['height'])
     inputs.append(d['weight'])
 
+    # add bmi
     bmi = (float(d['weight'])) / (float(d['height'])/100)**2
     inputs.append(bmi)
 
@@ -118,7 +120,9 @@ def makeInput(d):
     return inputs
         
 
+# Predict mortality risk based on inputs and model
 def predict(d):
+    # Load model
     model = pickle.load(open('other_data/model.sav', 'rb'))
     inputs = makeInput(d)
     x = model.predict([inputs])

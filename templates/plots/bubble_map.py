@@ -8,11 +8,12 @@ warnings.filterwarnings('ignore')
 
 
 def run():
+    # Read csv from raw Github CSV file
     countries = pd.read_csv('https://raw.githubusercontent.com/datasets/covid-19/master/data/time-series-19-covid-combined.csv')
 
     countries = countries[countries['Confirmed'].notna()]
+    # Convert countries to ISO codes
     iso3_codes = coco.convert(names=countries['Country/Region'].tolist(), to='ISO3')
-
     countries['ISO_Codes'] = iso3_codes
     countries = countries[countries['ISO_Codes'] != 'not found']
 
@@ -21,17 +22,16 @@ def run():
     countries_cleaned = countries.groupby('Country/Region')
     countries_grouped = list(countries_cleaned)
 
-
     columns = ['Date', 'Country/Region', 'Lat', 'Long', 'ISO_Codes', 'Confirmed']
     df = pd.DataFrame(columns=columns)
 
-    dataSlider = []
-
     index = 0
+    # Iterate through each country
     for country in countries_grouped:
         country_data = country[1]
         eachDate = list(country_data.groupby("Date"))
         
+        # Iterate through each date and add series to dataframe
         for date in eachDate:
             date_data = date[1]
             df.append(pd.Series(name=index))
@@ -48,12 +48,13 @@ def run():
             index += 1
             
 
+    # Set configurations for bubble map
     fig = px.scatter_geo(df,
         locations = "ISO_Codes", 
         hover_name = "Country/Region", 
         size = df["Confirmed"].astype(int), 
         size_max = 50,
-        animation_frame = "Date", 
+        animation_frame = "Date",  # Animation occurs by date
         projection = "natural earth",
         height = 600,
         template = "plotly_dark"

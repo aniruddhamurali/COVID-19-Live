@@ -16,6 +16,7 @@ def globe_map():
     return render_template("pages/globe-page.html")
 
 
+# Global cases pages
 @app.route("/globe_map")
 def globe_map_copy():
     #globe_plot.run()
@@ -31,6 +32,7 @@ def global_data():
     return render_template("pages/global-data-page.html")
 
 
+# US data pages
 @app.route("/us_states_map")
 def us_states_map():
     us_state_map.run()
@@ -66,10 +68,10 @@ def us_hospital_data():
     return render_template("pages/us-hospital-data-page.html")
 
 
+# Top navbar pages
 @app.route("/news")
 def news():
     return render_template("pages/news-page.html")
-
 
 @app.route("/about")
 def about():
@@ -83,6 +85,8 @@ def data():
 def covid():
     return render_template("pages/covid-info-page.html")
 
+
+# Nearby testing page
 @app.route("/nearby_testing")
 def nearby_testing():
     return render_template("pages/testing-centers-page.html")
@@ -91,6 +95,8 @@ def nearby_testing():
 def get_testing_centers():
     return json.dumps(results)
 
+
+# Mortality calculator page
 @app.route("/mortality_calc")
 def mortality_calc():
     return render_template("pages/mortality-calc-page.html")

@@ -15,13 +15,9 @@ import seaborn as sns
 import warnings
 warnings.filterwarnings('ignore')
 
-from datetime import date 
-from datetime import timedelta
-
-today = date.today()
-yesterday = today - timedelta(days = 1)
 
 def run():
+    # Read csv from raw Github CSV file
     countries = pd.read_csv('https://raw.githubusercontent.com/datasets/covid-19/master/data/time-series-19-covid-combined.csv')
 
     # Create a new dataframe with our cleaned country list
@@ -29,12 +25,12 @@ def run():
     countries_cleaned = countries.groupby('Country/Region')
     countries_grouped = list(countries_cleaned)
 
-
     columns = ['Country/Region', 'Lat', 'Long'] + dates
     df = pd.DataFrame(columns=columns)
 
 
     index = 0
+    # Iterate through each country
     for country in countries_grouped:
         df.append(pd.Series(name=index))
         df.at[index, 'Country/Region'] = country[1]['Country/Region'].unique()[0]
@@ -45,6 +41,7 @@ def run():
 
         eachDate = list(country_data.groupby("Date"))
         
+        # Iterate through each date to get cases
         for date in eachDate:
             date_data = date[1]
             cases = date_data['Confirmed'].sum() + 1
@@ -52,11 +49,13 @@ def run():
 
         index += 1
 
+    # Data for data slider excludes first 3 columns
     datesWithData = list(df.columns)[3:]
 
-    # Generate world plots for Coronavirus
+    # Colorscale
     metricscale1=[[0, 'rgb(102,194,165)'], [0.05, 'rgb(102,194,165)'], [0.15, 'rgb(171,221,164)'], [0.2, 'rgb(230,245,152)'], [0.25, 'rgb(255,255,191)'], [0.35, 'rgb(254,224,139)'], [0.45, 'rgb(253,174,97)'], [0.55, 'rgb(213,62,79)'], [1.0, 'rgb(158,1,66)']]
 
+    # Set data slider attributes and values for each date
     dataSlider = []
     for date in datesWithData:
         data_one_day = dict(
@@ -87,7 +86,6 @@ def run():
         step = dict(method = 'restyle',
                     args = ['visible', [False] * len(dataSlider)],
                     label = dataSlider[i]['name'])
-
         step['args'][1][i] = True
         steps.append(step)
 
@@ -100,6 +98,7 @@ def run():
                     bgcolor = 'white',
                     tickwidth = 1)] 
 
+    # Set configurations for orthographic heatmap
     layout = dict(
         title = 'World Heatmap of Global Confirmed Cases of Coronavirus',
         title_x = 0.5,
