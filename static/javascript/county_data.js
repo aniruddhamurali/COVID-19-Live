@@ -7,15 +7,8 @@ Papa.parse("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/css
 
 function displayHTMLTable(results) {
     var data = results.data;
-
-    /*
-    i = data.length - 1;
-    if (data[i]["Date"] === "") i -= 1;
-    var row = data[i];
-    d = row["Date"];
-    */
-
     var table_data = '<table class="table table-bordered table-sm">';
+
     for (var count = 0; count < data.length; count++) {
         var cell_data = Object.keys(data[count]).map(function(key){
             return data[count][key];
@@ -50,6 +43,7 @@ function displayHTMLTable(results) {
     $('#county_data_table').html(table_data);
     
     
+    // Sort data when table header cell clicked on
     $('th').click(function() {
         if (this.asc === undefined) {
             this.asc = true;

@@ -23,8 +23,10 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        // Keep global cases tab active
         $("#globe_map").attr('id', 'coronavirus_bubble_map');
         
+        // Make sure plot stays centered when sidebar toggles
         $('#sidebarCollapse').click(function () {
             if ($('#sidebar').hasClass('active')) {
                 $('.plot').css({'margin-left':'0', 'margin-right':'0', 'transition':'0.3s'});

@@ -28,10 +28,12 @@
             </div>
 
             <ul class="list-unstyled components sticky-top">
+                <!-- Global case data -->
                 <li id="globe_map" {% if request.endpoint == '/globe_map' %} class="active" {% endif %}>
                     <a href="{{ url_for('globe_map') }}">Global Cases</a>
                 </li>
 
+                <!-- US data -->
                 <li {% if request.endpoint == '/us_states_map' %} class="active" {% endif %}>
                     <div class="dropright">
                         <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">United States</a>
@@ -43,12 +45,17 @@
                     </div>  
                 </li>
 
+                <!-- Global testing data -->
                 <li id="global_testing" {% if request.endpoint == '/global_testing' %} class="active" {% endif %}> 
                     <a href="{{ url_for('global_testing') }}">Testing</a>
                 </li>
+
+                <!-- Mortality risk calculator -->
                 <li id="mortality_calc" {% if request.endpoint == '/mortality_calc' %} class="active" {% endif %}>
                     <a href="{{ url_for('mortality_calc') }}">Mortality Calculator</a>
                 </li>
+
+                <!-- Nearby testing centers -->
                 <li id="nearby_testing" {% if request.endpoint == '/nearby_testing' %} class="active" {% endif %}>
                     <a href="{{ url_for('nearby_testing') }}">Testing Centers</a>
                 </li>
@@ -57,30 +64,38 @@
 
         <!-- Page Content  -->
         <div id="content">
-
+            <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
                 <div class="container-fluid">
-
+                    <!-- Sidebar toggle button -->
                     <button type="button" id="sidebarCollapse" class="btn btn-info" style="background-color: #1ba0e3;">
                         <i class="fas fa-align-left"></i>
                         <span> </span>
                     </button>
                     
+                    <!-- Content collapse button -->
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
+                            <!-- Daily news -->
                             <li class="nav-item" {% if request.endpoint == '/news' %} class="active" {% endif %}>
                                 <a id="news" class="nav-link" href="{{ url_for('news') }}">Daily Digest</a>
                             </li>
+
+                            <!-- What is COVID-19 page -->
                             <li class="nav-item" {% if request.endpoint == '/covid' %} class="active" {% endif %}>
                                 <a id="covid" class="nav-link" href="{{ url_for('covid') }}">What is COVID-19?</a>
                             </li>
+
+                            <!-- Data sources -->
                             <li class="nav-item" {% if request.endpoint == '/data' %} class="active" {% endif %}>
                                 <a id="data" class="nav-link" href="{{ url_for('data') }}">Data Sources</a>
                             </li>
+
+                            <!-- About page -->
                             <li class="nav-item" {% if request.endpoint == '/about' %} class="active" {% endif %}>
                                 <a id="about" class="nav-link" href="{{ url_for('about') }}">About/Contact</a>
                             </li>
@@ -101,7 +116,7 @@
     </div>
 
 
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
@@ -113,12 +128,11 @@
      
     <script type="text/javascript">
         $(document).ready(function () {
+            // Toggling sidebar
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
-            $("#{{request.endpoint}}").addClass("active");
-            console.log("{{request.endpoint}}");
-            console.log($("#{{request.endpoint}}").parent().hasClass("active"));
+            $("#{{request.endpoint}}").addClass("active"); // make tab active when clicked on
         });
     </script>
 </body>

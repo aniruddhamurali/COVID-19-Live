@@ -41,6 +41,7 @@ function displayHTMLTable(results) {
     $('#global_data_table').html(table_data);
     
     
+    // Sort data when table header cell clicked on
     $('th').click(function() {
         if (this.asc === undefined) {
             this.asc = true;

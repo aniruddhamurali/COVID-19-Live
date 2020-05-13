@@ -50,6 +50,7 @@
 
 <script>
     $(document).ready(function () {
+        // Make sure plot stays centered when sidebar toggles
         $('#sidebarCollapse').click(function () {
             if ($('#sidebar').hasClass('active')) {
                 $('.plot').css({'margin-left':'0', 'margin-right':'0', 'transition':'0.3s'});
@@ -58,6 +59,7 @@
             }
         });
 
+        // Keep us hospital resources tab active
         $("#state_resources").attr('id', 'us_hospital_data');
     });
 </script>

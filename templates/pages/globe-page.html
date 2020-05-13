@@ -17,67 +17,6 @@
     </div>
 </div>
 
-<!--
-<script>
-    Papa.parse("https://raw.githubusercontent.com/datasets/covid-19/master/data/worldwide-aggregated.csv", {
-        download: true,
-        header: true,
-	    complete: displayHTMLTable
-    })
-
-    function formatDate() {
-        var d = new Date()
-        d.setDate(d.getDate() - 1);
-        var month = '' + (d.getMonth() + 1)
-        var day = '' + d.getDate()
-        var year = d.getFullYear();
-
-        if (month.length < 2) 
-            month = '0' + month;
-        if (day.length < 2) 
-            day = '0' + day;
-
-        return [year, month, day].join('-');
-    }
-    
-    function displayHTMLTable(results) {
-         // create a date object using Date constructor 
-        //var dateObj = new Date(); 
-        // subtract one day from current time                           
-        //dateObj.setDate(dateObj.getDate() - 1);
-        var date = formatDate();
-        //var table = "<table class='table table-bordered table-striped'>";
-        var data = results.data;
-        var deaths = 0;
-
-        
-        for (i = 0; i < data.length; i++){
-            //table = "<tr>";
-            var row = data[i];
-            d = row["Date"];
-            if (d === date) {
-                cases = row["Confirmed"];
-                deaths = parseInt(cases);
-            }
-            
-            /*
-            var cells = row.join(",").split(",");
-            
-            for (j = 0; j < cells.length; j++){
-                table += "<td>";
-                table += cells[j];
-                table += "</th>";
-            }
-            table += "</tr>";
-            */
-        }
-        let deathString = "<p class='text-danger'>" + deaths + "</p>";
-        //table += "</table>";
-        console.log(deathString);
-        $("#cases").html(deathString);
-    }
-</script>
--->
 
 <div class="plot" style="width: auto;">
     {% include 'plots/global-coronavirus-cases.html' %}
@@ -87,6 +26,7 @@
 
 <script>
     $(document).ready(function () {
+        // Make sure plot stays centered when sidebar toggles
         $('#sidebarCollapse').click(function () {
             if ($('#sidebar').hasClass('active')) {
                 $('.plot').css({'margin-left':'0', 'margin-right':'0', 'transition':'0.3s'});
