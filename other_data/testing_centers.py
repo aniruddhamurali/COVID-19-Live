@@ -38,25 +38,26 @@ def run():
         results[i]['details'] = details
 
         info = loc.find_all('span', {'class': "gqguwf X0w5lc"})
-        appt = info[1].text.strip()
-        ref = info[2].text.strip()
-        test = info[3].text.strip()
-        results[i]['appointment'] = appt
-        results[i]['referral'] = ref
-        results[i]['testing'] = test
-        results[i]['drive_through'] = 'Not drive-through'
+        if info != []:
+            appt = info[1].text.strip()
+            ref = info[2].text.strip()
+            test = info[3].text.strip()
+            results[i]['appointment'] = appt
+            results[i]['referral'] = ref
+            results[i]['testing'] = test
+            results[i]['drive_through'] = 'Not drive-through'
 
-        if len(info) > 4:
-            dt = info[4].text.strip()
-            results[i]['drive_through'] = dt
+            if len(info) > 4:
+                dt = info[4].text.strip()
+                results[i]['drive_through'] = dt
 
-        if loc.find_all('div', {"class": "rxSVje rllt__wrapped"}) != []:
-            instructions = loc.find_all('div', {"class": "rxSVje rllt__wrapped"})[0].text.strip()
-        else:
-            instructions = "Instructions:N/A"
-        results[i]['instructions'] = 'Instructions: ' + instructions[instructions.index('Instructions:') + len('Instructions:'):]
+            if loc.find_all('div', {"class": "rxSVje rllt__wrapped"}) != []:
+                instructions = loc.find_all('div', {"class": "rxSVje rllt__wrapped"})[0].text.strip()
+            else:
+                instructions = "Instructions:N/A"
+            results[i]['instructions'] = 'Instructions: ' + instructions[instructions.index('Instructions:') + len('Instructions:'):]
 
-        i += 1
+            i += 1
 
 
     i = 0
