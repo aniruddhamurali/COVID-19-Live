@@ -4,8 +4,6 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.offline as py
 
-import sys
-sys.path.append("../../")
 from mongodb_info import getClient
 
 # Receive hospital resource data from MongoDB Atlas
