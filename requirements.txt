@@ -1,0 +1,13 @@
+flask
+werkzeug
+uwsgi
+pandas
+plotly
+numpy
+matplotlib
+seaborn
+scipy
+six
+country_converter
+scikit-learn
+geocoder
