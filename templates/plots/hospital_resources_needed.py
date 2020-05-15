@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.offline as py
 
-from mongodb_info import getClient
+from templates.plots.mongodb_info import getClient
 
 # Receive hospital resource data from MongoDB Atlas
 myClient = getClient()
