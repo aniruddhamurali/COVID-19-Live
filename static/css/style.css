@@ -28,6 +28,7 @@ a:focus {
     border-radius: 0;
     margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    padding-right: 10px;
 }
 
 .navbar-btn {
@@ -69,6 +70,10 @@ a:focus {
     color: #fff;
     transition: all 0.3s;
     background-color: #1ba0e3;
+}
+
+#sidebarCollapse {
+    padding: 2px 8px;
 }
 
 #sidebar.active {

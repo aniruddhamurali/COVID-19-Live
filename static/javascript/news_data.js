@@ -66,15 +66,27 @@ $('#more').click(function() {
                 }
 
                 console.log(source);
-                
+
                 news_data += '<div class="card flex-fill">' + 
+                            '<div class="card-body">' +
+                                '<h5 class="card-title">' + title + '</h5>' + 
+                                '<small>' + source + '  -  ' + elapsed + '</small>' +
+                                '<p class="card-text">' + description + '</p>' +
+                            '</div>' +
+                            '<div>' + 
+                                '<a href=' + '"' + url + '"' + 'class="" target="_blank">Go to article</a>' + 
+                            '</div>' +
+                            '<br>' +
+                         '</div>';
+                
+                /*news_data += '<div class="card flex-fill">' + 
                                 '<div class="card-body">' +
                                     '<h5 class="card-title">' + title + '</h5>' + 
                                     '<small>' + source + '  -  ' + elapsed + '</small>' +
                                     '<p class="card-text">' + description + '</p>' +
                                     '<a href=' + '"' + url + '"' + 'class="btn btn-primary" target="_blank">Go to article</a>' +
                                 '</div>' +
-                            '</div>';
+                            '</div>';*/
             }
 
             news_data += '</div>';
@@ -121,7 +133,6 @@ fetch(req)
                                 '<h5 class="card-title">' + title + '</h5>' + 
                                 '<small>' + source + '  -  ' + elapsed + '</small>' +
                                 '<p class="card-text">' + description + '</p>' +
-                                //'<a href=' + '"' + url + '"' + 'class="" target="_blank">Go to article</a>' +
                             '</div>' +
                             '<div>' + 
                                 '<a href=' + '"' + url + '"' + 'class="" target="_blank">Go to article</a>' + 
