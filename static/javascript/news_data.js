@@ -41,7 +41,8 @@ $('#more').click(function() {
         .then(function(myJson) {
             var articles = myJson.articles;
             
-            var news_data = '<div class="container text-center" style="width: 100%;">';
+            //var news_data = '<div class="container text-center" style="width: 100%;">';
+            news_data = '<div>';
             for (var i = 0; i < articles.length; i++) {
                 // article information
                 var article_data = articles[i];
@@ -66,15 +67,14 @@ $('#more').click(function() {
 
                 console.log(source);
                 
-                news_data += '<div class="card flex-fill bg-dark text-center">' + 
+                news_data += '<div class="card flex-fill">' + 
                                 '<div class="card-body">' +
                                     '<h5 class="card-title">' + title + '</h5>' + 
                                     '<small>' + source + '  -  ' + elapsed + '</small>' +
                                     '<p class="card-text">' + description + '</p>' +
                                     '<a href=' + '"' + url + '"' + 'class="btn btn-primary" target="_blank">Go to article</a>' +
                                 '</div>' +
-                            '</div>' + 
-                            '<br>';
+                            '</div>';
             }
 
             news_data += '</div>';
@@ -92,7 +92,8 @@ fetch(req)
     .then(function(myJson) {
         var articles = myJson.articles;
         
-        var news_data = '<div class="container text-center" style="width: 100%;">';
+        //var news_data = '<div class="text-center">';
+        var news_data = '<div>';
         for (var i = 0; i < articles.length; i++) {
             // article information
             var article_data = articles[i];
@@ -115,15 +116,18 @@ fetch(req)
                 elapsed = "" + Math.abs((currentHr - hr)) + " hours ago";
             }
             
-            news_data += '<div class="card flex-fill bg-dark text-center">' + 
+            news_data += '<div class="card flex-fill">' + 
                             '<div class="card-body">' +
                                 '<h5 class="card-title">' + title + '</h5>' + 
                                 '<small>' + source + '  -  ' + elapsed + '</small>' +
                                 '<p class="card-text">' + description + '</p>' +
-                                '<a href=' + '"' + url + '"' + 'class="" target="_blank">Go to article</a>' +
+                                //'<a href=' + '"' + url + '"' + 'class="" target="_blank">Go to article</a>' +
                             '</div>' +
-                         '</div>' + 
-                         '<br>';
+                            '<div>' + 
+                                '<a href=' + '"' + url + '"' + 'class="" target="_blank">Go to article</a>' + 
+                            '</div>' +
+                            '<br>' +
+                         '</div>';
         }
 
         news_data += '</div>';

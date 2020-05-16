@@ -22,7 +22,7 @@ a:focus {
 }
 
 .navbar {
-    padding: 15px 10px;
+    padding: 0px 0px;
     background: rgb(0, 0, 0);
     border: none;
     border-radius: 0;
@@ -65,9 +65,10 @@ a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #1ba0e3;
+    /*background: #1ba0e3;*/
     color: #fff;
     transition: all 0.3s;
+    background-color: #1ba0e3;
 }
 
 #sidebar.active {
@@ -75,15 +76,16 @@ a:focus {
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
+    padding: 30px 20px;
     background: #1ba0e3;
 }
 
 #sidebar ul li a {
-    padding: 20px;
+    padding: 10px;
     font-size: 1.1em;
     display: block;
     border-bottom: white solid 1px;    
+    background: #1ba0e3;
 }
 
 /* Hovering over sidebar option */
@@ -128,9 +130,10 @@ ul ul a {
 
 #content {
     width: 100%;
-    padding: 20px;
+    /*padding: 20px;*/
     min-height: 100vh;
     transition: all 0.3s;
+    padding: 0 15px;
 }
 
 .plot {

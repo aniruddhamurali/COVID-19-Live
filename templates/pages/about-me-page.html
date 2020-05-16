@@ -50,8 +50,15 @@
             <h3>Share this website with others!</h3>
             <p>Help others stay up-to-date!</p>
             <span>
-                <div class="fb-share-button" data-href="https://www.your-domain.com/your-page.html" data-layout="button" data-size="large"></div>
+                <a class="fb-share-button" data-href="https://aniruddhamurali.herokuapp.com/" data-layout="button" data-size="large"></a>
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-count="horizontal" data-show-count="true">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <span class="a2a_kit a2a_default_style">
+                    <!--
+                    <a class="a2a_button_facebook_share"></a>
+                    <a class="a2a_button_twitter_tweet"></a>
+                    -->
+                    <a data-url="https://aniruddhamurali.herokuapp.com/" class="a2a_button_linkedin_share"></a>
+                </span>
             </span>
         </div>
         <!-- Prevent elements coming afterward from floating -->
@@ -83,6 +90,9 @@
         width: 50%;
         float: right;
     }
+    #share a {
+        padding: 0 5px;
+    }
 
     .fa-instagram-square {
         color: transparent;
@@ -103,12 +113,18 @@
     .fab {
         margin: 5px;
     }
+    .a2a_kit {
+        transform: scale(1.25);
+    }
 
     #about span {
         display: table;
         margin: 0 auto;
     }
 </style>
+
+
+<script async src="https://static.addtoany.com/menu/page.js"></script>
 
  <!-- Font Awesome JS -->
  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>

@@ -25,7 +25,7 @@
     <div class="wrapper" class="active">
         <!-- Sidebar  -->
         <nav id="sidebar">
-            <div class="sidebar-header" style="border-bottom: black solid 3px;">
+            <div class="sidebar-header text-center" style="border-bottom: black solid 3px; color: #1ba0e3; background-color: #0f0f0f">
                 <a href="{{ url_for('globe_map') }}"><h3>COVID-19 Tracking</h3></a>
             </div>
 
@@ -58,9 +58,41 @@
                 </li>
 
                 <!-- Nearby testing centers -->
-                <li id="nearby_testing" {% if request.endpoint == '/nearby_testing' %} class="active" {% endif %}>
+                <li id="nearby_testing" style="/*border-bottom: black solid 10px;*/" {% if request.endpoint == '/nearby_testing' %} class="active" {% endif %}>
                     <a href="{{ url_for('nearby_testing') }}">Testing Centers</a>
                 </li>
+
+                <!-- Daily news -->
+                <li id="news" {% if request.endpoint == '/news' %} class="active" {% endif %}>
+                    <a href="{{ url_for('news') }}">Daily Digest</a>
+                </li>
+
+                <li style="background-color: #0f0f0f; height: 10px;"></li>
+
+                <!-- What is COVID-19 page -->
+                <li id="covid" {% if request.endpoint == '/covid' %} class="active" {% endif %}>
+                    <a href="{{ url_for('covid') }}">What is COVID-19?</a>
+                </li>
+
+                <!-- Data sources -->
+                <li id="data" {% if request.endpoint == '/data' %} class="active" {% endif %}>
+                    <a href="{{ url_for('data') }}">Data Sources</a>
+                </li>
+
+                <!-- About page -->
+                <li id="about" {% if request.endpoint == '/about' %} class="active" {% endif %}>
+                    <a href="{{ url_for('about') }}">About/Contact</a>
+                </li>
+                <li style="background-color: #0f0f0f; height: 10px;"></li>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div style="font-size: smaller; text-align: center;">
+                    <p style="margin-bottom: 0;"><u>Questions?</u></p>
+                    <a href="mailto:aniruddha.murali@gmail.com?subject=Feedback for Website">Email Us</a>
+                </div>
             </ul>
         </nav>
 
@@ -68,42 +100,45 @@
         <div id="content">
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg bg-dark sticky-top">
-                <div class="container-fluid">
+                <div class="container-fluid text-center">
                     <!-- Sidebar toggle button -->
-                    <button type="button" id="sidebarCollapse" class="btn btn-info" style="background-color: #1ba0e3;">
+                    <button class="btn btn-light type="button" id="sidebarCollapse" class="btn bg-dark">
                         <!--<i class="fas fa-align-left"></i>-->
-                        <i class="fas fa-outdent"></i>
+                        <!--<i class="fas fa-outdent"></i>-->
+                        <!--<i style="color: white;" class="fas fa-chevron-circle-left"></i>-->
+                        <i class="fas fa-align-justify"></i>
                         <span> </span>
                     </button>
+                    <h1 style="color:#1ba0e3;">COVID-19 Tracking</h1>
                     
                     <!-- Content collapse button -->
+                    <!--
                     <button class="btn btn-light d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
+                    -->
 
+                    <!--
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                            <!-- Daily news -->
                             <li class="nav-item" {% if request.endpoint == '/news' %} class="active" {% endif %}>
                                 <a id="news" class="nav-link" href="{{ url_for('news') }}">Daily Digest</a>
                             </li>
 
-                            <!-- What is COVID-19 page -->
                             <li class="nav-item" {% if request.endpoint == '/covid' %} class="active" {% endif %}>
                                 <a id="covid" class="nav-link" href="{{ url_for('covid') }}">What is COVID-19?</a>
                             </li>
 
-                            <!-- Data sources -->
                             <li class="nav-item" {% if request.endpoint == '/data' %} class="active" {% endif %}>
                                 <a id="data" class="nav-link" href="{{ url_for('data') }}">Data Sources</a>
                             </li>
 
-                            <!-- About page -->
                             <li class="nav-item" {% if request.endpoint == '/about' %} class="active" {% endif %}>
                                 <a id="about" class="nav-link" href="{{ url_for('about') }}">About/Contact</a>
                             </li>
                         </ul>
                     </div>
+                    -->
                 </div>
             </nav>
 
