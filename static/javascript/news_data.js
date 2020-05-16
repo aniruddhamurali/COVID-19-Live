@@ -63,8 +63,10 @@ $('#more').click(function() {
                 } else {
                     elapsed = "" + (currentHr - hr) + " hours ago";
                 }
+
+                console.log(source);
                 
-                news_data += '<div class="card flex-fill text-center">' + 
+                news_data += '<div class="card flex-fill bg-dark text-center">' + 
                                 '<div class="card-body">' +
                                     '<h5 class="card-title">' + title + '</h5>' + 
                                     '<small>' + source + '  -  ' + elapsed + '</small>' +
@@ -108,12 +110,12 @@ fetch(req)
             var min = time[1];
             var elapsed;
             if ((currentHr - hr) < 1) {
-                elapsed = "" + (currentMin - min) + " minutes ago";
+                elapsed = "" + Math.abs((currentMin - min)) + " minutes ago";
             } else {
-                elapsed = "" + (currentHr - hr) + " hours ago";
+                elapsed = "" + Math.abs((currentHr - hr)) + " hours ago";
             }
             
-            news_data += '<div class="card flex-fill text-center">' + 
+            news_data += '<div class="card flex-fill bg-dark text-center">' + 
                             '<div class="card-body">' +
                                 '<h5 class="card-title">' + title + '</h5>' + 
                                 '<small>' + source + '  -  ' + elapsed + '</small>' +
