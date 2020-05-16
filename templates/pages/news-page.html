@@ -5,6 +5,9 @@
 <h2>Daily Digest</h2>
 <br>
 <div id="news_data"></div>
+<div class="text-center">
+    <button id="more" type="button" class="btn btn-light">See more articles</button>
+</div>
 
 <style>
     h5 {
@@ -14,20 +17,35 @@
         color: #e9ecef;
         font-size: 15px;
     }
-    #news h5 {
-        margin-bottom: 4px;
+    #news_data .card {
+        background-color: transparent;
+        color: white;
+        border-color: white;
+        list-style-position: inside;
+        width: 100%;
     }
-    #news small {
-        margin-bottom: 16px;
-    }
-
     h2 {
         color: white;
         text-align: center;
     }
-
+    #news_data a {
+        background-color: #1ba0e3;
+        padding: 5px 10px;
+        border-radius: 2px;
+        color: black;
+    }
+    #news_data a:hover {
+        background-color: #28a745;
+        transition: 0.3s;
+    }
+    #more:hover {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        transition: 0.3s;
+    }
 </style>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script type='text/javascript' src="{{ url_for('static', filename='javascript/keys.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='javascript/news_data.js') }}"></script>
 
