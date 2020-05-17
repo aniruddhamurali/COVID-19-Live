@@ -23,12 +23,13 @@ a:focus {
 
 .navbar {
     padding: 0px 0px;
-    background: rgb(0, 0, 0);
+    background-color: #1ba0e3;
     border: none;
     border-radius: 0;
-    margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
     padding-right: 10px;
+    vertical-align: middle;
+    padding: 5px 0px;
 }
 
 .navbar-btn {

@@ -58,7 +58,7 @@
                 </li>
 
                 <!-- Nearby testing centers -->
-                <li id="nearby_testing" style="/*border-bottom: black solid 10px;*/" {% if request.endpoint == '/nearby_testing' %} class="active" {% endif %}>
+                <li id="nearby_testing" {% if request.endpoint == '/nearby_testing' %} class="active" {% endif %}>
                     <a href="{{ url_for('nearby_testing') }}">Testing Centers</a>
                 </li>
 
@@ -99,7 +99,7 @@
         <!-- Page Content  -->
         <div id="content">
             <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg bg-dark sticky-top text-center">
+            <nav class="navbar navbar-expand-lg sticky-top text-center">
                 <div class="container-fluid text-center">
                     <!-- Sidebar toggle button -->
                     <button class="btn btn-light" type="button" id="sidebarCollapse">
@@ -107,9 +107,11 @@
                         <!--<i class="fas fa-outdent"></i>-->
                         <!--<i style="color: white;" class="fas fa-chevron-circle-left"></i>-->
                         <i class="fas fa-align-justify"></i>
-                        <span> </span>
+                        
                     </button>
-                    <h3 style="color:#1ba0e3;">COVID-19 Tracker</h3>
+                    <div class="mx-auto order-0">
+                        <h2 style="color:white; margin-bottom: 0;">COVID-19 Tracker</h2>
+                    </div>
                     
                     <!-- Content collapse button -->
                     <!--
