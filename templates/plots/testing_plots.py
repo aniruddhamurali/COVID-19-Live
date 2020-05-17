@@ -29,7 +29,7 @@ def run():
                 color = 'rgba(37, 167, 247, 1.0)',
                 width = 1),
         ),
-        name = 'Cumulative total of COVID-19 tests <br>done per 1000 people',
+        name = '<br>Cumulative total of COVID-19 tests <br>done per 1000 people',
         orientation = 'h',
     ), 1, 1)
 
@@ -39,7 +39,7 @@ def run():
         y = df['Country'],
         mode = 'lines+markers',
         line_color = 'rgb(245, 141, 66)',
-        name = 'Daily change in cumulative total of <br>COVID-19 tests done per 1000 people',
+        name = '<br>Daily change in cumulative total of <br>COVID-19 tests done per 1000 people<br>',
         connectgaps = True, # Show line straight through countries that don't have this data available
         marker = dict(size = 7)
     ), 1, 2)
@@ -47,17 +47,14 @@ def run():
 
     # Configure layout of subplots
     fig.update_layout(
-        title = 'Cumulative Totals and Daily Changes in COVID-19 Testing',
+        title = 'Cumulative Totals and Daily <br>Changes in COVID-19 Testing \n',
         title_x = 0.5,
         # y-axis of first subplot
         yaxis = dict(
             showgrid = True,
             showline = False,
             showticklabels = True,
-            domain = [0.1, 0.95],
-            uirevision = dict(
-                editable = False
-            ),
+            domain = [0.03, 0.91],
             fixedrange = True,
         ),
         # y-axis of second subplot
@@ -65,7 +62,7 @@ def run():
             showgrid = True,
             showline = True,
             showticklabels = False,
-            domain = [0.1, 0.95],
+            domain = [0.03, 0.91],
             #fixedrange = True,
         ),
         # x-axis of first subplot
@@ -104,21 +101,7 @@ def run():
     total_per = np.round(df['Cumulative total per thousand'], decimals = 3)
     delta_per = np.round(df['Daily change in cumulative total per thousand'], decimals = 3)
 
-    # Note on bottom of plot
-    annotations.append(dict(xref = 'paper', yref = 'paper',
-                            x = 0.5, y = 0.06,
-                            text = 'Note: Some countries do not have data on daily changes in the ' +
-                                   'total number of tests done per 1 thousand people and/or the cumulative ' +
-                                   'total number of tests done per 1 thousand people. <br>' +
-                                   'Some countries also had multiple sources stating different numbers of ' + 
-                                   'tests, so all sources are included in these plots. Look at data table for more details.',
-                            font = dict(family = 'Arial', 
-                                        size = 12, 
-                                        color = 'rgb(225,225,225)'),
-                            showarrow = False))
-
-    fig.update_layout(annotations = annotations,
-                      height = 1700)
+    fig.update_layout(height = 1600)
 
     py.plot(fig, config={"displayModeBar": False}, validate=False, filename='./templates/plots/testing-plots', auto_open=False)
     #py.plot(fig, validate=False, filename='testing-plots', include_plotlyjs=False, output_type='div')

@@ -66,7 +66,7 @@ def run():
     fig.layout.updatemenus[0].buttons[0].args[1]['transition']['duration'] = 100
 
     fig.update_layout(
-        title = 'Animated Bubble Map of Global Confirmed Cases of Coronavirus', 
+        title = 'Animated Bubble Map of Global <br>Confirmed Cases of COVID-19', 
         title_x = 0.5,
         margin = {"l": 20, "r": 20, "t": 80, "b": 30},
     )

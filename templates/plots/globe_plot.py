@@ -100,7 +100,7 @@ def run():
 
     # Set configurations for orthographic heatmap
     layout = dict(
-        title = 'World Heatmap of Global Confirmed Cases of Coronavirus',
+        title = 'World Heatmap of Global Confirmed <br>Cases of COVID-19',
         title_x = 0.5,
         geo = dict(
             showframe = True,
@@ -123,7 +123,7 @@ def run():
             )
         ),
         #sliders = sliders,
-        #height = 600,
+        height = 600,
     )
     #fig = dict(data=dataSlider, layout=layout_def)
     fig = go.Figure(data = dataSlider[len(dataSlider) - 1], layout = layout)

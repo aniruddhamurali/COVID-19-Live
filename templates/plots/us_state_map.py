@@ -94,13 +94,17 @@ def run():
         z = states_grouped[yesterday], # Date is used as the column of dataframe
         locationmode = 'USA-states',
         colorscale = 'Reds',
-        colorbar_title = "Cases per State",
+        colorbar_title = "Cases per State<br\>",
+        colorbar = dict(
+            x = 0.9,
+            len = 0.5
+        ),
         zmin = 0,
         zmax = 50000
     ))
 
     fig.update_layout(
-        title = 'Current Coronavirus Cases per State in the U.S.',
+        title = 'Current Coronavirus Cases <br>per State in the U.S.',
         title_x = 0.5,
         geo_scope ='usa',
         margin = {"r": 20, "t": 80, "l": 20, "b": 20},

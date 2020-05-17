@@ -150,7 +150,7 @@ def run():
 
 
     fig.update_layout(
-        title = 'Estimated Hospital Resources Needed per Day For Each State in the U.S.',
+        title = 'Estimated Hospital Resources Needed <br>per Day For Each State in the U.S.',
         title_x = 0.5,
         geo_scope ='usa',
         margin = {"r": 20, "t": 80, "l": 20, "b": 20},
