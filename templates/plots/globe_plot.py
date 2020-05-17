@@ -66,7 +66,7 @@ def run():
             showscale = False,
             locations = df['Country/Region'].values,
             z = np.log10((df[date].values).astype(np.float64)),
-            text = [f'Country: {df["Country/Region"].iloc[i]}<br>Cases : {df[date].iloc[i] - 1}' for i in range(0,len(df))],
+            text = [f'Country: {df["Country/Region"].iloc[i]}<br>Cases: {df[date].iloc[i] - 1}' for i in range(0,len(df))],
             hoverinfo = 'text',
             locationmode = 'country names',
             marker = dict(
@@ -123,7 +123,8 @@ def run():
             )
         ),
         #sliders = sliders,
-        height = 600,
+        #height = 600,
+        autosize = True
     )
     #fig = dict(data=dataSlider, layout=layout_def)
     fig = go.Figure(data = dataSlider[len(dataSlider) - 1], layout = layout)

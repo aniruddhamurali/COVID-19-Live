@@ -21,13 +21,28 @@ a:focus {
     transition: all 0.3s;
 }
 
+/*-------------------
+    CONTENT STYLE
+-------------------*/
+
+#content {
+    width: 100%;
+    /*padding: 20px;*/
+    min-height: 100vh;
+    transition: all 0.3s;
+    padding: 0 0px;
+}
+
+.plot {
+    width: 100%;
+    padding: 20px;
+}
+
 .navbar {
-    padding: 0px 0px;
     background-color: #1ba0e3;
     border: none;
     border-radius: 0;
     margin-bottom: 30px;
-    padding-right: 10px;
     vertical-align: middle;
     padding: 5px 0px;
 }
@@ -47,10 +62,10 @@ a:focus {
 }
 
 .line {
-    width: 100%;
+    width: 95%;
     height: 1px;
     border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
+    margin: 40px;
 }
 
 
@@ -130,23 +145,6 @@ ul ul a {
 }
 
 
-/*-------------------
-    CONTENT STYLE
--------------------*/
-
-#content {
-    width: 100%;
-    /*padding: 20px;*/
-    min-height: 100vh;
-    transition: all 0.3s;
-    padding: 0 15px;
-}
-
-.plot {
-    width: 100%;
-    padding: 20px;
-}
-
 /*------------------
     MEDIAQUERIES
 ------------------*/
@@ -160,5 +158,8 @@ ul ul a {
     }
     #sidebarCollapse span {
         display: none;
+    }
+    #sidebarCollapse {
+        margin-left: 10px;
     }
 }

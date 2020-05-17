@@ -36,14 +36,18 @@ def run():
         range_color = (0, 300),
         scope = "usa",
         labels = {yesterday: 'Cases per County'},
-        template = "plotly_dark"
+        template = "plotly_dark",
+        hover_name = 'Admin2',
     )
 
     fig.update_layout(
         title = 'Current Coronavirus Cases <br>per County in the U.S.',
         title_x = 0.5,
         margin = {"r": 20, "t": 80, "l": 20, "b": 20},
-        height = 600
+        height = 600,
+        dragmode = False,
+        xaxis = {'fixedrange' : False},
+        yaxis = {'fixedrange' : False}
     )
     #py.plot(fig, filename="./templates/plots/us-counties-map.html", auto_open=False)
     py.plot(fig, config={"displayModeBar": False}, filename="us-counties-map.html", auto_open=False)

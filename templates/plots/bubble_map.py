@@ -57,7 +57,7 @@ def run():
         animation_frame = "Date",  # Animation occurs by date
         projection = "natural earth",
         height = 600,
-        template = "plotly_dark"
+        template = "plotly_dark",
     )
 
 
@@ -69,6 +69,7 @@ def run():
         title = 'Animated Bubble Map of Global <br>Confirmed Cases of COVID-19', 
         title_x = 0.5,
         margin = {"l": 20, "r": 20, "t": 80, "b": 30},
+        dragmode = False
     )
 
     #py.plot(fig, validate=False, filename='./templates/plots/global-bubble-map', auto_open=False)

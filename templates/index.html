@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>COVID-19 Tracking</title>
+    <title>COVID-19 Tracker</title>
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon" />
 
@@ -49,17 +49,17 @@
 
                 <!-- Global testing data -->
                 <li id="global_testing" {% if request.endpoint == '/global_testing' %} class="active" {% endif %}> 
-                    <a href="{{ url_for('global_testing') }}">Testing</a>
+                    <a href="{{ url_for('global_testing') }}">COVID-19 Testing</a>
                 </li>
 
                 <!-- Mortality risk calculator -->
                 <li id="mortality_calc" {% if request.endpoint == '/mortality_calc' %} class="active" {% endif %}>
-                    <a href="{{ url_for('mortality_calc') }}">Mortality Calculator</a>
+                    <a href="{{ url_for('mortality_calc') }}">Mortality Risk Calculator</a>
                 </li>
 
                 <!-- Nearby testing centers -->
                 <li id="nearby_testing" {% if request.endpoint == '/nearby_testing' %} class="active" {% endif %}>
-                    <a href="{{ url_for('nearby_testing') }}">Testing Centers</a>
+                    <a href="{{ url_for('nearby_testing') }}">Nearby Testing Centers</a>
                 </li>
 
                 <!-- Daily news -->

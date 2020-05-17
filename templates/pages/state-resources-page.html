@@ -4,7 +4,7 @@
 
 <div class="text-center">
     <div class="btn-group">
-        <button type="button" class="btn btn-primary active">Hospital Resources Needed</button>
+        <button type="button" class="btn btn-primary active">Resources Needed</button>
         <button type="button" class="btn btn-primary" {% if request.endpoint == '/us_hospital_data' %} class="active" {% endif %}>
             <a href="{{ url_for('us_hospital_data') }}">Capacity Data</a>
         </button>

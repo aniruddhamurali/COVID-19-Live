@@ -94,10 +94,10 @@ def run():
         z = states_grouped[yesterday], # Date is used as the column of dataframe
         locationmode = 'USA-states',
         colorscale = 'Reds',
-        colorbar_title = "Cases per State<br\>",
+        colorbar_title = "Cases per State",
         colorbar = dict(
-            x = 0.9,
-            len = 0.5
+            #x = 0.9,
+            len = 0.6
         ),
         zmin = 0,
         zmax = 50000
@@ -108,8 +108,10 @@ def run():
         title_x = 0.5,
         geo_scope ='usa',
         margin = {"r": 20, "t": 80, "l": 20, "b": 20},
-        height = 600,
-        template = "plotly_dark"
+        #height = 600,
+        template = "plotly_dark",
+        dragmode = False,
+        autosize = True
     )
 
     py.plot(fig, config={"displayModeBar": False}, validate=False, filename='./templates/plots/us-cases-map', auto_open=False)

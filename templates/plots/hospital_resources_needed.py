@@ -133,8 +133,8 @@ def run():
                 type = "buttons",
                 direction = "right",
                 active = 0,
-                x = 0.55,
-                y = 1.0,
+                x = 0.56,
+                y = 0.97,
                 bgcolor="rgb(100,0,200)",
                 font = dict(color="rgb(0,120,255)"),
                 buttons = list([
@@ -150,12 +150,13 @@ def run():
 
 
     fig.update_layout(
-        title = 'Estimated Hospital Resources Needed <br>per Day For Each State in the U.S.',
+        title = 'Estimated Hospital Resources <br>Needed per Day For Each <br>State in the U.S.',
         title_x = 0.5,
         geo_scope ='usa',
         margin = {"r": 20, "t": 80, "l": 20, "b": 20},
         height = 600,
-        template = "plotly_dark"
+        template = "plotly_dark",
+        dragmode = False
     )
 
     #py.plot(fig, validate=False, filename='./templates/plots/us-resources-needed', auto_open=False)
