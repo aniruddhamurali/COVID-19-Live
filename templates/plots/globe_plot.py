@@ -100,7 +100,7 @@ def run():
 
     # Set configurations for orthographic heatmap
     layout = dict(
-        title = 'World Heatmap of Global Confirmed <br>Cases of COVID-19',
+        title = 'World Heatmap of Global <br>Confirmed Cases of COVID-19',
         title_x = 0.5,
         geo = dict(
             showframe = True,
