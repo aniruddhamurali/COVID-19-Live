@@ -46,6 +46,6 @@ def run():
         height = 600
     )
     #py.plot(fig, filename="./templates/plots/us-counties-map.html", auto_open=False)
-    py.plot(fig, filename="us-counties-map.html", auto_open=False)
+    py.plot(fig, config={"displayModeBar": False}, filename="us-counties-map.html", auto_open=False)
 
 run()

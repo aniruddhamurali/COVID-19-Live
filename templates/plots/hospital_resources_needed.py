@@ -159,6 +159,6 @@ def run():
     )
 
     #py.plot(fig, validate=False, filename='./templates/plots/us-resources-needed', auto_open=False)
-    py.plot(fig, validate=False, filename='./templates/plots/us-resources-needed.html', auto_open=False)
+    py.plot(fig, config={"displayModeBar": False}, validate=False, filename='./templates/plots/us-resources-needed.html', auto_open=False)
 
 run()

@@ -29,7 +29,7 @@ def run():
                 color = 'rgba(37, 167, 247, 1.0)',
                 width = 1),
         ),
-        name = 'Cumulative total of COVID-19 tests done per 1 thousand people',
+        name = 'Cumulative total of COVID-19 tests <br>done per 1000 people',
         orientation = 'h',
     ), 1, 1)
 
@@ -39,7 +39,7 @@ def run():
         y = df['Country'],
         mode = 'lines+markers',
         line_color = 'rgb(245, 141, 66)',
-        name = 'Daily change in cumulative total of COVID-19 tests done per 1 thousand people',
+        name = 'Daily change in cumulative total of <br>COVID-19 tests done per 1000 people',
         connectgaps = True, # Show line straight through countries that don't have this data available
         marker = dict(size = 7)
     ), 1, 2)
@@ -55,6 +55,10 @@ def run():
             showline = False,
             showticklabels = True,
             domain = [0.1, 0.95],
+            uirevision = dict(
+                editable = False
+            ),
+            fixedrange = True,
         ),
         # y-axis of second subplot
         yaxis2 = dict(
@@ -62,6 +66,7 @@ def run():
             showline = True,
             showticklabels = False,
             domain = [0.1, 0.95],
+            #fixedrange = True,
         ),
         # x-axis of first subplot
         xaxis = dict(
@@ -71,8 +76,11 @@ def run():
             showgrid = True,
             domain = [0.05, 0.43],
             side = 'top',
-            dtick = 10,
-            fixedrange = True
+            dtick = 40,
+            fixedrange = True,
+            uirevision = dict(
+                editable = False
+            )
         ),
         # x-axis of second subplot
         xaxis2 = dict(
@@ -82,7 +90,7 @@ def run():
             showgrid = True,
             domain = [0.46, 0.95],
             side = 'top',
-            dtick = 0.2,
+            dtick = 1,
             fixedrange = True
         ),
         legend = dict(x = 0.32, y = 1.01, font_size = 12),
@@ -112,7 +120,7 @@ def run():
     fig.update_layout(annotations = annotations,
                       height = 1700)
 
-    py.plot(fig, validate=False, filename='./templates/plots/testing-plots', auto_open=False)
+    py.plot(fig, config={"displayModeBar": False}, validate=False, filename='./templates/plots/testing-plots', auto_open=False)
     #py.plot(fig, validate=False, filename='testing-plots', include_plotlyjs=False, output_type='div')
 
 run()
