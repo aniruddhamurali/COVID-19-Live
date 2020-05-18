@@ -17,6 +17,7 @@ def run():
     today = date.today()
     yesterday = today - timedelta(days = 1)
     yesterday = str(yesterday.month) + "/" + str(yesterday.day) + "/" + str(yesterday.year)[len(str(yesterday.year))-2:]
+    
 
     # US counties GeoJSON
     with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
@@ -26,6 +27,7 @@ def run():
     us = pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv")
     us = us.dropna()
     us['FIPS'] = us['FIPS'].apply(lambda x: str(int(x)).zfill(5)) # Make sure all counties FIPs are 5 digits
+    yesterday = us.columns[-1]
 
     # Set configurations of chloropleth map
     fig = px.choropleth(us, 

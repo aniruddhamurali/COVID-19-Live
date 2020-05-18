@@ -40,11 +40,10 @@ a:focus {
 
 .navbar {
     background-color: #1ba0e3;
-    border: none;
-    border-radius: 0;
     margin-bottom: 30px;
     vertical-align: middle;
-    padding: 5px 0px;
+    padding: 4px 0px;
+    border-bottom: white solid 1px;
 }
 
 .navbar-btn {
@@ -65,7 +64,7 @@ a:focus {
     width: 95%;
     height: 1px;
     border-bottom: 1px dashed #ddd;
-    margin: 40px;
+    margin: 2.5%;
 }
 
 
@@ -105,7 +104,8 @@ a:focus {
     padding: 10px;
     font-size: 1.1em;
     display: block;
-    border-bottom: white solid 1px;    
+    border-bottom: white solid 1px;
+    border-right: black solid 1px;    
     background: #1ba0e3;
 }
 

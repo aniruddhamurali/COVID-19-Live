@@ -101,7 +101,7 @@ def run():
     total_per = np.round(df['Cumulative total per thousand'], decimals = 3)
     delta_per = np.round(df['Daily change in cumulative total per thousand'], decimals = 3)
 
-    fig.update_layout(height = 1600)
+    fig.update_layout(height = 1600, dragmode = False)
 
     py.plot(fig, config={"displayModeBar": False}, validate=False, filename='./templates/plots/testing-plots', auto_open=False)
     #py.plot(fig, validate=False, filename='testing-plots', include_plotlyjs=False, output_type='div')

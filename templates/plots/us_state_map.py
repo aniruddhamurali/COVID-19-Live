@@ -87,6 +87,7 @@ def run():
     today = date.today()
     yesterday = today - timedelta(days = 1)
     yesterday = str(yesterday.month) + "/" + str(yesterday.day) + "/" + str(yesterday.year)[len(str(yesterday.year))-2:]
+    yesterday = us.columns[-1]
 
     # Set configurations of chloropleth map
     fig = go.Figure(data=go.Choropleth(
@@ -107,13 +108,13 @@ def run():
         title = 'Current Coronavirus Cases <br>per State in the U.S.',
         title_x = 0.5,
         geo_scope ='usa',
-        margin = {"r": 20, "t": 80, "l": 20, "b": 20},
-        #height = 600,
+        #margin = {"r": 20, "t": 80, "l": 20, "b": 20},
+        height = 600,
         template = "plotly_dark",
         dragmode = False,
-        autosize = True
     )
 
-    py.plot(fig, config={"displayModeBar": False}, validate=False, filename='./templates/plots/us-cases-map', auto_open=False)
+    py.plot(fig, config={"displayModeBar": False}, validate=False, auto_open=False)
+    #py.plot(fig, config={"displayModeBar": False}, validate=False, filename='./templates/plots/us-cases-map', auto_open=False)
 
 run()
