@@ -16,7 +16,7 @@ function displayHTMLTable(results) {
 
         if (count === 0) { 
             table_data += '<thead class="thead-dark">' + 
-                            '<th>' + 'State' + '</th>' +
+                            '<th>' + 'State' + '<i class="fas fa-sort-up fa-1x"></i>' + '</th>' +
                             '<th>' + 'County' + '</th>' +
                             '<th>' + 'Cases' + '</th>' +
                           '</thead>';
@@ -51,6 +51,18 @@ function displayHTMLTable(results) {
         var table = $(this).parents('table').eq(0)
         var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
         this.asc = !this.asc
+
+        // If ascending, show up arrow icon. Else, show down arrow icon.
+        if (this.asc) {
+            $('.fa-sort-down').remove();
+            $('.fa-sort-up').remove();
+            $(this).append('<i class="fas fa-sort-up fa-1x"></i>');
+        } else {
+            $('.fa-sort-up').remove();
+            $('.fa-sort-down').remove();
+            $(this).append('<i class="fas fa-sort-down fa-1x"></i>');
+        }
+
         if (!this.asc){
             rows = rows.reverse()
         }

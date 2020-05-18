@@ -16,13 +16,13 @@ function displayHTMLTable(results) {
 
         if (count === 0) { 
             table_data += '<thead class="thead-dark" style="border-color: white;">' + 
-                            '<th style="width: 20%;">' + 'Country' + '</th>' +
+                            '<th style="width: 20%;">' + 'Country' + '<i class="fas fa-sort-up fa-1x"></i>' + '</th>' +
                             '<th style="width: 10%;">' + 'Date' + '</th>' +
                             '<th style="width: 20%;">' + 'Source Label' + '</th>' +
                             '<th style="width: 10%;">' + 'Cumulative Total' + '</th>' + 
-                            '<th style="width: 10%;">' + 'Cumulative Total per Thousand' + '</th>' +
-                            '<th style="width: 15%;">' + 'Daily Change in Cumulative People' + '</th>' +
-                            '<th style="width: 15%;">' + 'Daily Change in Cumulative Total per Thousand' + '</th>' +
+                            '<th style="width: 15%;">' + 'Cumulative Total per Thousand' + '</th>' +
+                            '<th style="width: 10%;">' + 'Daily Change' + '</th>' +
+                            '<th style="width: 15%;">' + 'Daily Change per Thousand' + '</th>' +
                           '</thead>';
         } else if (cell_data[0] === "") {
             continue;
@@ -51,6 +51,18 @@ function displayHTMLTable(results) {
         var table = $(this).parents('table').eq(0)
         var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
         this.asc = !this.asc
+
+        // If ascending, show up arrow icon. Else, show down arrow icon.
+        if (this.asc) {
+            $('.fa-sort-down').remove();
+            $('.fa-sort-up').remove();
+            $(this).append('<i class="fas fa-sort-up fa-1x"></i>');
+        } else {
+            $('.fa-sort-up').remove();
+            $('.fa-sort-down').remove();
+            $(this).append('<i class="fas fa-sort-down fa-1x"></i>');
+        }
+
         if (!this.asc){
             rows = rows.reverse()
         }
