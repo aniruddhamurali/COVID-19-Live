@@ -123,8 +123,8 @@ def run():
             )
         ),
         #sliders = sliders,
-        #height = 600,
-        autosize = True
+        height = 600,
+        #autosize = True
     )
     #fig = dict(data=dataSlider, layout=layout_def)
     fig = go.Figure(data = dataSlider[len(dataSlider) - 1], layout = layout)

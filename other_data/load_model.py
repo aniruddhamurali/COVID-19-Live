@@ -20,8 +20,8 @@ def makeInput(d):
     inputs.append(coords[1])
 
     # add height and weight
-    inputs.append(d['height'])
-    inputs.append(d['weight'])
+    inputs.append(float(d['height']))
+    inputs.append(float(d['weight']))
 
     # add bmi
     bmi = (float(d['weight'])) / (float(d['height'])/100)**2

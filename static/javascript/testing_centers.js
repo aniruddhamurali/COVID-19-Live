@@ -16,8 +16,8 @@ $(document).ready(function () {
             instructions = results[i].instructions;
             link = results[i].link;
 
-            htmlResult += '<h3>' + name + '</h3>' +
-                          '<h5>' + details + '</h5>' +
+            htmlResult += '<h4>' + name + '</h4>' +
+                          '<h6>' + details + '</h6>' +
                           '<div class="divider"></div>' +
                           '<table>' +
                             '<tr>' +

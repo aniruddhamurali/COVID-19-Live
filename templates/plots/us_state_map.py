@@ -114,7 +114,7 @@ def run():
         dragmode = False,
     )
 
-    py.plot(fig, config={"displayModeBar": False}, validate=False, auto_open=False)
-    #py.plot(fig, config={"displayModeBar": False}, validate=False, filename='./templates/plots/us-cases-map', auto_open=False)
+    #py.plot(fig, config={"displayModeBar": False}, validate=False, auto_open=False)
+    py.plot(fig, config={"displayModeBar": False}, validate=False, filename='./templates/plots/us-cases-map', auto_open=False)
 
 run()
