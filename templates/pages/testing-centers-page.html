@@ -5,10 +5,16 @@
 <h2 class="title">Nearby Testing Centers</h2>
 <br>
 <br>
+<div style="padding: 0 35%;">
+    <div id="left"><i class="fas fa-chevron-circle-left fa-3x"></i></div>
+    <div id="right"><i class="fas fa-chevron-circle-right fa-3x"></i></div>
+    <div style="clear: both;"></div>
+</div>
+<br>
 <div class="box text-center">
-    <div id="left"><i class="fas fa-chevron-circle-left fa-5x"></i></div>
+    
     <div id="card"></div>  
-    <div id="right"><i class="fas fa-chevron-circle-right fa-5x"></i></div>
+    
 </div>
 
 
@@ -29,11 +35,19 @@
         display: inline-block;
         vertical-align: top;
     }
+    #left {
+        float: left;
+    }
+    #right {
+        float: right;
+    }
+    /*
     #left, #right {
         margin: 0 auto;
+        float: left;
     }
-
-    .fas {
+    */
+    .fa-3x {
         color: white;
     }
     .fas:hover {
