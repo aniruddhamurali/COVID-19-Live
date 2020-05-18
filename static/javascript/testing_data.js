@@ -19,8 +19,8 @@ function displayHTMLTable(results) {
                             '<th style="width: 20%;">' + 'Country' + '<i class="fas fa-sort-up fa-1x"></i>' + '</th>' +
                             '<th style="width: 10%;">' + 'Date' + '</th>' +
                             '<th style="width: 20%;">' + 'Source Label' + '</th>' +
-                            '<th style="width: 10%;">' + 'Cumulative Total' + '</th>' + 
-                            '<th style="width: 15%;">' + 'Cumulative Total per Thousand' + '</th>' +
+                            '<th style="width: 10%;">' + 'Total' + '</th>' + 
+                            '<th style="width: 15%;">' + 'Total per Thousand' + '</th>' +
                             '<th style="width: 10%;">' + 'Daily Change' + '</th>' +
                             '<th style="width: 15%;">' + 'Daily Change per Thousand' + '</th>' +
                           '</thead>';

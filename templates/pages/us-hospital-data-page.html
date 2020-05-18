@@ -11,13 +11,19 @@
         <button type="button" class="btn btn-primary active">Capacity Data</button>
     </div>
 </div>
-
 <br>
+<h5>Click on a table header to sort the table by that column!</h5>
+
 <div class="text-center" id="capacity_data_table"></div>
 
 
-
 <style>
+    h5 {
+        color: #1ba0e3;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
     #capacity_data_table {
         width: 75%;
         margin: auto;
@@ -39,6 +45,12 @@
         color: white;
         border-bottom-color: white;
         border-bottom: 1px solid;
+    }
+
+    .fa-sort-up, .fa-sort-down {
+        float: right;
+        padding-right: 3px;
+        padding-top: 3px;
     }
 </style>
 
