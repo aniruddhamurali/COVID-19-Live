@@ -109,7 +109,7 @@ def run():
         title = 'Current Coronavirus Cases <br>per State in the U.S.',
         title_x = 0.5,
         geo_scope ='usa',
-        #margin = {"r": 20, "t": 80, "l": 20, "b": 20},
+        margin = {"r": 20, "t": 80, "l": 20, "b": 20},
         height = 600,
         template = "plotly_dark",
         dragmode = False,

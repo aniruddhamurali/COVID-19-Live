@@ -21,6 +21,28 @@
     {% include 'plots/us-cases-map.html' %}
 </div>
 
+
+<style>
+    @media (max-width: 768px) {
+        .plot {
+            transform: scale(1.1);
+            /*height: 80vh;*/
+        }
+        .btn-group {
+            padding-bottom: 30px;
+        }
+        .geolayer {
+            /*transform: scale(2);*/
+            transform: translateY(-30%);
+        }
+        .plotly-graph-div, .plot-container, .svg-container, svg {
+            height: 400px;
+        }
+        
+    }
+</style>
+
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
 <script>
