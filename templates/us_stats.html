@@ -1,15 +1,15 @@
 <div class="text-center">
     <div class="cases">
         <p class="text-white">Cases</p>
-        <div id="cases"></div>
+        <div id="us-cases"></div>
     </div>
     <div class="deaths">
         <p class="text-white">Deaths</p>
-        <div id="deaths"></div>
+        <div id="us-deaths"></div>
     </div>
     <div class="recoveries">
         <p class="text-white">Recoveries</p>
-        <div id="recoveries"></div>
+        <div id="us-recoveries"></div>
     </div>
 </div>
 
@@ -35,7 +35,7 @@
 -->
 
 <script>
-    Papa.parse("https://raw.githubusercontent.com/datasets/covid-19/master/data/worldwide-aggregated.csv", {
+    Papa.parse("https://raw.githubusercontent.com/datasets/covid-19/master/data/countries-aggregated.csv", {
         download: true,
         header: true,
         complete: getStats
@@ -49,9 +49,13 @@
 
         i = data.length - 1;
         if (data[i]["Date"] === "") i -= 1;
-  
+        console.log(data[i]);
+        
+        while (data[i]["Country"] != "US") {
+            i -= 1
+        }
         var row = data[i];
-        d = row["Date"];
+        //d = row["Date"];
         cases = parseInt(row["Confirmed"]).toLocaleString();
         deaths = parseInt(row["Deaths"]).toLocaleString();
         recoveries = parseInt(row["Recovered"]).toLocaleString();
@@ -59,8 +63,8 @@
         let casesString = "<h5 class='text-danger'><b>" + cases + "</b></h5>";
         let deathString = "<h5 class='text-warning'><b>" + deaths + "</b></h5>";
         let recoveriesString = "<h5 class='text-success'><b>" + recoveries + "</b></h5>";
-        $("#cases").html(casesString);
-        $("#deaths").html(deathString);
-        $("#recoveries").html(recoveriesString);
+        $("#us-cases").html(casesString);
+        $("#us-deaths").html(deathString);
+        $("#us-recoveries").html(recoveriesString);
     }
 </script>
