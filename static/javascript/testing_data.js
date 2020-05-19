@@ -15,6 +15,7 @@ function displayHTMLTable(results) {
         });
 
         if (count === 0) { 
+            /*
             table_data += '<thead class="thead-dark" style="border-color: white;">' + 
                             '<th style="width: 20%;">' + 'Country' + '<i class="fas fa-sort-up fa-1x"></i>' + '</th>' +
                             '<th style="width: 10%;">' + 'Date' + '</th>' +
@@ -24,6 +25,14 @@ function displayHTMLTable(results) {
                             '<th style="width: 10%;">' + 'Daily Change' + '</th>' +
                             '<th style="width: 15%;">' + 'Daily Change per Thousand' + '</th>' +
                           '</thead>';
+            */
+            table_data += '<thead class="thead-dark" style="border-color: white;">' + 
+                            '<th id="c" style="width: 30%;">' + 'Country' + '<i class="fas fa-sort-up fa-1x"></i>' + '</th>' +
+                            '<th id="t" style="width: 15%;">' + 'Total' + '</th>' + 
+                            '<th id="tp" style="width: 20%;">' + 'Total per 1000' + '</th>' +
+                            '<th id="dc" style="width: 15%;">' + 'Daily Change' + '</th>' +
+                            '<th id="dcp" style="width: 20%;">' + 'Daily Change per 1000' + '</th>' +
+                          '</thead>';
         } else if (cell_data[0] === "") {
             continue;
         } 
@@ -31,7 +40,10 @@ function displayHTMLTable(results) {
             table_data += '<tr>';
             // Data we want is in this range
             for (var cell_count = 1; cell_count < 11; cell_count++) {
-                if (cell_count === 3 || cell_count === 5 || cell_count === 6) {
+                /*if (cell_count === 3 || cell_count === 5 || cell_count === 6) {
+                    continue
+                } */
+                if (cell_count === 2 || cell_count === 3 || cell_count === 4 || cell_count === 5 || cell_count === 6) {
                     continue
                 } 
                 table_data += '<td>' + cell_data[cell_count] + '</td>';

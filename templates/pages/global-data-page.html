@@ -29,7 +29,7 @@
     }
 
     #global_data_table {
-        width: 75%;
+        width: 60%;
         margin: auto;
     }
     #global_data_table th:hover {
@@ -49,12 +49,20 @@
         color: white;
         border-bottom-color: white;
         border-bottom: 1px solid;
+        word-break: break-all;
     }
 
     .fa-sort-up, .fa-sort-down {
         float: right;
         padding-right: 3px;
         padding-top: 3px;
+    }
+
+    @media (max-width: 768px) {
+        #global_data_table {
+            width: 90%;
+            margin: auto;
+        }
     }
 </style>
 

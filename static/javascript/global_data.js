@@ -21,11 +21,12 @@ function displayHTMLTable(results) {
 
         if (count === 0) { 
             table_data += '<thead class="thead-dark">' + 
-                            '<th class="sort-by">' + 'Country' + '<i class="fas fa-sort-up fa-1x"></i>' + '</th>' +
-                            '<th class="sort-by">' + 'Confirmed' + '</th>' +
-                            '<th class="sort-by">' + 'Recovered' + '</th>' + 
-                            '<th class="sort-by">' + 'Deaths' + '</th>' +
-                          '</thead>';
+                            '<th style="width: 31%;">' + 'Country' + '<i class="fas fa-sort-up fa-1x"></i>' + '</th>' +
+                            '<th style="width: 23%;">' + 'Confirmed' + '</th>' +
+                            '<th style="width: 23%;">' + 'Recovered' + '</th>' + 
+                            '<th style="width: 23%;">' + 'Deaths' + '</th>' +
+                          '</thead>' +
+                          '<tbody>';
         } else if (cell_data[0] !== d) {
             continue;
         } else {
@@ -37,7 +38,7 @@ function displayHTMLTable(results) {
             table_data += '</tr>';
         }
     }
-    table_data += '</table>';
+    table_data += '</tbody></table>';
     $('#global_data_table').html(table_data);
     
     

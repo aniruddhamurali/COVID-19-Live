@@ -27,7 +27,7 @@
     }
 
     #testing_data_table {
-        width: 95%;
+        width: 80%;
         margin: auto;
     }
     #testing_data_table th:hover {
@@ -53,7 +53,17 @@
     .fa-sort-up, .fa-sort-down {
         float: right;
         padding-right: 3px;
-        padding-bottom: 15px;
+        padding-top: 3px;
+    }
+
+    @media (max-width: 768px) {
+        #testing_data_table {
+            width: 95%;
+            margin: auto;
+        }
+        td, th {
+            font-size: small;
+        }
     }
 </style>
 

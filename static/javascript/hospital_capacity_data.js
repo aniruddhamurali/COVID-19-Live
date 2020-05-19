@@ -16,10 +16,10 @@ function displayHTMLTable(results) {
 
         if (count === 0) { 
             table_data += '<thead class="thead-dark">' + 
-                            '<th>' + 'State' + '<i class="fas fa-sort-up fa-1x"></i>' + '</th>' +
-                            '<th>' + 'Staffed All Beds' + '</th>' +
-                            '<th>' + 'Staffed ICU Beds' + '</th>' + 
-                            '<th>' + 'Licensed All Beds' + '</th>' +
+                            '<th style="width: 25%;">' + 'State' + '<i class="fas fa-sort-up fa-1x"></i>' + '</th>' +
+                            '<th style="width: 25%;">' + 'Staffed All Beds' + '</th>' +
+                            '<th style="width: 25%;">' + 'Staffed ICU Beds' + '</th>' + 
+                            '<th style="width: 25%;">' + 'Licensed All Beds' + '</th>' +
                           '</thead>';
         } else if (cell_data[1] === undefined) {
             continue;
