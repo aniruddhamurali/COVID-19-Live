@@ -16,9 +16,9 @@ function displayHTMLTable(results) {
 
         if (count === 0) { 
             table_data += '<thead class="thead-dark">' + 
-                            '<th>' + 'State' + '<i class="fas fa-sort-up fa-1x"></i>' + '</th>' +
-                            '<th>' + 'County' + '</th>' +
-                            '<th>' + 'Cases' + '</th>' +
+                            '<th style="width: 70%;">' + 'State' + '<i class="fas fa-sort-up fa-1x"></i>' + '</th>' +
+                            //'<th>' + 'County' + '</th>' +
+                            '<th style="width: 30%;">' + 'Cases' + '</th>' +
                           '</thead>';
         } else if (cell_data[5] === "" || cell_data[0] === "" || cell_data[5] === "Unassigned" || cell_data[5].substring(0, 6) === "Out of") {
             continue;
@@ -27,10 +27,19 @@ function displayHTMLTable(results) {
             table_data += '<tr>';
             // Only display state, county, and cases
             for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
-                if (cell_count === 6 || cell_count === 10 || cell_count === cell_data.length - 1) {
+                /*if (cell_count === 6 || cell_count === 10 || cell_count === cell_data.length - 1) {
                     if (cell_count === 10) {
                         var county = cell_data[cell_count].split(',')[0];
                         table_data += '<td>' + county + '</td>';
+                    } else {
+                        table_data += '<td>' + cell_data[cell_count] + '</td>';
+                    }
+                }*/
+                if (cell_count === 10 || cell_count === cell_data.length - 1) {
+                    if (cell_count === 10) {
+                        var county = cell_data[cell_count].split(',')[0];
+                        var state = cell_data[6];
+                        table_data += '<td>' + county + ',  ' + state + '</td>';
                     } else {
                         table_data += '<td>' + cell_data[cell_count] + '</td>';
                     }
