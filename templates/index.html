@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <div class="wrapper" class="active">
+    <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header text-center" style="border-bottom: black solid 3px; color: #1ba0e3; background-color: #0f0f0f">
@@ -36,9 +36,9 @@
                 </li>
 
                 <!-- US data -->
-                <li {% if request.endpoint == '/us_states_map' %} class="active" {% endif %}>
+                <li id="us" {% if request.endpoint == '/us_states_map' %} class="active" {% endif %}>
                     <div class="dropright">
-                        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">United States</a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">United States</a>
                         
                         <div class="dropdown-menu">
                             <a id="us_states_map" class="dropdown-item" href="{{ url_for('us_states_map') }}">Cases</a>

@@ -119,7 +119,18 @@ a:focus {
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #a1daf7;
+    /*background: #a1daf7;*/
+    background: #1f52a3;
+}
+
+#sidebar ul li .dropright .dropdown-menu .dropdown-item {
+    color: white;
+    border: none;
+}
+
+#sidebar ul li .dropright .dropdown-menu .dropdown-item.active {
+    color: white;
+    background: #1f52a3;
 }
 
 a[data-toggle="collapse"] {
@@ -138,12 +149,13 @@ a[data-toggle="collapse"] {
     transform: translateY(-50%);
 }
 
+/*
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
     background: #1ba0e3;
 }
-
+*/
 
 /*------------------
     MEDIAQUERIES

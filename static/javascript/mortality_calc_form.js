@@ -23,7 +23,7 @@
                         else if (response >= 50) color = "orange";
                         else if (response >= 25) color = "yellow";
                         else color = "green";
-                        $('#result').html('<div style="background-color: #0f0f0f; width: 70%; margin: 0 15%; padding: 8px 0; border-radius: 3px;">' +
+                        $('#result').html('<div style="background-color: #0f0f0f; width: 70%; margin: 0 15%; padding: 8px 8px; border-radius: 3px;">' +
                                             '<h3 style="color: #1ba0e3;">Your predicted mortality risk is: <h3 style="color: ' + color + '; margin-bottom: 0;">' + response.toFixed(2) + '%</h3></h3>' +
                                           '</div>');
                     },

@@ -15,11 +15,23 @@
         </button>
     </div>
 </div>
-
+<br>
+<h5>Press the play or pause button to continue or pause the animation.</h5>
 
 <div class="plot" style="width: auto;">
     {% include 'plots/global-bubble-map.html' %}
 </div>
+
+
+<style>
+    h5 {
+        color: #1ba0e3;
+        text-align: center;
+    }
+    .plot {
+        padding-top: 0px;
+    }
+</style>
 
 <script type="text/javascript">
     $(document).ready(function () {
