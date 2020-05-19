@@ -19,7 +19,6 @@ def run():
     USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0"
     headers = {"user-agent" : USER_AGENT}
     city = getCity()
-    city = "atlanta"
 
     # Link to Google search for nearby COVID-19 testing centers
     response = requests.get("https://www.google.com/search?q=covid+19+testing+centers" + city + "&tbm=lcl&tbs=lrf:!3sIAE,lf:1,lf_ui:16&rldoc=1", headers=headers)

@@ -98,8 +98,9 @@ def run():
         colorbar_title = "Cases per State",
         colorbar = dict(
             #x = 0.9,
-            len = 0.6
+            #len = 0.6
         ),
+        showscale = False,
         zmin = 0,
         zmax = 50000
     ))

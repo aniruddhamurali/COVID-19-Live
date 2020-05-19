@@ -51,8 +51,9 @@ def run():
         xaxis = {'fixedrange' : False},
         yaxis = {'fixedrange' : False},
         coloraxis_colorbar = dict(
-            len = 0.5
-        )       
+            #len = 0.5
+        ),
+        coloraxis_showscale=False       
     )
     #py.plot(fig, filename="./templates/plots/us-counties-map.html", auto_open=False)
     py.plot(fig, config={"displayModeBar": False}, filename="us-counties-map.html", auto_open=False)
