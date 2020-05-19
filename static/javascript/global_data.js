@@ -7,6 +7,7 @@ Papa.parse("https://raw.githubusercontent.com/datasets/covid-19/master/data/coun
 
 function displayHTMLTable(results) {
     var data = results.data;
+    var colors = {"2": "text-danger", "3": "text-success", "4": "text-warning"}
 
     i = data.length - 1;
     if (data[i]["Date"] === "") i -= 1;
@@ -33,7 +34,7 @@ function displayHTMLTable(results) {
             table_data += '<tr>';
             // Exclude data since we only want to show most recent data
             for (var cell_count = 1; cell_count < cell_data.length; cell_count++) {
-                table_data += '<td>' + cell_data[cell_count] + '</td>';
+                table_data += '<td class="' + colors[cell_count.toString()] +  '">' + cell_data[cell_count] + '</td>';
             }
             table_data += '</tr>';
         }

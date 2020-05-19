@@ -35,16 +35,6 @@ function displayHTMLTable(results) {
                         table_data += '<td>' + cell_data[cell_count] + '</td>';
                     }
                 }
-                /*
-                if (cell_count === 10 || cell_count === cell_data.length - 1) {
-                    if (cell_count === 10) {
-                        var county = cell_data[cell_count].split(',')[0];
-                        var state = cell_data[6];
-                        table_data += '<td>' + county + ',  ' + state + '</td>';
-                    } else {
-                        table_data += '<td>' + cell_data[cell_count] + '</td>';
-                    }
-                }*/
             }
             table_data += '</tr>';
         }

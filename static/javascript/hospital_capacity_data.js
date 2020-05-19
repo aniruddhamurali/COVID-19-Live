@@ -26,7 +26,11 @@ function displayHTMLTable(results) {
         } else {
             table_data += '<tr>';
             for (var cell_count = 1; cell_count < 5; cell_count++) {
-                table_data += '<td>' + cell_data[cell_count] + '</td>';
+                if (cell_count !== 1) {
+                    table_data += '<td>' + parseInt(cell_data[cell_count]) + '</td>';
+                } else {
+                    table_data += '<td>' + cell_data[cell_count] + '</td>';
+                }
             }
             table_data += '</tr>';
         }
