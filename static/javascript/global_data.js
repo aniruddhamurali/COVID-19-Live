@@ -14,7 +14,7 @@ function displayHTMLTable(results) {
     var row = data[i];
     d = row["Date"];
 
-    var table_data = '<table class="table table-bordered table-sm">';
+    var table_data = '<table class="table table-bordered table-sm table-striped table-dark">';
     for (var count = 0; count < data.length; count++) {
         var cell_data = Object.keys(data[count]).map(function(key){
             return data[count][key];

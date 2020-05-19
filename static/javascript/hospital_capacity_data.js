@@ -7,8 +7,9 @@ Papa.parse("https://raw.githubusercontent.com/covid-projections/covid-data-publi
 
 function displayHTMLTable(results) {
     var data = results.data;
+    var colors = {"2": "rgb(230, 0, 169)", "3": "rgb(227, 139, 79)", "4": "rgb(132, 0, 168)"}
 
-    var table_data = '<table class="table table-bordered table-sm">';
+    var table_data = '<table class="table table-bordered table-sm table-striped table-dark">';
     for (var count = 0; count < data.length; count++) {
         var cell_data = Object.keys(data[count]).map(function(key){
             return data[count][key];
@@ -27,7 +28,7 @@ function displayHTMLTable(results) {
             table_data += '<tr>';
             for (var cell_count = 1; cell_count < 5; cell_count++) {
                 if (cell_count !== 1) {
-                    table_data += '<td>' + parseInt(cell_data[cell_count]) + '</td>';
+                    table_data += '<td style="color: ' + colors[cell_count.toString()] + ';">' + parseInt(cell_data[cell_count]) + '</td>';
                 } else {
                     table_data += '<td>' + cell_data[cell_count] + '</td>';
                 }

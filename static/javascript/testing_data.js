@@ -7,7 +7,8 @@ Papa.parse("https://raw.githubusercontent.com/owid/covid-19-data/master/public/d
 
 function displayHTMLTable(results) {
     var data = results.data;
-    var table_data = '<table class="table table-bordered table-sm">';
+    var table_data = '<table class="table table-bordered table-sm table-striped table-dark">';
+    var colors = {"7": "rgb(10, 150, 41)", "8": "rgb(37, 167, 247)", "9": "rgb(23, 200, 87)", "10": "rgb(245, 141, 66)"}
     
     for (var count = 0; count < data.length; count++) {
         var cell_data = Object.keys(data[count]).map(function(key){
@@ -45,8 +46,8 @@ function displayHTMLTable(results) {
                 } */
                 if (cell_count === 2 || cell_count === 3 || cell_count === 4 || cell_count === 5 || cell_count === 6) {
                     continue
-                } 
-                table_data += '<td>' + cell_data[cell_count] + '</td>';
+                }
+                table_data += '<td style="color: ' + colors[cell_count.toString()] + ';">' + cell_data[cell_count] + '</td>';
             }
             table_data += '</tr>';
         }

@@ -7,7 +7,7 @@ Papa.parse("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/css
 
 function displayHTMLTable(results) {
     var data = results.data;
-    var table_data = '<table class="table table-bordered table-sm">';
+    var table_data = '<table class="table table-bordered table-sm table-striped table-dark">';
 
     for (var count = 0; count < data.length; count++) {
         var cell_data = Object.keys(data[count]).map(function(key){
@@ -31,8 +31,10 @@ function displayHTMLTable(results) {
                     if (cell_count === 10) {
                         var county = cell_data[cell_count].split(',')[0];
                         table_data += '<td>' + county + '</td>';
-                    } else {
+                    } else if (cell_count === 6) {
                         table_data += '<td>' + cell_data[cell_count] + '</td>';
+                    } else {
+                        table_data += '<td class="text-danger">' + cell_data[cell_count] + '</td>';
                     }
                 }
             }
