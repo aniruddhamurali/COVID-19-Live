@@ -17,9 +17,8 @@
     </div>
 </div>
 <br>
-<h5 class="instruct">Drag on the map to rotate it!</h5>
 
-<div class="plot" style="width: auto; height: 700px;">
+<div class="plot" style="width: auto;">
     {% include 'plots/global-coronavirus-cases.html' %}
 </div>
 
@@ -34,24 +33,15 @@
     }
 
     @media (max-width: 768px) {
-        .instruct {
-            padding-bottom: 50px;
-        }
         .plot {
-            transform: scale(1.1);
-            margin-bottom: -75%;
+            margin-bottom: -55%;
         }
         .geolayer {
-            transform: scale(1.8) translateY(-45%) translateX(-22%);
+            transform: scale(1.8) translateY(-47%) translateX(-22%);
         }
         .plotly-graph-div, .plot-container, .svg-container, svg {
             height: 400px;
         }
-        tspan.line {
-            margin-bottom: 0;
-            fill: red;
-        }
-        
     }
 </style>
 

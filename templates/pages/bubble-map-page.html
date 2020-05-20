@@ -16,7 +16,6 @@
     </div>
 </div>
 <br>
-<h5 class="instruct">Press the play or pause button to continue or pause the animation.</h5>
 
 <div class="plot" style="width: auto;">
     {% include 'plots/global-bubble-map.html' %}
@@ -32,21 +31,16 @@
         padding-top: 0px;
     }
 
-    
     @media (max-width: 768px) {
-        .instruct {
-            padding-bottom: 50px;
-        }
         .plot {
-            transform: scale(1.1);
             margin-bottom: -55%;
         }
 
         .geolayer {
-            transform: translate(-25px, -20%);
+            transform: scale(1.34, 1.5) translate(-22%, -38%);
         }
         .slider-container, .menulayer {
-            transform: translateY(-200px);
+            transform: translateY(-220px);
         }
         .plotly-graph-div, .plot-container, .svg-container, svg {
             height: 400px;
