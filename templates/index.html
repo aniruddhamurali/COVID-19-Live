@@ -27,6 +27,9 @@
         <nav id="sidebar">
             <div class="sidebar-header text-center" style="border-bottom: black solid 3px; color: #1ba0e3; background-color: #0f0f0f">
                 <a href="{{ url_for('globe_map') }}"><h3>COVID-19</h3></a>
+                <button class="btn btn-light" type="button" id="sidebarCollapse2">
+                    <i class="fas fa-align-justify"></i>  
+                </button>
             </div>
 
             <ul class="list-unstyled components sticky-top">
@@ -36,15 +39,25 @@
                 </li>
 
                 <!-- US data -->
-                <li id="us" {% if request.endpoint == '/us_states_map' %} class="active" {% endif %}>
-                    <div class="dropright">
-                        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">United States</a>
-                        
-                        <div class="dropdown-menu">
-                            <a id="us_states_map" class="dropdown-item" href="{{ url_for('us_states_map') }}">Cases</a>
-                            <a id="state_resources" class="dropdown-item" href="{{ url_for('state_resources') }}">Hospital Resources</a>
-                        </div>
-                    </div>  
+                <!--
+                <li class="dropdown" id="us" {% if request.endpoint == '/us_states_map' %} class="active" {% endif %}>
+                -->    
+                    <!--<div class="dropdown">-->
+                <li>
+                    <a href="#usSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" >United States</a>
+                    <ul class="collapse list-unstyled" id="usSubMenu">
+                        <li id="us_states_map"  {% if request.endpoint == '/us_states_map' %} class="active" {% endif %}>
+                            <a href="{{ url_for('us_states_map') }}">Cases</a>
+                        </li>
+                        <li id="state_resources"  {% if request.endpoint == '/state_resources' %} class="active" {% endif %}>
+                            <a href="{{ url_for('state_resources') }}">Hospital Resources</a>
+                        </li>
+                        <!--<div class="dropdown-menu">
+                            <a id="us_states_map" class="btn dropdown-item" href="{{ url_for('us_states_map') }}">Cases</a>
+                            <a id="state_resources" class="btn dropdown-item" href="{{ url_for('state_resources') }}">Hospital Resources</a>
+                        </div>-->
+                    </ul>
+                    <!--</div>  -->
                 </li>
 
                 <!-- Global testing data -->
@@ -170,6 +183,9 @@
         $(document).ready(function () {
             // Toggling sidebar
             $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+            $('#sidebarCollapse2').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
             $("#{{request.endpoint}}").addClass("active"); // make tab active when clicked on
