@@ -33,33 +33,29 @@
     </p>
     <br>
     <br>
-    <div id="links" class="row">
-        <div id="contact" class="flex-fill">
+    <div id="links">
+        <div id="contact">
             <h3>Follow or contact me!</h3>
-            <span style="background-color: black;">
-                <a href="mailto:aniruddha.murali@gmail.com?subject=Feedback for Website"><i class="fas fa-envelope fa-3x"></i></a>
+            <div class="d-flex flex-wrap justify-content-center">
                 <a href="https://www.instagram.com/aniruddhamurali/" target="_blank"><i class="fab fa-instagram-square fa-3x"></i></a>
-                <a href="https://www.linkedin.com/in/aniruddhamurali/" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>
-                <!--
-                <a class="twitter-follow-button" href="https://twitter.com/AniruddhaMurali" data-show-count="false" data-size="large">Follow @TwitterDev</a>
-                -->
                 <a href="https://twitter.com/AniruddhaMurali" target="_blank"><i class="fab fa-twitter-square fa-3x" ></i></a>
-            </span>
+                <a href="https://www.linkedin.com/in/aniruddhamurali/" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>
+                <a href="mailto:aniruddha.murali@gmail.com?subject=Feedback for Website"><i class="fas fa-envelope fa-3x"></i></a>
+            </div>
+            <!--
+            <a href="mailto:aniruddha.murali@gmail.com?subject=Feedback for Website"><i class="fas fa-envelope fa-3x"></i></a>
+            -->
+            <!--
+            <a class="twitter-follow-button" href="https://twitter.com/AniruddhaMurali" data-show-count="false" data-size="large">Follow @TwitterDev</a>
+            -->
         </div>
-        <div id="share" class="flex-fill">  
+        <div id="share">  
             <h3>Share this website with others!</h3>
-            <span>
-                <span class="a2a_kit a2a_default_style">
-                    <a class="fb-share-button" data-href="https://aniruddhamurali.herokuapp.com/" data-layout="button" data-size="large"></a>
-                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-count="horizontal" data-show-count="true">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                
-                    <!--
-                    <a class="a2a_button_facebook_share"></a>
-                    <a class="a2a_button_twitter_tweet"></a>
-                    -->
-                    <a data-url="https://aniruddhamurali.herokuapp.com/" class="a2a_button_linkedin_share"></a>
-                </span>
-            </span>
+            <div class="d-flex flex-wrap justify-content-center a2a_kit a2a_default_style">
+                <a class="fb-share-button" data-href="https://aniruddhamurali.herokuapp.com/" data-layout="button" data-size="large"></a>
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-count="horizontal" data-show-count="true">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a data-url="https://aniruddhamurali.herokuapp.com/" class="a2a_button_linkedin_share"></a>
+            </div>
         </div>
         <!-- Prevent elements coming afterward from floating -->
         <div style="clear: both;"></div>
@@ -71,6 +67,7 @@
     #about h3 {
         color: #1ba0e3;
         text-align: center;
+        padding: 0 5px;
     }
     #about h2 {
         color: white;
@@ -112,28 +109,30 @@
     }
     .fa-envelope {
         color: white;
-        margin-right: 5px;
+        margin-left: 5px;
+        margin-top: 5px;
+        color: rgb(200, 200, 200);
     }
     .fab {
         margin: 5px;
     }
     .a2a_button_linkedin_share {
-        transform: scale(1.3);
-        margin-left: 5px;
+        transform: scale(1.32);
+        margin-left: 11px;
         margin-right: 10px;
         margin-top: 4px;
-        padding-top: 10px;
-        padding-bottom: 10px;
     }
     xdoor-icon {
         padding-left: 3px;
         transform: scale(0.8);
     }
 
-    #about span {
-        display: table;
-        margin: 0 auto;
+    @media (max-width: 518px) {
+        .a2a_button_linkedin_share {
+            margin-top: 10px;
+        }
     }
+
 </style>
 
 
