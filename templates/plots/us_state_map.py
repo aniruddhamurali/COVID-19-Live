@@ -106,7 +106,7 @@ def run():
     ))
 
     fig.update_layout(
-        title = 'Current Coronavirus Cases <br>per State in the U.S.',
+        title = 'COVID-19 Cases per State',
         title_x = 0.5,
         geo_scope ='usa',
         margin = {"r": 20, "t": 80, "l": 20, "b": 20},

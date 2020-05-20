@@ -43,7 +43,7 @@ def run():
     )
 
     fig.update_layout(
-        title = 'Current Coronavirus Cases <br>per County in the U.S.',
+        title = 'COVID-19 Cases per County',
         title_x = 0.5,
         margin = {"r": 20, "t": 80, "l": 20, "b": 20},
         height = 600,
