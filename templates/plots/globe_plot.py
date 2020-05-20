@@ -124,6 +124,7 @@ def run():
         ),
         #sliders = sliders,
         height = 600,
+        #width = 400
         #autosize = True
     )
     #fig = dict(data=dataSlider, layout=layout_def)

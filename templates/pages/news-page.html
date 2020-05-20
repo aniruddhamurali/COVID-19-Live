@@ -5,8 +5,9 @@
 <h2>Daily Digest</h2>
 <br>
 <div id="news_data"></div>
-<div class="text-center">
+<div class="text-center container" style="display: inline;">
     <button id="more" type="button" class="btn btn-light">See more articles</button>
+    <button id="top" onclick="topFunction()" type="button" class="btn">Top</button>
 </div>
 
 <style>
@@ -51,15 +52,47 @@
         background-color: white;
         transition: 0.3s;
     }
+    #news_data {
+        padding: 0 15px;
+    }
+
+    #more {
+        margin-left: 42%;
+    }
     #more:hover {
         background-color: #1ba0e3;
         border-color: #1ba0e3;
         transition: 0.3s;
+
     }
-    #news_data {
-        padding: 0 15px;
+    #top {
+        float: right;
+        margin-right: 18px;
+        background-color: grey;
+    }
+    #top:hover {
+        background-color: #1ba0e3;
+    }
+    .line {
+        margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+        #more {
+            margin-left: 15px;
+            float: left;
+        }
     }
 </style>
+
+
+<script>
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+</script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script type='text/javascript' src="{{ url_for('static', filename='javascript/keys.js') }}"></script>

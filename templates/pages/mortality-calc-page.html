@@ -126,7 +126,7 @@
 
     <br>
     <div class="button">
-        <button class="btn btn-primary btn-lg" onclick="window.location.href='#result'" type="submit">Submit</button>
+        <button class="btn btn-primary btn-lg" onclick="topFunction()" type="submit">Submit</button>
     </div>
 </form>
 <br>
@@ -171,6 +171,15 @@
         padding: 0 20px;
     }
 </style>
+
+
+<script>
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+</script>
 
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
