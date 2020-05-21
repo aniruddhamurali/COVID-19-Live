@@ -46,12 +46,21 @@
 
 <script>
     $(document).ready(function () {
+        // Get width of screen
+        var screenWidth = function checkScreenSize(){
+            var newWindowWidth = $(window).width();
+            return newWindowWidth;
+        }
+
         // Make sure plot stays centered when sidebar toggles
         $('#sidebarCollapse, #sidebarCollapse2').click(function () {
-            if ($('#sidebar').hasClass('active')) {
-                $('.plot').css({'margin-left':'0', 'margin-right':'0', 'transition':'0.3s'});
-            } else {
-                $('.plot').css({'margin-right':'125px', 'margin-left':'125px', 'transition':'0.3s'});
+            var width = screenWidth();
+            if (width > 768) {
+                if ($('#sidebar').hasClass('active')) {
+                    $('.plot').css({'margin-left':'0', 'margin-right':'0', 'transition':'0.3s'});
+                } else {
+                    $('.plot').css({'margin-right':'125px', 'margin-left':'125px', 'transition':'0.3s'});
+                }
             }
         });
     });
