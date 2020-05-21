@@ -13,6 +13,7 @@ var currentTime = currentHr + ':' + currentMin + ':' + currentSec + 'Z';
 
 var key = keys.news_key;
 var count = 30;
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
 var url = 'https://newsapi.org/v2/everything?' +
           'q=+recent+news+on+coronavirus&' +
@@ -21,7 +22,7 @@ var url = 'https://newsapi.org/v2/everything?' +
           'pageSize=' + count + '&' +
           'apiKey=' + key;
 
-var req = new Request(url);
+var req = new Request(proxyurl + url);
 
 // Get more articles
 $('#more').click(function() {

@@ -6,19 +6,20 @@ from geopy.geocoders import Nominatim
 
 
 # get current location
-def getCity():
+def getCity(coords):
     g = geocoder.ip('me')
     locator = Nominatim(user_agent="myGeocoder")
-    coordinates = str(g.latlng[0]) + ','  + str(g.latlng[1])
+    #coordinates = str(g.latlng[0]) + ','  + str(g.latlng[1])
+    coordinates = coords['lat'] + ','  + coords['lon']
     location = locator.reverse(coordinates)
-    return location.raw['address']['city'].lower()
+    return location.raw['address']['town'].lower()
 
 
-def run():
+def run(coords):
     # Desktop user-agent
     USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0"
     headers = {"user-agent" : USER_AGENT}
-    city = getCity()
+    city = getCity(coords)
 
     # Link to Google search for nearby COVID-19 testing centers
     response = requests.get("https://www.google.com/search?q=covid+19+testing+centers" + city + "&tbm=lcl&tbs=lrf:!3sIAE,lf:1,lf_ui:16&rldoc=1", headers=headers)
@@ -57,7 +58,6 @@ def run():
             if len(info) > 4:
                 dt = info[4].text.strip()
                 results[i]['drive_through'] = dt
-
             if loc.find_all('div', {"class": "rxSVje rllt__wrapped"}) != []:
                 instructions = loc.find_all('div', {"class": "rxSVje rllt__wrapped"})[0].text.strip()
             else:
@@ -75,4 +75,4 @@ def run():
 
     return results
 
-run()
+#run()

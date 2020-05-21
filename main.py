@@ -8,7 +8,7 @@ from other_data import testing_centers, load_model
 
 app = Flask(__name__)
 
-results = testing_centers.run()
+#results = testing_centers.run()
 
 @app.route("/")
 def globe_map():
@@ -91,8 +91,10 @@ def covid():
 def nearby_testing():
     return render_template("pages/testing-centers-page.html")
 
-@app.route("/get_testing_centers")
+@app.route("/get_testing_centers", methods = ['POST'])
 def get_testing_centers():
+    jsdata = request.get_json()
+    results = testing_centers.run(jsdata)
     return json.dumps(results)
 
 

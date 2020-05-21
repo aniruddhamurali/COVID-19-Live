@@ -4,13 +4,14 @@
 
 <h2 class="title">Nearby Testing Centers</h2>
 <br>
+<p id="loc"></p>
 <div style="padding: 10px 35%;">
     <div id="left"><i class="fas fa-chevron-circle-left fa-3x"></i></div>
     <div id="right"><i class="fas fa-chevron-circle-right fa-3x"></i></div>
     <div style="clear: both;"></div>
 </div>
 <div class="box text-center">
-    <div id="card"></div>  
+    <div style="color: white;" id="card">Loading...</div>  
 </div>
 
 
@@ -63,6 +64,25 @@
         margin: 0 0;
     }
 </style>
+
+<!--<script>
+    var x = document.getElementById("loc");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        console.log(position.coords.latitude);
+        console.log(position.coords.longitude);
+        x.innerHTML = "Latitude: " + position.coords.latitude + 
+        "<br>Longitude: " + position.coords.longitude;
+    }
+</script>-->
 
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
