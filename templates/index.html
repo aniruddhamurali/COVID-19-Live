@@ -181,6 +181,26 @@
      
     <script type="text/javascript">
         $(document).ready(function () {
+            // Get width of screen
+            var screenWidth = function checkScreenSize(){
+                var newWindowWidth = $(window).width();
+                return newWindowWidth;
+            }
+
+            $(window).on("resize", function() {
+                collapse2();
+            });
+
+            var collapse2 = function() {
+                var width = screenWidth();
+                if (width > 768) {
+                    $('#sidebarCollapse2').hide();
+                } else {
+                    $('#sidebarCollapse2').show();
+                }
+            }
+            collapse2();
+
             // Toggling sidebar
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
