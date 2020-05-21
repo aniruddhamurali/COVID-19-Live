@@ -3,8 +3,7 @@
 {% block content %}
 
 <h2 class="title">Mortality Risk Calculator</h2>
-<br>
-<div id="result" class="text-center"></div>
+
 <br>
 <form id="needs-validation" novalidate>
     <div class="form-row">
@@ -126,10 +125,12 @@
 
     <br>
     <div class="button">
-        <button class="btn btn-primary btn-lg" onclick="topFunction()" type="submit">Submit</button>
+        <button class="btn btn-primary btn-lg" onclick="window.location.href = '#result'" type="submit">Submit</button>
     </div>
 </form>
 <br>
+<br>
+<div id="result" class="text-center"></div>
 <br>
 
 <div class="small-12 text-center">
@@ -162,7 +163,6 @@
         padding: 0 20px;
     }
     .form-check-label {
-        /*color: inherit !important;*/
         color: white;
     }
 
@@ -177,15 +177,6 @@
         }
     }
 </style>
-
-
-<script>
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-</script>
 
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

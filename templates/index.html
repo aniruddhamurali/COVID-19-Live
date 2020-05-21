@@ -26,10 +26,13 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header text-center" style="border-bottom: black solid 3px; color: #1ba0e3; background-color: #0f0f0f">
-                <a href="{{ url_for('globe_map') }}"><h3>COVID-19</h3></a>
-                <button class="btn btn-light" type="button" id="sidebarCollapse2">
+                <div style=""><button class="btn btn-light" type="button" id="sidebarCollapse2">
                     <i class="fas fa-align-justify"></i>  
-                </button>
+                </button></div>
+                <a href="{{ url_for('globe_map') }}">
+                    <!--<h3>COVID-19</h3>-->
+                    <img width=150 style="opacity: 0.6;" src="{{ url_for('static', filename='covid19.png') }}">
+                </a>
             </div>
 
             <ul class="list-unstyled components sticky-top">
