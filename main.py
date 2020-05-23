@@ -3,6 +3,7 @@ import json
 
 from templates.plots import us_state_map, testing_plots
 from templates.plots import hospital_resources_needed
+from templates.plots import globe_plot
 #from templates.plots import globe_plot, bubble_map, us_county_map
 from other_data import testing_centers, load_model
 
@@ -12,14 +13,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def globe_map():
-    #globe_plot.run()
+    globe_plot.run()
     return render_template("pages/globe-page.html")
 
 
 # Global cases pages
 @app.route("/globe_map")
 def globe_map_copy():
-    #globe_plot.run()
+    globe_plot.run()
     return render_template("pages/globe-page.html")
     
 @app.route("/coronavirus_bubble_map")

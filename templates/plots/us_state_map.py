@@ -14,6 +14,10 @@ from datetime import timedelta
 import warnings
 warnings.filterwarnings('ignore')
 
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+
 
 # Dict for US abbreviations
 us_state_abbrev = {
@@ -114,6 +118,14 @@ def run():
         template = "plotly_dark",
         dragmode = False,
     )
+
+    '''
+    app = dash.Dash()
+    app.layout = html.Div([
+        dcc.Graph(figure=fig)
+    ])
+    app.run_server(debug=True)
+    '''
 
     #py.plot(fig, config={"displayModeBar": False}, validate=False, auto_open=False)
     py.plot(fig, config={"displayModeBar": False}, validate=False, filename='./templates/plots/us-cases-map', auto_open=False)
