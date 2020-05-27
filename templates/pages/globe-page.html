@@ -56,10 +56,17 @@
             return newWindowWidth;
         }
 
+        // Get height of screen
+        var screenHeight = function checkScreenSize(){
+            var newWindowHeight = $(window).height();
+            return newWindowHeight;
+        }
+
         // Make sure plot stays centered when sidebar toggles
         $('#sidebarCollapse, #sidebarCollapse2').click(function () {
             var width = screenWidth();
-            if (width > 768) {
+            var height = screenHeight();
+            if (width > 768 && height > 768) {
                 if ($('#sidebar').hasClass('active')) {
                     $('.plot').css({'margin-left':'0', 'margin-right':'0', 'transition':'0.3s'});
                 } else {

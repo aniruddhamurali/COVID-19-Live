@@ -17,9 +17,10 @@
 </div>
 
 
-<div class="plot" style="width: auto;">
+<div id="statePlot" class="plot">
     {% include 'plots/us-cases-map.html' %}
 </div>
+
 
 
 <style>
@@ -34,16 +35,86 @@
         .geolayer {
             transform: scale(1.32) translateY(-70%) translateX(-12%);
         }
-        .plotly-graph-div, .plot-container, .svg-container, svg {
+        .plotly-graph-div, .plot-container, .svg-container, svg{
             height: 300px;
-        }  
+        }
     }
+
+    /*
+    @media (max-height: 768px){
+        
+        html {
+            width: 100vw;
+            transform: rotate(-90deg);
+            transform-origin: left top;
+            top: 100%;
+            left: 0;
+            overflow-x: hidden;
+            position: fixed;
+        }
+
+    }*/
+
+    
+    /*
+    @media (orientation: landscape) {
+        .plot {
+            padding: 0px 0px;
+            transform: scale(0.8);
+        }
+    }*/
+
+    /*
+    @media (orientation: landscape) {
+        body {
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+        }
+    }*/
+
+    /*
+    @media (orientation: landscape){
+        html {
+            transform: rotate(-90deg);
+            transform-origin: left top;
+            top: 100%;
+            left: 0;
+            overflow-x: hidden;
+            position: fixed;
+        }
+    }*/
+    
+    /*
+    @media (orientation: landscape) {
+        html {
+            transform: rotate(-90deg);
+            transform-origin: left top;
+            width: 100vh;
+            overflow-x: hidden;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            orientation: portrait;
+            background-color: black;
+        }
+
+        body {
+            transform: translateX(-30px);
+        }
+    }*/
 </style>
+
+<!--<script>
+    screen.orientation.lock('portrait-primary');
+</script>-->
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-<script>
+<script type="text/javascript">
     $(document).ready(function () {
         // Get width of screen
         var screenWidth = function checkScreenSize(){
@@ -51,10 +122,17 @@
             return newWindowWidth;
         }
 
+        // Get height of screen
+        var screenHeight = function checkScreenSize(){
+            var newWindowHeight = $(window).height();
+            return newWindowHeight;
+        }
+
         // Make sure plot stays centered when sidebar toggles
         $('#sidebarCollapse, #sidebarCollapse2').click(function () {
             var width = screenWidth();
-            if (width > 768) {
+            var height = screenHeight();
+            if (width > 768 && height > 768) {
                 if ($('#sidebar').hasClass('active')) {
                     $('.plot').css({'margin-left':'0', 'margin-right':'0', 'transition':'0.3s'});
                 } else {
@@ -64,5 +142,6 @@
         });
     });
 </script>
+
 
 {% endblock %}
