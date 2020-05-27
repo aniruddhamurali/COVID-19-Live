@@ -21,6 +21,11 @@ a:focus {
     transition: all 0.3s;
 }
 
+/*
+.error {
+    display: none !important;
+}*/
+
 /*-------------------
     CONTENT STYLE
 -------------------*/
@@ -200,6 +205,30 @@ a[data-toggle="collapse"] {
 }
 
 
+@media (orientation: portrait) {
+    .error {
+        display: none;
+    }
+}
+
+
+
+@media (orientation: landscape) and (max-height: 768px) {
+    .error {
+        visibility: visible;
+        color: white;
+        height: 100vh;
+        padding: 0 10px;
+        text-align: center;
+        margin-top: 35vh;
+    }
+    .wrapper {
+        display: none;
+    }
+}
+
+
+/*
 @media (max-height: 768px) {
     #sidebarCollapse2 {
         visibility: visible;
@@ -228,7 +257,7 @@ a[data-toggle="collapse"] {
         overflow: auto;
         padding-bottom: 100px;
     }
-}
+}*/
 
 /*
 #sidebarCollapse2 {
