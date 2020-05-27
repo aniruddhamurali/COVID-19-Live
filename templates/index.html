@@ -26,7 +26,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header text-center" style="border-bottom: black solid 3px; color: #1ba0e3; background-color: #0f0f0f">
-                <div style=""><button class="btn btn-light" type="button" id="sidebarCollapse2">
+                <div><button class="btn btn-light" type="button" id="sidebarCollapse2">
                     <i class="fas fa-align-justify"></i>  
                 </button></div>
                 <a href="{{ url_for('globe_map') }}">
@@ -184,26 +184,6 @@
      
     <script type="text/javascript">
         $(document).ready(function () {
-            // Get width of screen
-            var screenWidth = function checkScreenSize(){
-                var newWindowWidth = $(window).width();
-                return newWindowWidth;
-            }
-
-            $(window).on("resize", function() {
-                collapse2();
-            });
-
-            var collapse2 = function() {
-                var width = screenWidth();
-                if (width > 768) {
-                    $('#sidebarCollapse2').hide();
-                } else {
-                    $('#sidebarCollapse2').show();
-                }
-            }
-            collapse2();
-
             // Toggling sidebar
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');

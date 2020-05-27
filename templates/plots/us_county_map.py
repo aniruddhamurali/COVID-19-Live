@@ -55,7 +55,7 @@ def run():
         ),
         coloraxis_showscale=False       
     )
-    #py.plot(fig, filename="./templates/plots/us-counties-map.html", auto_open=False)
-    py.plot(fig, config={"displayModeBar": False}, filename="us-counties-map.html", auto_open=False)
+    py.plot(fig, config={"displayModeBar": False}, filename="./templates/plots/us-counties-map.html", auto_open=False)
+    #py.plot(fig, config={"displayModeBar": False}, filename="us-counties-map.html", auto_open=False)
 
 run()
