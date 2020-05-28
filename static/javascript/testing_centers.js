@@ -60,6 +60,7 @@ $(document).ready(function () {
             },
             error: function(err) {
                 console.log(err);
+                $('#card').html("<p>Unable to load data. Most likely a probably with your connection.</p>");
             }
         });
     }
