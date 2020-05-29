@@ -10,7 +10,7 @@ from templates.plots.mongodb_info import getClient
 myClient = getClient()
 client = pymongo.MongoClient(myClient)
 mydb = client['resource_data']
-mycol = mydb['resources_4_27']
+mycol = mydb['resources_5_23']
 
 # Dict for US abbreviations
 us_state_abbrev = {
@@ -79,7 +79,7 @@ def run():
 
     index = 0
     # Add relevant data from most recent date available
-    for data in mycol.find({"date":"2020-04-27"}):
+    for data in mycol.find({"date":"2020-05-23"}):
         if data['location_name'] in us_state_abbrev.keys():
             df.append(pd.Series(name=index))
             df.at[index, 'location_name'] = data['location_name']
@@ -134,7 +134,7 @@ def run():
                 direction = "right",
                 active = 0,
                 x = 0.56,
-                y = 0.97,
+                y = 1.00,
                 bgcolor="rgb(100,0,200)",
                 font = dict(color="rgb(0,120,255)"),
                 buttons = list([
@@ -150,7 +150,7 @@ def run():
 
 
     fig.update_layout(
-        title = 'Estimated Hospital Resources <br>Needed per Day For Each <br>State in the U.S.',
+        title = 'Estimated Hospital Resources <br>Needed per Day',
         title_x = 0.5,
         geo_scope ='usa',
         margin = {"r": 20, "t": 80, "l": 20, "b": 20},
