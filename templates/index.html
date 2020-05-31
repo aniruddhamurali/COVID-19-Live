@@ -198,7 +198,7 @@
             });
             $("#{{request.endpoint}}").addClass("active"); // make tab active when clicked on
 
-            function detectMob() {
+            function detectMobile() {
                 const toMatch = [
                     /Android/i,
                     /webOS/i,
@@ -215,17 +215,19 @@
             }
 
             window.onresize = function() {
-                if (detectMob() == true) {
+                //console.log(detectMob());
+                console.log(window.matchMedia("(orientation: portrait)").matches);
+                if (detectMobile() == true) {
                     if (window.matchMedia("(orientation: portrait)").matches) {
                         // you're in PORTRAIT mode
                         $('.error').css({'display': 'none'});
                         $('.wrapper').css({'display': 'flex', 'width': '100%', 'align-items': 'stretch'});
                     }
 
-                    if (window.matchMedia("(orientation: landscape)").matches) {
+                    else if (window.matchMedia("(orientation: landscape)").matches) {
                         // you're in LANDSCAPE mode
-                        $('.error').css({'display':'block', 'color':'white', 'height':'100vh', 'padding':'0 10px', 'text-align':'center', 'margin-top':'40vh'});
                         $('.wrapper').css({'display': 'none'});
+                        $('.error').css({'display':'block', 'color':'white', 'height':'100vh', 'padding':'0 10px', 'text-align':'center', 'margin-top':'40vh'});
                     }
                 }
             }
