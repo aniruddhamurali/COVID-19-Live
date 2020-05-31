@@ -12,12 +12,16 @@ def getCity(coords):
     #coordinates = str(g.latlng[0]) + ','  + str(g.latlng[1])
     coordinates = coords['lat'] + ','  + coords['lon']
     location = locator.reverse(coordinates)
-    return location.raw['address']['town'].lower()
+    return location.raw['address']['city'].lower()
 
 
 def run(coords):
     # Desktop user-agent
-    USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0"
+    #USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0"
+
+    # Specify user-agent
+    USER_AGENT = coords['agent']
+
     headers = {"user-agent" : USER_AGENT}
     city = getCity(coords)
 
@@ -40,7 +44,7 @@ def run(coords):
             d = dict(name=names)
             results.append(d)
 
-        # Get names of testing centers
+        # Get details of testing centers (location, phone number)
         details = loc.find_all('div', {"class": "f5Sf1"})[0].text.strip()
         results[i]['details'] = details
 

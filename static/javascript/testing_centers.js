@@ -8,6 +8,7 @@ $(document).ready(function () {
     function showPosition(position) {
         coords.lat = (position.coords.latitude).toString();
         coords.lon = (position.coords.longitude).toString();
+        coords.agent = navigator.userAgent;
         var result = JSON.stringify(coords);
 
         $.ajax({
