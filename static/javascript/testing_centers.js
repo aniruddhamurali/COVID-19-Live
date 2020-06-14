@@ -4,12 +4,31 @@ $(document).ready(function () {
     var j = 0;
     var cards = [];
 
+    function detectMobile() {
+        const toMatch = [
+            /Android/i,
+            /webOS/i,
+            /iPhone/i,
+            /iPad/i,
+            /iPod/i,
+            /BlackBerry/i,
+            /Windows Phone/i
+        ];
+
+        return toMatch.some((toMatchItem) => {
+            return navigator.userAgent.match(toMatchItem);
+        });
+    }
+
     // When called, get user location and display nearby testing centers
     function showPosition(position) {
         coords.lat = (position.coords.latitude).toString();
         coords.lon = (position.coords.longitude).toString();
-        coords.agent = navigator.userAgent;
+        //coords.agent = navigator.userAgent;
+        coords.agent = detectMobile();
         var result = JSON.stringify(coords);
+        console.log(result);
+        console.log(detectMobile());
 
         $.ajax({
             type: "POST",
