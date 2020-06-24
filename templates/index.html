@@ -81,9 +81,11 @@
                 -->
 
                 <!-- Daily news -->
+                <!--
                 <li id="news" {% if request.endpoint == '/news' %} class="active" {% endif %}>
                     <a href="{{ url_for('news') }}">Daily Digest</a>
                 </li>
+                -->
 
                 <li style="background-color: #0f0f0f; height: 10px;"></li>
 
@@ -173,7 +175,7 @@
         </div>
     </div>
 
-    <div class="error">
+    <div class="error" style="display: none;">
         <h2>This website only works in portrait mode on mobile devices and tablets.</h2>
         <p>Please return to portrait mode and refresh the page so that visualizations and data can be displayed properly.</p>
     </div>

@@ -13,16 +13,17 @@ var currentTime = currentHr + ':' + currentMin + ':' + currentSec + 'Z';
 
 var key = keys.news_key;
 var count = 30;
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
+//const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
 var url = 'https://newsapi.org/v2/everything?' +
-          'q=+recent+news+on+coronavirus&' +
+          'q=recent+news+on+coronavirus&' +
           'from=' + today + '&' +
           'sortBy=popularity&' +
           'pageSize=' + count + '&' +
           'apiKey=' + key;
 
-var req = new Request(proxyurl + url);
+var req = new Request(url);
+//var req = new Request(url);
 
 // Get more articles
 $('#more').click(function() {
@@ -79,15 +80,6 @@ $('#more').click(function() {
                             '</div>' +
                             '<br>' +
                          '</div>';
-                
-                /*news_data += '<div class="card flex-fill">' + 
-                                '<div class="card-body">' +
-                                    '<h5 class="card-title">' + title + '</h5>' + 
-                                    '<small>' + source + '  -  ' + elapsed + '</small>' +
-                                    '<p class="card-text">' + description + '</p>' +
-                                    '<a href=' + '"' + url + '"' + 'class="btn btn-primary" target="_blank">Go to article</a>' +
-                                '</div>' +
-                            '</div>';*/
             }
 
             news_data += '</div>';
@@ -100,11 +92,13 @@ $('#more').click(function() {
 fetch(req)
     .then(function(response) {
         var data = response.json();
+        console.log(data);
         return data;
     })
     .then(function(myJson) {
+        console.log(myJson);
         var articles = myJson.articles;
-        
+        console.log(articles);
         //var news_data = '<div class="text-center">';
         var news_data = '<div>';
         for (var i = 0; i < articles.length; i++) {
@@ -144,5 +138,8 @@ fetch(req)
 
         news_data += '</div>';
         $('#news_data').html(news_data);
+    })
+    .catch(function(error) {
+        console.log(error);
     });
 
