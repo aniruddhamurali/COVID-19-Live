@@ -42,7 +42,7 @@ plotly==4.6.0
 prompt-toolkit==3.0.4
 ptyprocess==0.6.0
 pydotplus==2.0.2
-Pygments==2.6.1
+Pygments==2.7.4
 pylint==2.4.4
 pymongo==3.10.1
 pyparsing==2.4.7
